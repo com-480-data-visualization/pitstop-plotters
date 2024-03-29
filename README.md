@@ -1,5 +1,15 @@
 # Project of Data Visualization (COM-480)
 
+<!-- PROJECT LOGO -->
+<br />
+
+  <a href="https://github.com/othneildrew/Best-README-Template">
+    <img src="img/ilustr.webp">
+  </a>
+
+
+
+
 | Student's name | SCIPER |
 | -------------- | ------ |
 | Colin Pelletier | 336438 |
@@ -73,9 +83,8 @@ The goal of this project is to keep the content as readable, simple and entertai
 ![Countries with the most champions](/img/most_countries_l.png#gh-light-mode-only)
 
 ##### Driver nationalities distribution:
-![Driver nationalities distribution](/img/nationalities.png#gh-dark-mode-only)
-![Driver nationalities distribution](/img/nationalities_l.png#gh-light-mode-only)
-
+![Driver nationalities distribution](/img/nationality.png#gh-dark-mode-only)
+![Driver nationalities distribution](/img/nationality_l.png#gh-light-mode-only)
 #### Circuits Analysis:
 ![Circuits Analysis](/img/fastest_lap.png#gh-dark-mode-only)
 ![Circuits Analysis](/img/fastest_lap_l.png#gh-light-mode-only)
@@ -108,6 +117,7 @@ The goal of this project is to keep the content as readable, simple and entertai
 
 **80% of the final grade**
 
+[product-screenshot]: img/ilustr.webp
 
 
 
