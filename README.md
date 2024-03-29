@@ -56,7 +56,7 @@ The goal of this project is to keep the content as readable, simple and entertai
 
 ##### Top 10 teams with the most wins of all time:
 
-![Top 10 teams with the most wins of all time](/img/most_team_wins.png)
+![Top 10 teams with the most wins of all time](/img/most_team_win.png)
 
 
 ### Related work
