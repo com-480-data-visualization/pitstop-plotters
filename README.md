@@ -18,12 +18,22 @@ This is a preliminary milestone to let you set up goals for your final project a
 
 > Find a dataset (or multiple) that you will explore. Assess the quality of the data it contains and how much preprocessing / data-cleaning it will require before tackling visualization. We recommend using a standard dataset as this course is not about scraping nor data processing.
 >
-We selected the [Formula 1 World Championship (1950-2023)](https://www.kaggle.com/datasets/rohanrao/formula-1-world-championship-1950-2020) dataset from Kaggle. This dataset contains data from the Formula 1 World Championship from the 1950 season to the last completed season in 2023.
-It has a high usability score of 10 on Kaggle and is the most complete dataset we've found on the topic. It contains a lot of interesting information stored in different tables about tracks, drivers, constructors, championship standings, race results, qualifying results, lap times and pit stops.
-All tables contain primary keys and foreign keys, which allows us to get the necessary information by doing merges between the tables (easily done with the Pandas Python library).
+We would like to create visualization from the [Formula 1 World Championship (1950-2023)](https://www.kaggle.com/datasets/rohanrao/formula-1-world-championship-1950-2020) dataset from Kaggle. This dataset contains data from the Formula 1 World Championship from the 1950 season to the last completed season in 2023.
+It has a high usability score of **10** on Kaggle and is the most complete dataset we've found on the topic. It contains a lot of interesting information stored in different tables about:
+- tracks 
+- drivers 
+- constructors 
+- championship standings
+- race results 
+- qualifying results 
+- lap times 
+- pit stops
 
-This dataset has been studied by many people who have published their Jupyter notebooks on Kaggle. Most of these notebooks focus on preprocessing and simple visualizations. Using them will allow us to spend less time on pre-processing and data cleaning and focus our work on visualizations. Here's an example of a very complete notebook that we have successfully run locally: [Jupyter notebook example](https://www.kaggle.com/code/akhilreddy9554/formula-1-a-visual-explorative-analysis). Our preprocessing tasks will mostly consist of merging tables to extract some missing statistics.
-Some preprocessing is required to deal with the “\N” values which correspond to races not finished, for instance in the races.position column.
+All tables contain primary keys and foreign keys, which allows us to get the necessary information by only doing merges between the tables (easily done with the Pandas Python library).
+
+Additionally, this dataset has been studied by many people who have published their Jupyter notebooks on Kaggle. Most of those notebooks focus on preprocessing and simple non-interactive visualizations. Using them will allow us to spend less time on pre-processing and data cleaning and focus our work on visualizations. Here's an example of a very complete notebook that we have already successfully run locally: [Jupyter notebook example](https://www.kaggle.com/code/akhilreddy9554/formula-1-a-visual-explorative-analysis).
+Our preprocessing tasks will mostly consist of merging tables to extract some missing statistics.
+Also some work is required to deal with the ``“\N”`` values which correspond to races not finished. Eg: in the races.position column.
 
 
 ### Problematic
