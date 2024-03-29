@@ -93,6 +93,7 @@ The goal of this project is to keep the content as readable, simple and entertai
 - This Business Insider article about the survey [Who's the greatest F1 driver](https://www.businessinsider.com/who-is-the-greatest-formula-1-driver-of-all-time). The sliding story and different images make it interesting to read, with easy-to-understand plots.
 
 - This great [dashboard](https://jasonjpaul.squarespace.com/formula-1-data-vis):, which aims to summarize the facts of F1 history. It provides interesting statistics (best drivers at the bottom, history facts at the top right) and is well designed. However, as a beginner, it might seem scary to deal with such a beast.
+![Dashboard](/img/dashboard.png)
 
 - [Jupyter notebooks](https://www.kaggle.com/datasets/rohanrao/formula-1-world-championship-1950-2020/code?datasetId=468218) related to the Kaggle dataset . While these provide interesting insights, their audience and interaction possibility is limited by the technicality of their platform.
 
