@@ -87,6 +87,16 @@ The goal of this project is to keep the content as readable, simple and entertai
 > - Why is your approach original?
 > - What source of inspiration do you take? Visualizations that you found on other websites or magazines (might be unrelated to your data).
 > - In case you are using a dataset that you have already explored in another context (ML or ADA course, semester project...), you are required to share the report of that work to outline the differences with the submission for this class.
+ 
+ Most websites introducing Formula 1 are either text-heavy, not interactive, or overly complicated, even though they are interesting. Our goal is to focus on simplicity and interaction to provide essential information. Among our sources of inspiration, we found:
+
+- This Business Insider article about the survey [Who's the greatest F1 driver](https://www.businessinsider.com/who-is-the-greatest-formula-1-driver-of-all-time). The sliding story and different images make it interesting to read, with easy-to-understand plots.
+
+- This great [dashboard](https://jasonjpaul.squarespace.com/formula-1-data-vis):, which aims to summarize the facts of F1 history. It provides interesting statistics (best drivers at the bottom, history facts at the top right) and is well designed. However, as a beginner, it might seem scary to deal with such a beast.
+
+- [Jupyter notebooks](https://www.kaggle.com/datasets/rohanrao/formula-1-world-championship-1950-2020/code?datasetId=468218) related to the Kaggle dataset . While these provide interesting insights, their audience and interaction possibility is limited by the technicality of their platform.
+
+- Quirky and funny visualization of world leaders, which makes the introduction less formal and more appealing: [here](https://www.visualcapitalist.com/visualized-world-leaders-in-positions-of-power/).
 
 ## Milestone 2 (26th April, 5pm)
 
@@ -98,8 +108,5 @@ The goal of this project is to keep the content as readable, simple and entertai
 **80% of the final grade**
 
 
-## Late policy
 
-- < 24h: 80% of the grade for the milestone
-- < 48h: 70% of the grade for the milestone
 
