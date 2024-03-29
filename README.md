@@ -54,10 +54,31 @@ The goal of this project is to keep the content as readable, simple and entertai
 > Pre-processing of the data set you chose
 > - Show some basic statistics and get insights about the data
 
+#### Historical Success:
+
 ##### Top 10 teams with the most wins of all time:
 
-![Top 10 teams with the most wins of all time](/img/most_team_win.png)
+![Top 10 teams with the most wins of all time](/img/most_team_win.png)#gh-dark-mode-only
+![Top 10 teams with the most wins of all time](/img/most_team_win_l.png)#gh-light-mode-only
 
+##### Top 10 drivers with the most wins of all time:
+
+![Top 10 drivers with the most wins of all time](/img/most_races.png)#gh-dark-mode-only
+![Top 10 drivers with the most wins of all time](/img/most_races_l.png)#gh-light-mode-only
+
+#### Geographical Analysis:
+
+##### Countries with the most champions:
+![Countries with the most champions](/img/most_countries.png)#gh-dark-mode-only
+![Countries with the most champions](/img/most_countries_l.png)#gh-light-mode-only
+
+##### Driver nationalities distribution:
+![Driver nationalities distribution](/img/nationalities.png)#gh-dark-mode-only
+![Driver nationalities distribution](/img/nationalities_l.png)#gh-light-mode-only
+
+#### Circuits Analysis:
+![Circuits Analysis](/img/fastest_lap.png)#gh-dark-mode-only
+![Circuits Analysis](/img/fastest_lap_l.png)#gh-light-mode-only
 
 ### Related work
 
