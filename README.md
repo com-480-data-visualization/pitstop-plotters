@@ -73,8 +73,8 @@ The goal of this project is to keep the content as readable, simple and entertai
 
 ##### Top 10 drivers with the most wins of all time:
 
-![Top 10 drivers with the most wins of all time](/img/most_races.png#gh-dark-mode-only)
-![Top 10 drivers with the most wins of all time](/img/most_races_l.png#gh-light-mode-only)
+![Top 10 drivers with the most wins of all time](/img/most_pole.png#gh-dark-mode-only)
+![Top 10 drivers with the most wins of all time](/img/most_pole_l.png#gh-light-mode-only)
 
 #### Geographical Analysis:
 
@@ -111,6 +111,10 @@ The goal of this project is to keep the content as readable, simple and entertai
 ## Milestone 2 (26th April, 5pm)
 
 **10% of the final grade**
+
+### Sketches
+
+![Sketch](/img/Projects/Viz/total.png)
 
 
 ## Milestone 3 (31st May, 5pm)
