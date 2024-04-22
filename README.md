@@ -18,7 +18,7 @@
 
 [Milestone 1](#milestone-1) • [Milestone 2](#milestone-2) • [Milestone 3](#milestone-3)
 
-## Milestone 1 (29th March, 5pm)
+## Milestone 1
 
 **10% of the final grade**
 
@@ -108,7 +108,7 @@ The goal of this project is to keep the content as readable, simple and entertai
 
 - Quirky and funny visualization of world leaders, which makes the introduction less formal and more appealing: [here](https://www.visualcapitalist.com/visualized-world-leaders-in-positions-of-power/).
 
-## Milestone 2 (26th April, 5pm)
+## Milestone 2
 
 **10% of the final grade**
 
@@ -117,7 +117,7 @@ The goal of this project is to keep the content as readable, simple and entertai
 ![Sketch](/img/Projects/Viz/total.png)
 
 
-## Milestone 3 (31st May, 5pm)
+## Milestone 3
 
 **80% of the final grade**
 
