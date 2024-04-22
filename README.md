@@ -1,5 +1,6 @@
 # Project of Data Visualization (COM-480)
-
+<div align="center" id="readme-top">
+</div>
 <!-- PROJECT LOGO -->
 <br />
 
@@ -58,6 +59,7 @@ Formula 1 is an extremely interesting sport that has seen a increase in interest
  In our project we want to bring more information to people who are new to this sport. The goal will be to first provide them with the most important information about the F1 race sport, such as **the most successful and experienced drivers and teams**, and **the standings of the different seasons**. In the second part, we will present the internationality of the sport and where the focus is according to the different decades, potentially with a **world map showing the circuits**, with statistics like their altitude, best lap time and the driver who performed it, the team with most wins there, and **the drivers and their stats from the different countries**. Finally, to give our users an idea of the evolution of this engineered-focus competition, we would like to  present some technical aspects such as the evolution of lap times and pit stop times.
 
 The goal of this project is to keep the content as readable, simple and entertaining as possible so that readers don't need to have any previous knowledge of the sport to read it, but will gain interest in the sport and potentially become motivated to dig further into the subject.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Exploratory Data Analysis
 
@@ -88,6 +90,7 @@ The goal of this project is to keep the content as readable, simple and entertai
 #### Circuits Analysis:
 ![Circuits Analysis](/img/fastest_lap.png#gh-dark-mode-only)
 ![Circuits Analysis](/img/fastest_lap_l.png#gh-light-mode-only)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Related work
 
@@ -108,6 +111,8 @@ The goal of this project is to keep the content as readable, simple and entertai
 
 - Quirky and funny visualization of world leaders, which makes the introduction less formal and more appealing: [here](https://www.visualcapitalist.com/visualized-world-leaders-in-positions-of-power/).
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Milestone 2
 
 **10% of the final grade**
@@ -116,12 +121,13 @@ The goal of this project is to keep the content as readable, simple and entertai
 
 ![Sketch](/img/Projects/Viz/total.png)
 
-
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 ## Milestone 3
 
 **80% of the final grade**
 
 [product-screenshot]: img/ilustr.webp
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
