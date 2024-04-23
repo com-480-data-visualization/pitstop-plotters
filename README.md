@@ -117,11 +117,15 @@ The goal of this project is to keep the content as readable, simple and entertai
 
 **10% of the final grade**
 
-### Sketches
+### Minimal Viable Product
+![MVP](/img/MVP.png)
+
+### Mock-up example for the theme
 
 ![Sketch](/img/Projects/Viz/total.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Milestone 3
 
 **80% of the final grade**
