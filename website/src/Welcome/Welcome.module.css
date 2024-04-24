@@ -68,11 +68,3 @@
     margin-left: 10%;
     margin-right: 10%;
 }
-
-
-
-@media screen and (max-width: 768px) {
-    .border {
-        display: none; /* Hide images on smaller screens */
-    }
-}
