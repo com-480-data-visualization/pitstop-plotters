@@ -11,9 +11,9 @@ const WelcomePage = () => {
                 <img src={leftImage} alt="Left Border"/>
                 <div className={styles.content}>
                     <img src={title} alt="F1" className={styles.f1}/>
-                    <h1 className={styles.text}>An introduction to Formula 1</h1>
+                    <h1 className={styles.text_w}>An introduction to Formula 1</h1>
                     <div className="overlay"></div>
-                    <video autoPlay loop style={{
+                    <video autoPlay loop muted style={{
                         opacity: 0.3
                     }}>
                         <source src={videoSource} type="video/mp4"/>

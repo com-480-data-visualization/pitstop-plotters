@@ -59,11 +59,11 @@
     z-index: 2;
 }
 
-.text {
+.text_w {
     position: absolute;
     color: #ffff;
     text-align: center;
-    margin-top: 33%;
+    margin-top: 35%;
     opacity: 0.7;
     margin-left: 10%;
     margin-right: 10%;
