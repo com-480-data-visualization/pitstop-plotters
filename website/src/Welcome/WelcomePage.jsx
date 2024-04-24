@@ -8,7 +8,7 @@ const WelcomePage = () => {
     return (
         <div className={styles.welcome}>
             <div className={styles.border}>
-                <img src={leftImage} alt="Left Border"/>
+                <img src={leftImage} alt="Left Border" className={styles.boder_img}/>
                 <div className={styles.content}>
                     <img src={title} alt="F1" className={styles.f1}/>
                     <h1 className={styles.text_w}>An introduction to Formula 1</h1>
@@ -19,7 +19,7 @@ const WelcomePage = () => {
                         <source src={videoSource} type="video/mp4"/>
                     </video>
                 </div>
-                <img src={rightImage} alt="Right Border"/>
+                <img src={rightImage} alt="Right Border" className={styles.boder_img}/>
             </div>
         </div>
     );
