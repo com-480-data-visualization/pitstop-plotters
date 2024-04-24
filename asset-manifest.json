@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/pitstop-plotters/static/css/main.3f1a30e6.css",
-    "main.js": "/pitstop-plotters/static/js/main.d52a6a52.js",
+    "main.css": "/pitstop-plotters/static/css/main.1757c26b.css",
+    "main.js": "/pitstop-plotters/static/js/main.6810e761.js",
     "static/js/453.bb828c5d.chunk.js": "/pitstop-plotters/static/js/453.bb828c5d.chunk.js",
     "static/media/f1.mp4": "/pitstop-plotters/static/media/f1.89448afab22fd2d89fdf.mp4",
     "static/media/background_road.png": "/pitstop-plotters/static/media/background_road.b43639ac91479da6f876.png",
@@ -9,12 +9,12 @@
     "static/media/apex_left.png": "/pitstop-plotters/static/media/apex_left.ebc2b4a30413c2d00a21.png",
     "static/media/apex_right.png": "/pitstop-plotters/static/media/apex_right.fa16e4ebb7dcea854703.png",
     "index.html": "/pitstop-plotters/index.html",
-    "main.3f1a30e6.css.map": "/pitstop-plotters/static/css/main.3f1a30e6.css.map",
-    "main.d52a6a52.js.map": "/pitstop-plotters/static/js/main.d52a6a52.js.map",
+    "main.1757c26b.css.map": "/pitstop-plotters/static/css/main.1757c26b.css.map",
+    "main.6810e761.js.map": "/pitstop-plotters/static/js/main.6810e761.js.map",
     "453.bb828c5d.chunk.js.map": "/pitstop-plotters/static/js/453.bb828c5d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3f1a30e6.css",
-    "static/js/main.d52a6a52.js"
+    "static/css/main.1757c26b.css",
+    "static/js/main.6810e761.js"
   ]
 }
