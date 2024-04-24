@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/pitstop-plotters/website/static/css/main.f3deba5a.css",
-    "main.js": "/pitstop-plotters/website/static/js/main.6f2351a1.js",
-    "static/js/453.bb828c5d.chunk.js": "/pitstop-plotters/website/static/js/453.bb828c5d.chunk.js",
-    "static/media/f1.mp4": "/pitstop-plotters/website/static/media/f1.89448afab22fd2d89fdf.mp4",
-    "static/media/background_road.png": "/pitstop-plotters/website/static/media/background_road.b43639ac91479da6f876.png",
-    "static/media/F1.png": "/pitstop-plotters/website/static/media/F1.64ef688dc1ec860ebd92.png",
-    "static/media/apex_left.png": "/pitstop-plotters/website/static/media/apex_left.ebc2b4a30413c2d00a21.png",
-    "static/media/apex_right.png": "/pitstop-plotters/website/static/media/apex_right.fa16e4ebb7dcea854703.png",
-    "index.html": "/pitstop-plotters/website/index.html",
-    "main.f3deba5a.css.map": "/pitstop-plotters/website/static/css/main.f3deba5a.css.map",
-    "main.6f2351a1.js.map": "/pitstop-plotters/website/static/js/main.6f2351a1.js.map",
-    "453.bb828c5d.chunk.js.map": "/pitstop-plotters/website/static/js/453.bb828c5d.chunk.js.map"
+    "main.css": "/pitstop-plotters/static/css/main.22b75964.css",
+    "main.js": "/pitstop-plotters/static/js/main.ba4b29ae.js",
+    "static/js/453.bb828c5d.chunk.js": "/pitstop-plotters/static/js/453.bb828c5d.chunk.js",
+    "static/media/f1.mp4": "/pitstop-plotters/static/media/f1.89448afab22fd2d89fdf.mp4",
+    "static/media/background_road.png": "/pitstop-plotters/static/media/background_road.b43639ac91479da6f876.png",
+    "static/media/F1.png": "/pitstop-plotters/static/media/F1.64ef688dc1ec860ebd92.png",
+    "static/media/apex_left.png": "/pitstop-plotters/static/media/apex_left.ebc2b4a30413c2d00a21.png",
+    "static/media/apex_right.png": "/pitstop-plotters/static/media/apex_right.fa16e4ebb7dcea854703.png",
+    "index.html": "/pitstop-plotters/index.html",
+    "main.22b75964.css.map": "/pitstop-plotters/static/css/main.22b75964.css.map",
+    "main.ba4b29ae.js.map": "/pitstop-plotters/static/js/main.ba4b29ae.js.map",
+    "453.bb828c5d.chunk.js.map": "/pitstop-plotters/static/js/453.bb828c5d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f3deba5a.css",
-    "static/js/main.6f2351a1.js"
+    "static/css/main.22b75964.css",
+    "static/js/main.ba4b29ae.js"
   ]
 }
