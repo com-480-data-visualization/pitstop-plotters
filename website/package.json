@@ -1,7 +1,7 @@
 {
   "name": "website",
   "version": "0.1.0",
-  "homepage": "https://com-480-data-visualization.github.io/pitstop-plotters/website",
+  "homepage": "https://com-480-data-visualization.github.io/pitstop-plotters/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",

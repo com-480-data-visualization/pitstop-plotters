@@ -14,7 +14,7 @@ const WelcomePage = () => {
                     <h1 className={styles.text}>An introduction to Formula 1</h1>
                     <div className="overlay"></div>
                     <video autoPlay loop style={{
-                        opacity: 0.4
+                        opacity: 0.3
                     }}>
                         <source src={videoSource} type="video/mp4"/>
                     </video>
