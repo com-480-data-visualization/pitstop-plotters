@@ -1,6 +1,7 @@
 import styles from "./HallOfFame.module.css"
 import leftImage from '../img/apex_left.png';
 import rightImage from '../img/apex_right.png';
+import HallOfFame from "./HallOfFame";
 
 const HallOfFamePage = () => {
     return (
@@ -9,6 +10,7 @@ const HallOfFamePage = () => {
                 <img src={leftImage} alt="Left Border" className={styles.boder_img}/>
                 <div className={styles.content}>
                     <h1>Hall of Fame</h1>
+                    <HallOfFame />
                 </div>
                 <img src={rightImage} alt="Right Border" className={styles.boder_img}/>
             </div>
