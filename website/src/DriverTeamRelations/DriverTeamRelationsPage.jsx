@@ -8,6 +8,7 @@ const DriverTeamRelationsPage = () => {
             <div className={styles.border}>
                 <img src={leftImage} alt="Left Border" className={styles.boder_img}/>
                 <div className={styles.content}>
+                    <h1>Drivers and Teams Relationship</h1>
                 </div>
                 <img src={rightImage} alt="Right Border" className={styles.boder_img}/>
             </div>
