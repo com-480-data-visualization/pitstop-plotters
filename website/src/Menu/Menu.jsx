@@ -1,7 +1,27 @@
-import React from 'react';
-import styles from "./Menu.module.css" // Import the CSS for styling
-import song from "../audio/switch.mp3"
+import React, { useState, useEffect } from 'react';
+import styles from "./Menu.module.css"; // Import the CSS for styling
+import song from "../audio/switch.mp3";
+import red from "../img/red0.png";
+import red1 from "../img/red1.png";
+import red2 from "../img/red2.png";
+import red3 from "../img/red3.png";
+import red4 from "../img/red4.png";
+import green from "../img/green.png";
+
 const SideMenu = () => {
+    const [currentImage, setCurrentImage] = useState(red);
+
+    useEffect(() => {
+        const images = [red, red1, red2, red3, red4, green];
+        let index = 0;
+        const intervalId = setInterval(() => {
+            index = (index + 1) % images.length;
+            setCurrentImage(images[index]);
+        }, 3000);
+
+        return () => clearInterval(intervalId);
+    }, []);
+
     const scrollToSection = (sectionId, audioFile) => {
         document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
         new Audio(audioFile).play();
@@ -9,7 +29,7 @@ const SideMenu = () => {
 
     return (
         <div className={styles.sideMenu}>
-            <div className={styles.tab}>&#9660;</div> {/* Arrow indicating expandable menu */}
+            <div className={styles.tab}><img src={currentImage} alt="RedLight"/></div>
             <ul>
                 <li onClick={() => scrollToSection('welcome', song)}>Welcome</li>
                 <li onClick={() => scrollToSection('leaderboard', song)}>Leaderboard</li>

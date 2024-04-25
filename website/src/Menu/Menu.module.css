@@ -2,18 +2,20 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 2%; /* Reduced initial width */
+    width: 2.5%; /* Reduced initial width */
     height: 35%;
-    background-color: red;
+    background-color: #312829;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
     z-index: 1000;
-    transition: width 0.3s ease; /* Smooth transition for width */
+    transition: width 0.3s ease;
     overflow: hidden;
     opacity: 0.5;
+    border-radius: 0 5px 5px 0;
 }
 
 .sideMenu:hover {
     width: 250px; /* Expand width on hover */
+    color: red;
 }
 
 .sideMenu ul {
@@ -43,13 +45,13 @@
 /* Styling for a small tab to grab attention when retracted */
 .tab {
     position: absolute;
-    top: 50%;
-    right: -20px; /* Position it just outside the main menu */
-    width: 20px;
+    top: 40%;
+    right: 0; /* Position it just outside the main menu */
+    width: 40px;
     height: 40px;
     background-color: white;
     transform: translateY(-50%);
-    border-radius: 0 5px 5px 0; /* Rounded corners on the outer edge */
+    border-radius: 0 5px 5px 0;
     display: flex;
     align-items: center;
     justify-content: center;

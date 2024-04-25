@@ -1,8 +1,6 @@
 @font-face {
   font-family: 'MyCustomFont';
-  src: url('../public/fonts/Formula1-Italic.ttf') format('ttf'),
-    url('../public/fonts/Formula1-Regular.ttf') format('ttf'),
-    url('../public/fonts/Formula1-Wide.ttf') format('ttf');
+  src: url('../public/fonts/Formula1-Italic.ttf') format('ttf');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,6 +22,6 @@ code {
 h1 {
   text-align: center;
   color: white;
-  font-family: 'MyCustomFont', sans-serif;
-  font-size: 1%;
+  font-family: MyCustomFont, sans-serif;
+  font-size: 10%;
 }
