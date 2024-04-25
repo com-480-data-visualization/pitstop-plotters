@@ -19,6 +19,8 @@
 
 [Milestone 1](#milestone-1) • [Milestone 2](#milestone-2) • [Milestone 3](#milestone-3)
 
+Website: [here](https://com-480-data-visualization.github.io/pitstop-plotters/)
+
 ## Milestone 1
 
 **10% of the final grade**
@@ -116,6 +118,8 @@ The goal of this project is to keep the content as readable, simple and entertai
 ## Milestone 2
 
 **10% of the final grade**
+
+The website in a skeleton state is available [here](https://com-480-data-visualization.github.io/pitstop-plotters/).
 
 ### Minimal Viable Product
 ![MVP](/img/MVP.png)
