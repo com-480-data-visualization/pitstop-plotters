@@ -64,7 +64,7 @@ const WelcomePage = () => {
         } else {
             audio.play();
         }
-        setIsPlaying(!isPlaying); 
+        setIsPlaying(!isPlaying);
     };
 
     return (
