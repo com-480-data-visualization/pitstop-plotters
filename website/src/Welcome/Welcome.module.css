@@ -72,3 +72,17 @@
 .boder_img {
     width: 7%;
 }
+
+.floatingButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: rgba(0,0,0,0.5);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000;
+}
