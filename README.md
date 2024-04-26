@@ -10,7 +10,6 @@
 
 
 
-
 | Student's name | SCIPER |
 | -------------- | ------ |
 | Colin Pelletier | 336438 |
@@ -19,7 +18,7 @@
 
 [Milestone 1](#milestone-1) • [Milestone 2](#milestone-2) • [Milestone 3](#milestone-3)
 
-Website: [here](https://com-480-data-visualization.github.io/pitstop-plotters/)
+[Website](https://com-480-data-visualization.github.io/pitstop-plotters/)
 
 ## Milestone 1
 
@@ -119,9 +118,65 @@ The goal of this project is to keep the content as readable, simple and entertai
 
 **10% of the final grade**
 
-The Milestone 2 document is available on [./docs/Milestone-2.pdf](./docs/Milestone-2.pdf)
+The Milestone 2 document is available on [./docs/Milestone-2.pdf](./docs/Milestone-2.pdf).
 The website in a skeleton state is available [here](https://com-480-data-visualization.github.io/pitstop-plotters/).
 
+### Tools and Related Lectures
+
+The website is based on React, and the visualizations are made in D3.js.
+
+| Visualization              | Tools                           | Related Lectures                                   |
+|----------------------------|---------------------------------|----------------------------------------------------|
+| Global Leaderboard         | d3, d3-color, d3-timer          | do’s and don’ts, interaction, d3.js                |
+| Hall of Fame               | d3, d3-color                    | do’s and don’ts, interaction, d3.js                |
+| Circuits World Map         | d3, d3.geo, topojson            | Maps, practical maps, perception and color, interaction, more interactions, d3.js |
+| Season battles             | d3                              | do’s and don’ts, d3.js                             |
+| Drivers and teams associations | d3, d3-force, d3-color        | Graphs, do’s and don’ts, d3.js                     |
+
+### Project Goals
+
+The goal of this project is to provide an insightful introduction to the world of Formula 1. We want to provide a global overview of the sport by highlighting the main facts in an interactive way, which will hopefully encourage new fans to dig further into this interesting sport. To do so, we want to create a linear website so that the user follows the story as we intended it. He will of course be free to come back to the previous visualizations when he wants.
+
+### Minimum Viable Product
+
+#### 0. The main page
+A small textual presentation of Formula 1 and what we will investigate on this website.
+
+#### 1. Global leaderboard
+A dynamic leaderboard showing the drivers and the teams with the largest number of victories each year since the beginning of Formula 1.
+
+#### 2. Hall of Fame (top 5 pilots of all time)
+An interactive panel exploring the top 5 most successful drivers of all time.
+
+#### 3. Circuit World map
+A dynamic panel containing a 2D world map with circuit locations.
+
+#### 4. Season points
+A dynamic graph for inspecting interesting battles in different seasons.
+
+#### 5. Drivers and teams associations
+A disjoint force-directed graph showing the relationships between drivers and teams.
+
+_Note: A color will be assigned to each team participating in the 2024 driver championship for uniformity._
+
+### Implementation Strategy
+
+1. Find additional necessary data for Hall of Fame (all available on Wikipedia).
+2. Export data.
+3. Implement each visualization.
+4. Adapt the website and add visualizations.
+5. Map data to visualizations.
+6. Write the story text and add it to the website.
+
+### Extra Ideas
+
+- **Global leaderboard**: Include a button to visualize different stats.
+- **Season points**: Display telemetry information when a user clicks on a race.
+- **Drivers and teams associations**: Use different sizes for points to highlight importance.
+- **Strategy breakdown** (optional new graph): A detailed analysis of race strategies.
+
+
+## Ilustrations
 ### Minimal Viable Product
 ![MVP](/img/MVP.png)
 
