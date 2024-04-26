@@ -87,7 +87,7 @@ const DriverTeamRelations = (props) => {
     }, []); // empty dependency array to execute useEffect only once
 
     return (
-        <div id="driverteamrelation">
+        <div id="driverteamrelation" style={{display:"flex",justifyContent:"center"}}>
             <div className="svg"> </div>
         </div>
     );
