@@ -72,7 +72,7 @@ const SeasonEvolution = (props) => {
     }, []); // Empty dependency array to run the effect only once
 
     return (
-        <div id="seasonevolution">
+        <div id="seasonevolution" style={{display:"flex",justifyContent:"center"}}>
             {/* Remove the unnecessary div */}
         </div>
     );

@@ -13,13 +13,14 @@ for (var i = 0; i < 3; i++){
     features.forEach(f => point[f] = 1 + Math.random() * 8);
     data.push(point);
 }
-let width = 600;
-let height = 600;
+let width = 500;
+let height = 500;
 
-let svg = d3.select("#your-svg-element-id")
+let svg = d3.select("#radar")
     .attr("width", width)
     .attr("height", height)
-    .style("margin-bottom", "300px");;
+    .style("margin", "auto");
+
 let radialScale = d3.scaleLinear()
     .domain([0, 10])
     .range([0, 250]);
@@ -108,9 +109,9 @@ svg.selectAll("circle")
 
     }, []);
     return (
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "50vh" }}>
             {/* Container for the first bar plot */}
-            <svg id="your-svg-element-id"></svg>
+            <svg id="radar"></svg>
         </div>
     );
 }
