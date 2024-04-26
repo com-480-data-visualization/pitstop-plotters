@@ -119,6 +119,7 @@ The goal of this project is to keep the content as readable, simple and entertai
 
 **10% of the final grade**
 
+The Milestone 2 document is available on [./docs/Milestone-2.pdf](./docs/Milestone-2.pdf)
 The website in a skeleton state is available [here](https://com-480-data-visualization.github.io/pitstop-plotters/).
 
 ### Minimal Viable Product
