@@ -9,7 +9,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: repeat;
-    
+   
 }
 
 .border {
@@ -19,12 +19,39 @@
 }
 
 .content {
+    display: flex;
     position: relative;
-    flex-grow : 1;
     align-items: center;
     overflow: hidden;
 }
 
 .boder_img {
     width: 5%;
+}
+
+.left {
+    flex: 3;
+    margin-top: 100px;
+}
+
+.right {
+    flex: 2;
+    margin-top: 20px;
+}
+
+p {
+    color: white;
+    font-size: 1.5em;
+    padding-right: 100px;
+}
+
+.titleWrapper {
+    position: absolute;
+    top: 10px; /* Adjust this value as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1; /* Ensure it is on top */
+    width: 100%;
+    text-align: center;
+    color: white;
 }
