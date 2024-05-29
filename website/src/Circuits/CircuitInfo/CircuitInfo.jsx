@@ -1,10 +1,9 @@
 import React from 'react';
 import styles from "./CircuitInfo.module.css"
 
-const CircuitInfo = ({ circuitCode, title }) => {
+const CircuitInfo = ({ circuitCode }) => {
     return (
         <div className={styles.infobox}>
-            <p class={ styles.title }>{title}</p>
             <p>{"content: " + circuitCode}</p>
         </div>
     );

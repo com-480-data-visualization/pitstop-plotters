@@ -6,7 +6,7 @@ import {
     Marker, 
     ZoomableGroup,
     Annotation
-     } from "react-simple-maps";
+} from "react-simple-maps";
 
 const geoUrl = "https://unpkg.com/world-atlas@2.0.2/countries-110m.json";
 
@@ -25,23 +25,31 @@ const markers = [
     { markerOffset: 15, name: "Lima", coordinates: [-77.0428, -12.0464] }
 ];
 
-const Circuits = () => {
+const CircuitMap = ({ onCircuitChange }) => {
     const [clickedCircuit, setClickedCircuit] = useState(null);
     const [clickedMarkerCoordinates, setClickMarkerCoordinates] = useState([0, 0]);
 
     const [hoveredCircuit, setHoveredCircuit] = useState(null);
     const [hoveredMarkerCoordinates, setHoveredMarkerCoordinates] = useState([0, 0]);
 
-    const handleClick = (name, event, markerCoordinates) => {
+    //TODO change all circuit names to the circuit codes
+
+    //
+    // Handl mouse events
+    //
+    const handleClick = (name, markerCoordinates) => {
         if (clickedCircuit !== name) {
             setClickedCircuit(name);
             setClickMarkerCoordinates({ x: markerCoordinates[0], y: markerCoordinates[1]});
+
+            // callback to provide the circuit code to the parent component
+            onCircuitChange(name);
         } else {
             setClickedCircuit(null);
         }
     };
 
-    const handleAnnotationEnter = (name, event, markerCoordinates) => {
+    const handleAnnotationEnter = (name, markerCoordinates) => {
         if (hoveredCircuit !== name) {
             setHoveredCircuit(name);
             setHoveredMarkerCoordinates({ x: markerCoordinates[0], y: markerCoordinates[1]});
@@ -50,7 +58,7 @@ const Circuits = () => {
         }
     }
 
-    const handleAnnotationLeave = (name, event, markerCoordinates) => {
+    const handleAnnotationLeave = () => {
         setHoveredCircuit(null);
     }
 
@@ -82,9 +90,9 @@ const Circuits = () => {
                             strokeLinecap="round"
                             strokeLinejoin="round"
                             transform="translate(-12, -24)"
-                            onClick={(event) => handleClick(name, event, coordinates)}
-                            onMouseEnter={(event) => handleAnnotationEnter(name, event, coordinates)}
-                            onMouseLeave={(event) => handleAnnotationLeave(name, event, coordinates)}
+                            onClick={(event) => handleClick(name, coordinates)}
+                            onMouseEnter={(event) => handleAnnotationEnter(name, coordinates)}
+                            onMouseLeave={(event) => handleAnnotationLeave()}
                         >
                             <circle cx="12" cy="10" r="3" />
                             <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z" />
@@ -129,7 +137,7 @@ const Circuits = () => {
                 )}
 
                 {/* on hover annotation */}
-                {hoveredCircuit && (    
+                {hoveredCircuit && clickedCircuit !== hoveredCircuit && (    
                     <Annotation
                         subject={[hoveredMarkerCoordinates.x, hoveredMarkerCoordinates.y]}
                         dx={0}
@@ -164,9 +172,8 @@ const Circuits = () => {
                     </Annotation> 
                 )}
             </ZoomableGroup>
-            
         </ComposableMap>
     );
 };
 
-export default Circuits;
+export default CircuitMap;
