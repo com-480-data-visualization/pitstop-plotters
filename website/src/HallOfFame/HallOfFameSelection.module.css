@@ -1,0 +1,16 @@
+.imageRow {
+    display: flex;
+    justify-content: space-between; /* Distributes space evenly between images */
+    align-items: flex-end; /* Keeps images aligned at the bottom */
+    overflow-x: auto; /* Adds horizontal scrolling if needed */
+    /* Adds padding around the images */
+    padding: 10px 10px 10px 5%;
+    width: 100%;
+    height: 100%;
+}
+
+img {
+    transition: all 0.3s ease-in-out; /* Smooth transition for size and spacing */
+    cursor: pointer; /* Indicates that the images are clickable */
+    flex-shrink: 0; /* Prevents images from shrinking */
+}
