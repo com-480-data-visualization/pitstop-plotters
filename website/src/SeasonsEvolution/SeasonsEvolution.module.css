@@ -25,10 +25,6 @@
     overflow: hidden;
 }
 
-.boder_img {
-    width: 5%;
-}
-
 .left {
     flex: 3;
     margin-top: 100px;
@@ -37,6 +33,10 @@
 .right {
     flex: 2;
     margin-top: 20px;
+}
+
+.boder_img {
+    width: 5%;
 }
 
 p {

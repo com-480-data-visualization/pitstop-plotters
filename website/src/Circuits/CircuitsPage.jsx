@@ -5,7 +5,7 @@ import Circuits from "./Circuits";
 
 const CircuitsPage = () => {
     return (
-        <div className={styles.template}>
+        <div className={styles.circuits}>
             <div className={styles.border}>
                 <img src={leftImage} alt="Left Border" className={styles.boder_img}/>
                 <div className={styles.content}>

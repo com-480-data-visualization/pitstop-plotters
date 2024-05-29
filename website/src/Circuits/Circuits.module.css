@@ -1,4 +1,4 @@
-.template {
+.circuits {
     height: 100%;
     overflow-wrap: break-word;
     min-height: 100vh;
@@ -31,23 +31,38 @@
 html {
     font-family: system-ui, sans-serif;
     font-size: 1.25rem;
-  }
-  
-  body {
-    margin: 0;
-  }
-  
-  svg {
-    display: inline-block;
-    vertical-align: middle;
-  }
-  
-  path {
-    fill: #2a354d;
-  }
-  
-  .App {
-    font-family: sans-serif;
-    text-align: center;
-  }
-  
+}
+
+body {
+  margin: 0;
+}
+
+/* svg {
+  display: inline-block;
+  vertical-align: middle;
+} */
+
+/* Styles for the SVG map */
+/* path {
+  fill: #FFFFFF;
+} */
+
+.mapcontainer {
+  display: flex;
+  position: relative;
+  align-items: center;
+  overflow: hidden;
+  height: 100%;
+}
+
+.mapdisplay {
+  flex: 2;
+  background: "green";
+  padding: 10px;
+  height: 100%;
+}
+
+.circuitinfo {
+  flex: 1;
+  color: green;
+}
