@@ -4,6 +4,7 @@ import rightImage from '../img/apex_right.png';
 import lineImage from '../img/line1.png';
 import lineImage_h from '../img/line1_90.png';
 import HallOfFame from "./HallOfFame";
+import ImageRow from "./HallOfFameSelection";
 
 const HallOfFamePage = () => {
     return (
@@ -17,7 +18,7 @@ const HallOfFamePage = () => {
                     <img src={lineImage} alt="Center line" className={styles.centerImage}/>
                     <div className={styles.rightSide}>
                         <div className={styles.rightBottom}>
-                            Right Bottom
+                           <ImageRow/>
                         </div>
                         <img src={lineImage_h} alt="Center Divider" className={styles.centerDivider}/>
                         <div className={styles.rightTop}>
