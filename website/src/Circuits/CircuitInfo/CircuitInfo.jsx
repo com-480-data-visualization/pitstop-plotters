@@ -4,7 +4,7 @@ import styles from "./CircuitInfo.module.css"
 const CircuitInfo = ({ circuitCode, title }) => {
     return (
         <div className={styles.infobox}>
-            <text>{"title: " + title}</text>
+            <p class={ styles.title }>{title}</p>
             <p>{"content: " + circuitCode}</p>
         </div>
     );
