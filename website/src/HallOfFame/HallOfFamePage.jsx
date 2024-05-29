@@ -1,6 +1,8 @@
 import styles from "./HallOfFame.module.css"
 import leftImage from '../img/apex_left.png';
 import rightImage from '../img/apex_right.png';
+import lineImage from '../img/line1.png';
+import lineImage_h from '../img/line1_90.png';
 import HallOfFame from "./HallOfFame";
 
 const HallOfFamePage = () => {
@@ -9,8 +11,19 @@ const HallOfFamePage = () => {
             <div className={styles.border}>
                 <img src={leftImage} alt="Left Border" className={styles.boder_img}/>
                 <div className={styles.content}>
-                    <h1>Hall of Fame</h1>
-                    <HallOfFame />
+                    <div className={styles.leftSide}>
+                        <HallOfFame/>
+                    </div>
+                    <img src={lineImage} alt="Center line" className={styles.centerImage}/>
+                    <div className={styles.rightSide}>
+                        <div className={styles.rightBottom}>
+                            Right Bottom
+                        </div>
+                        <img src={lineImage_h} alt="Center Divider" className={styles.centerDivider}/>
+                        <div className={styles.rightTop}>
+                            Right Top
+                        </div>
+                    </div>
                 </div>
                 <img src={rightImage} alt="Right Border" className={styles.boder_img}/>
             </div>
