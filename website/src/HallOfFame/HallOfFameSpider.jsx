@@ -24,6 +24,16 @@ const SpiderChart = ({ driver }) => {
             .attr("viewBox", `0 0 ${width} ${height}`)
             .attr("preserveAspectRatio", "xMidYMid meet");
 
+        function countElements(obj) {
+            let count = 0;
+            for (let key in obj) {
+                if (obj.hasOwnProperty(key)) {
+                    count++;
+                }
+            }
+            return count;
+        }
+
         const data = [
             { attribute: 'Season', value: driver.seasons },
             { attribute: 'Constuctors', value: driver.constructors },
@@ -39,7 +49,7 @@ const SpiderChart = ({ driver }) => {
             { attribute: 'Km led', value: (driver.kmLed/driver.kmRaced).toFixed(2) * Max_value },
             { attribute: 'Starting Grid', value: 24 - driver.rankStartingGridAverage },
             { attribute: 'Finish Line', value: 24 - driver.rankFinishLineAverage },
-            { attribute: 'Championships', value: driver.championships.length },
+            { attribute: 'Championships', value: countElements(driver.championships)},
             { attribute: 'Models drove', value: driver.models}
         ];
 
@@ -94,28 +104,38 @@ const SpiderChart = ({ driver }) => {
             .attr('r', 7);
 
         const areas = radar.selectAll('polygon.area')
-            .data([data]).enter()
-            .append('polygon')
-            .classed('area', true)
-            .attr('points', d => d.map(() => [0, 0]).join(' '))
+            .data([data]).enter();
+
+        areas.append('polygon')
+            .classed('area',true)
+            .attr('points', function(d) {
+                return d.map(function() {
+                    return [0,0]
+                }).join(' ')
+            })
+            .merge(areas)
             .transition()
             .duration(2500)
-            .attr('points', d => d.map((d, i) => {
-                const rad = measureScale(d.value);
-                return [X(i, rad), Y(i, rad)];
-            }).join(' '));
+            .attr('points', function(d) {
+                return d.map(function(d,i) {
+                    var rad = measureScale(d.value);
+                    return [X(i, rad), Y(i, rad)];
+                }).join(' ');
+            })
 
         const points = radar.selectAll('circle.point')
-            .data(data).enter()
-            .append('circle')
-            .classed('point', true)
+            .data(data).enter();
+
+        points.append('circle')
+            .classed('point',true)
             .attr('r', 7)
-            .attr('cx', 0)
-            .attr('cy', 0)
+            .attr('cx',0)
+            .attr('cy',0)
+            .merge(points)
             .transition()
             .duration(2500)
-            .attr('cx', (d, i) => X(i, measureScale(d.value)))
-            .attr('cy', (d, i) => Y(i, measureScale(d.value)));
+            .attr('cx',function(d,i) { return X(i,measureScale(d.value))})
+            .attr('cy',function(d,i) { return Y(i,measureScale(d.value))})
 
         radar.append('circle')
             .classed('center', true)
