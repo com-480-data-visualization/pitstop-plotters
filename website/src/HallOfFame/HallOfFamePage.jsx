@@ -13,16 +13,24 @@ const HallOfFamePage = () => {
                 <img src={leftImage} alt="Left Border" className={styles.boder_img}/>
                 <div className={styles.content}>
                     <div className={styles.leftSide}>
+                        <div className={styles.titleContainer}>
+                            name Skills
+                        </div>
                         <HallOfFame/>
                     </div>
                     <img src={lineImage} alt="Center line" className={styles.centerImage}/>
                     <div className={styles.rightSide}>
                         <div className={styles.rightBottom}>
-                           <ImageRow/>
+                            <div className={styles.titleContainer}>
+                                Top 5 drivers of all time
+                            </div>
+                            <ImageRow/>
                         </div>
                         <img src={lineImage_h} alt="Center Divider" className={styles.centerDivider}/>
                         <div className={styles.rightTop}>
-                            Right Top
+                            <div className={styles.titleContainer}>
+                                Stats of name
+                            </div>
                         </div>
                     </div>
                 </div>
