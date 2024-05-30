@@ -32,11 +32,13 @@ const CircuitMap = ({ onCircuitChange, containerWidth, containerHeight }) => {
         const fetchMarkers = async () => {
             try {
                 // get the corresponding markers information
-                setMarkers(mapMarkers.map((marker, index) => ({
-                    name: marker.name,
-                    coordinates: [marker.lng, marker.lat],
-                    // markerOffset: index % 2 === 0 ? -30 : 15
-                })));
+                // for all marker, add the coordinates to the markers state as lng, lat
+                const updatedMarkers = mapMarkers.map(marker => ({
+                    ...marker,
+                    coordinates: [marker.lng, marker.lat]
+                }));
+
+                setMarkers(updatedMarkers);
             } catch (error) {
                 console.error('Error loading markers:', error);
             }
@@ -45,18 +47,18 @@ const CircuitMap = ({ onCircuitChange, containerWidth, containerHeight }) => {
         fetchMarkers();
     }, []);
 
-    const handleMarkerClick = (name, markerCoordinates) => {
-        if (clickedCircuit !== name) {
-            setClickedCircuit(name);
-            setClickMarkerCoordinates({ x: markerCoordinates[0], y: markerCoordinates[1]});
+    const handleMarkerClick = (marker) => {
+        if (clickedCircuit !== marker.name) {
+            setClickedCircuit(marker.name);
+            setClickMarkerCoordinates({ x: marker.coordinates[0], y: marker.coordinates[1]});
 
             // zoom on the marker
-            setCenter(markerCoordinates);
+            setCenter(marker.coordinates);
             setZoom(zoomIn);
             setZoomScale(1/zoom);
 
             // callback to provide the circuit code to the parent component
-            onCircuitChange(name);
+            onCircuitChange(marker);
         } else {
             setClickedCircuit(null);
         }
@@ -86,18 +88,17 @@ const CircuitMap = ({ onCircuitChange, containerWidth, containerHeight }) => {
         // ctx.y
         // ctx.k
         // ctx.transformString
-        console.log(ctx.k);
         setZoomScale(1/ctx.k);
       
-        return <circle cx={0} cy={0} r={10} />
+        return null;
       }
 
     return (
-        <div className={styles.mapContainer} style={{ width: containerWidth* 2/3}}>
+        // <div className={styles.mapContainer} style={{ width: containerWidth-50, height:containerHeight-50}}>
+        <div className={styles.mapContainer} style={{ height:containerHeight-50}}>
             <ComposableMap
-                // width={containerWidth / 2}
-                // height={containerHeight * 1 / 3}
-                className={styles.map}>
+                className={styles.map}
+                >
                 <ZoomableGroup 
                     center={center} 
                     zoom={zoom} >
@@ -118,19 +119,19 @@ const CircuitMap = ({ onCircuitChange, containerWidth, containerHeight }) => {
                     </Geographies>
 
                     {/* Add markers at circuit location */}
-                    {markers.map(({ name, coordinates }) => (
-                        <Marker key={name} coordinates={coordinates}>
+                    {markers.map((marker) => (
+                        <Marker key={marker.name} coordinates={marker.coordinates}>
                             <g
-                                fill={clickedCircuit === name ? "#fa2d2d" : "#1dc5f5"}
+                                fill={clickedCircuit === marker.name ? "#fa2d2d" : "#1dc5f5"}
                                 fillOpacity="0.2"
-                                stroke={clickedCircuit === name ? "#fa2d2d" : "#1dc5f5"}
+                                stroke={clickedCircuit === marker.name ? "#fa2d2d" : "#1dc5f5"}
                                 strokeWidth="2"
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
                                 // transform={`translate(-12, -24) scale(${getScale()})`}
                                 transform={`translate(${-12*getScale()}, ${-24*getScale()}) scale(${getScale()})`}
-                                onClick={(event) => handleMarkerClick(name, coordinates)}
-                                onMouseEnter={(event) => handleAnnotationEnter(name, coordinates)}
+                                onClick={(event) => handleMarkerClick(marker)}
+                                onMouseEnter={(event) => handleAnnotationEnter(marker.name, marker.coordinates)}
                                 onMouseLeave={(event) => handleAnnotationLeave()}
                             >
                                 <circle cx="12" cy="10" r="3" />

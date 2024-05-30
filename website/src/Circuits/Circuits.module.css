@@ -24,14 +24,19 @@
     flex-grow : 1;
     align-items: center;
     overflow: hidden;
+    height: 100%;
 }
 
 .top {
   flex: 3;
+  flex-grow: 1;
+  height: 100%;
 }
 
 .bottom {
   flex: 1;
+  flex-grow: 1;
+  height: 100%;
 }
 
 .boder_img {
