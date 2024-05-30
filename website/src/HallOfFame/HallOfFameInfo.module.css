@@ -24,7 +24,7 @@
 }
 
 .name h1 {
-    font-size: 2rem; /* Adjust heading size relatively larger */
+    font-size: 2em; /* Adjust heading size relatively larger */
     text-align: center; /* Center the title text */
     margin: 1px 1px;
     justify-content: center;
@@ -43,7 +43,7 @@
 
 .label {
     font-weight: bold;
-    font-size: 0.5em; /* Relative to container's base font size */
+    font-size: 0.6em; /* Relative to container's base font size */
     margin: 1px 1px;
     /*Make text fill width of container */
     width: 100%;
@@ -52,7 +52,7 @@
 
 .value {
     font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 0.4em; /* Smaller and relative to container's base font size */
+    font-size: 0.5em; /* Smaller and relative to container's base font size */
     margin: 1px 5px;
     width: 10%;
     height: 10%;
