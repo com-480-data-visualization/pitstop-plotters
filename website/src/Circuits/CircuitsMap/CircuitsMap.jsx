@@ -95,9 +95,11 @@ const CircuitMap = ({ onCircuitChange, containerWidth, containerHeight }) => {
 
     return (
         // <div className={styles.mapContainer} style={{ width: containerWidth-50, height:containerHeight-50}}>
-        <div className={styles.mapContainer} style={{ height:containerHeight-50}}>
+        <div className={styles.mapContainer} style={{ width:containerWidth-50}}>
             <ComposableMap
                 className={styles.map}
+                // width={containerWidth/3}
+                height={containerHeight*1/2}
                 >
                 <ZoomableGroup 
                     center={center} 

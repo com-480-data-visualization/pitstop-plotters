@@ -6,6 +6,7 @@
     width: 100%;
     box-sizing: border-box;
     align-items: flex-start;
+    height: 100%;
 }
 
 .infoContainer {
@@ -14,6 +15,7 @@
     flex: 4;
     position: relative; /* Add this line */
     padding-right: 33px;
+    height: 100%;
 }
 
 .infoColumn {
