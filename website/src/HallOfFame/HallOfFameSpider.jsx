@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 import style from './HallOfFameSpider.module.css';
 
+const Max_value = 20;
 const SpiderChart = () => {
     const chartRef = useRef(null);
 
@@ -24,10 +25,10 @@ const SpiderChart = () => {
             .attr("preserveAspectRatio", "xMidYMid meet");
 
         const data = [
-            { attribute: 'Bulk Apperception', value: 14 },
+            { attribute: 'Bulk Apperception', value: 14},
             { attribute: 'Candor', value: 19 },
             { attribute: 'Vivacity', value: 17 },
-            { attribute: 'Coordination', value: 10 },
+            { attribute: 'Coordination', value: 100 },
             { attribute: 'Meekness', value: 2 },
             { attribute: 'Humility', value: 3 },
             { attribute: 'Cruelty', value: 1 },
@@ -46,7 +47,7 @@ const SpiderChart = () => {
             { attribute: 'Humor', value: 9 }
         ];
 
-        const domain = [0, 20];
+        const domain = [0, Max_value];
 
         const angle = d3.scaleLinear()
             .domain([0, data.length])
@@ -130,8 +131,8 @@ const SpiderChart = () => {
             .data(data).enter()
             .append('text')
             .classed('label', true)
-            .attr('x', (d, i) => X(i, radius, 20))
-            .attr('y', (d, i) => Y(i, radius, 20))
+            .attr('x', (d, i) => X(i, radius, Max_value))
+            .attr('y', (d, i) => Y(i, radius, Max_value))
             .style("text-anchor", (d, i) => labelAnchor(i))
             .text(d => `${d.attribute.toUpperCase()} [${d.value}]`);
 

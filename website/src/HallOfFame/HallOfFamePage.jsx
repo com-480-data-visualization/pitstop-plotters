@@ -23,7 +23,7 @@ const HallOfFamePage = () => {
                 <img src={leftImage} alt="Left Border" className={styles.boder_img}/>
                 <div className={styles.content}>
                     <div className={styles.leftSide}>
-                        <SpiderChart/>
+                        <SpiderChart driver = {driver}/>
                     </div>
                     <img src={lineImage} alt="Center line" className={styles.centerImage}/>
                     <div className={styles.rightSide}>

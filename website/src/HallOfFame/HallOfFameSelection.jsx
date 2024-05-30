@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './HallOfFameSelection.module.css';
 
 // Import images for normal and selected states
@@ -62,6 +62,16 @@ function ImageRow({onDriverChange}) {
             };
         }
     };
+
+    useEffect(() => {
+        const initialSelection = async () => {
+            setSelectedImage(4);
+            const selectedDriver = await selectDriver('Hamilton');
+            onDriverChange(selectedDriver);
+        };
+
+        initialSelection();
+    }, []);
 
     return (
         <div className={styles.imageRow}>
