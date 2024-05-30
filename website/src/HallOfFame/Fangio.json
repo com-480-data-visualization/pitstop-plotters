@@ -7,7 +7,13 @@
   "lastGP": "France 1958",
   "bestResult": "1st",
   "bestGrid": "1st",
-  "championships": [1951, 1954, 1955, 1956, 1957],
+  "championships": [
+    1951,
+    1954,
+    1955,
+    1956,
+    1957
+  ],
   "involvements": 53,
   "grandPrix": 51,
   "noStarts": 2,
@@ -32,5 +38,6 @@
   "lapsRaced": 3037,
   "kmRaced": 20486,
   "rankStartingGridAverage": 1.78,
-  "rankFinishLineAverage": 2.25
+  "rankFinishLineAverage": 2.25,
+  "description": "Juan Manuel Fangio, born on June 24, 1911, in Argentina, was a legendary Formula One driver nicknamed El Chueco (the bowlegged one) and El Maestro (The Master). He left school early to focus on auto mechanics and began his racing career in Argentina's Turismo Carretera series in 1938, driving initially for Ford and later for Chevrolet. Fangio dominated the series, winning multiple championships before moving to compete in Europe from 1947 to 1949, achieving significant success.Fangio made his Formula One debut in the sport's first season and went on to win the World Drivers' Championship five times with four different teams—a record that stood for 46 years. He raced for Alfa Romeo, Maserati, Mercedes-Benz, and Ferrari, setting records for the highest winning percentage (46.15%) and pole percentage (55.77%) in Formula One history. He remains the only Argentine to have won the Argentine Grand Prix, which he did four times, and the only Argentine to win the World Drivers' Championship.After retiring, Fangio served as the honorary president of Mercedes-Benz Argentina and was celebrated globally on the centenary of his birth in 2011. He passed away on July 17, 1995, leaving behind a legacy as one of the most successful and revered figures in the history of auto racing."
 }

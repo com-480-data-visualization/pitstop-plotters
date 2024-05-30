@@ -8,7 +8,10 @@
   "lastGP": "South Africa 1968",
   "bestResult": "1st",
   "bestGrid": "1st",
-  "championships": [1963, 1965],
+  "championships": [
+    1963,
+    1965
+  ],
   "yearlyResults": {
     "1960": 10,
     "1961": 7,
@@ -49,5 +52,6 @@
   "lapsRaced": 3923,
   "kmRaced": 21320,
   "rankStartingGridAverage": 3.46,
-  "rankFinishLineAverage": 3.61
+  "rankFinishLineAverage": 3.61,
+  "description": "James Clark, born on March 4, 1936, in Scotland, was a British racing driver recognized for his exceptional talent in Formula One, where he won the World Championships in 1963 and 1965. Clark was known for his versatility, competing successfully in various motorsport disciplines including sports cars, touring cars, and the Indianapolis 500, which he won in 1965. His career was closely tied to Team Lotus, for whom he drove exclusively from 1960 until his untimely death in 1968.Clark tragically lost his life in a Formula Two accident at the Hockenheimring in Germany on April 7, 1968, at the age of 32. At the time of his death, he had achieved more Grand Prix wins (25) and pole positions (33) than any other driver up to that point. He still holds several records in Formula One, including the highest percentage of laps led in a season—a record that stood until 2023. Clark's legacy endures as one of the sport's most talented and revered figures."
 }

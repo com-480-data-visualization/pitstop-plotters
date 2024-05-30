@@ -7,6 +7,7 @@ import HallOfFame from "./HallOfFame";
 import ImageRow from "./HallOfFameSelection";
 import HallOfFameInfo from "./HallOfFameInfo";
 import {useState} from "react";
+import SpiderChart from "./HallOfFameSpider";
 
 const HallOfFamePage = () => {
 
@@ -22,10 +23,7 @@ const HallOfFamePage = () => {
                 <img src={leftImage} alt="Left Border" className={styles.boder_img}/>
                 <div className={styles.content}>
                     <div className={styles.leftSide}>
-                        <div className={styles.titleContainer}>
-                            name Skills
-                        </div>
-                        <HallOfFame/>
+                        <SpiderChart/>
                     </div>
                     <img src={lineImage} alt="Center line" className={styles.centerImage}/>
                     <div className={styles.rightSide}>
