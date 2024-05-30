@@ -7,6 +7,10 @@ const DriverProfile = ({ driver }) => {
         return value || defaultValue;
     };
 
+    const shouldDisplay = (value) => {
+        return value && value !== '0' && value !== 'N/A';
+    };
+
     return (
         <div className={styles.divInfo}>
             <div className={styles.name}>
@@ -15,8 +19,8 @@ const DriverProfile = ({ driver }) => {
             <div className={styles.item}>
                 <p><span className={styles.label}>Born:</span> <span
                     className={styles.value}>{displayOrFallback(driver.born)}</span></p>
-                <p><span className={styles.label}>Died:</span> <span
-                    className={styles.value}>{displayOrFallback(driver.died)}</span></p>
+                {shouldDisplay(driver.died) && (<p><span className={styles.label}>Died:</span> <span
+                    className={styles.value}>{displayOrFallback(driver.died)}</span></p>)}
                 <p><span className={styles.label}>Nation:</span> <span
                     className={styles.value}>{displayOrFallback(driver.nation)}</span></p>
             </div>
