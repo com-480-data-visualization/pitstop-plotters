@@ -1,47 +1,59 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { 
     ComposableMap, 
     Geographies, 
     Geography, 
     Marker, 
     ZoomableGroup,
-    Annotation
+    Annotation,
+    useZoomPanContext
 } from "react-simple-maps";
+import { geoTimes } from "d3-geo-projection";
 import styles from "./CircuitsMap.module.css";
+import geoUrl from "../world-110m.json";
+import mapMarkers from "../map_info.json";
 
-const geoUrl = "https://unpkg.com/world-atlas@2.0.2/countries-110m.json";
-
-const markers = [
-    { markerOffset: -30, name: "Buenos Aires", coordinates: [-58.3816, -34.6037] },
-    { markerOffset: 15, name: "La Paz", coordinates: [-68.1193, -16.4897] },
-    { markerOffset: 15, name: "Brasilia", coordinates: [-47.8825, -15.7942] },
-    { markerOffset: 15, name: "Santiago", coordinates: [-70.6693, -33.4489] },
-    { markerOffset: 15, name: "Bogota", coordinates: [-74.0721, 4.711] },
-    { markerOffset: 15, name: "Quito", coordinates: [-78.4678, -0.1807] },
-    { markerOffset: -30, name: "Georgetown", coordinates: [-58.1551, 6.8013] },
-    { markerOffset: -30, name: "Asuncion", coordinates: [-57.5759, -25.2637] },
-    { markerOffset: 15, name: "Paramaribo", coordinates: [-55.2038, 5.852] },
-    { markerOffset: 15, name: "Montevideo", coordinates: [-56.1645, -34.9011] },
-    { markerOffset: 15, name: "Caracas", coordinates: [-66.9036, 10.4806] },
-    { markerOffset: 15, name: "Lima", coordinates: [-77.0428, -12.0464] }
-];
 
 const CircuitMap = ({ onCircuitChange, containerWidth, containerHeight }) => {
+    const zoomIn = 4;
+    const [markers, setMarkers] = useState([]);
+    const [zoom, setZoom] = useState(1); // manage map zoom level
+    const [center, setCenter] = useState([0, 0]); // manage map center
+    const [zoomScale, setZoomScale] = useState(1); // manage zoom scale
+
     const [clickedCircuit, setClickedCircuit] = useState(null);
     const [clickedMarkerCoordinates, setClickMarkerCoordinates] = useState([0, 0]);
 
     const [hoveredCircuit, setHoveredCircuit] = useState(null);
     const [hoveredMarkerCoordinates, setHoveredMarkerCoordinates] = useState([0, 0]);
 
-    //TODO change all circuit names to the circuit codes
+    // load markers from JSON file
+    useEffect(() => {
+        const fetchMarkers = async () => {
+            try {
+                // get the corresponding markers information
+                setMarkers(mapMarkers.map((marker, index) => ({
+                    name: marker.name,
+                    coordinates: [marker.lng, marker.lat],
+                    // markerOffset: index % 2 === 0 ? -30 : 15
+                })));
+            } catch (error) {
+                console.error('Error loading markers:', error);
+            }
+        };
+        
+        fetchMarkers();
+    }, []);
 
-    //
-    // Handle mouse events
-    //
-    const handleClick = (name, markerCoordinates) => {
+    const handleMarkerClick = (name, markerCoordinates) => {
         if (clickedCircuit !== name) {
             setClickedCircuit(name);
             setClickMarkerCoordinates({ x: markerCoordinates[0], y: markerCoordinates[1]});
+
+            // zoom on the marker
+            setCenter(markerCoordinates);
+            setZoom(zoomIn);
+            setZoomScale(1/zoom);
 
             // callback to provide the circuit code to the parent component
             onCircuitChange(name);
@@ -63,20 +75,34 @@ const CircuitMap = ({ onCircuitChange, containerWidth, containerHeight }) => {
         setHoveredCircuit(null);
     }
 
+    const getScale = () => {
+        return zoomScale;
+    };
+    
+    const ZoomObserver = () => {
+        const ctx = useZoomPanContext()      
+
+        // ctx.x
+        // ctx.y
+        // ctx.k
+        // ctx.transformString
+        console.log(ctx.k);
+        setZoomScale(1/ctx.k);
+      
+        return <circle cx={0} cy={0} r={10} />
+      }
+
     return (
-        <div className={styles.mapContainer} style={{ width: containerWidth }}>
+        <div className={styles.mapContainer} style={{ width: containerWidth* 2/3}}>
             <ComposableMap
-            width={containerWidth/2}
-            height={containerHeight*1/3}
-            className={styles.map}>
+                // width={containerWidth / 2}
+                // height={containerHeight * 1 / 3}
+                className={styles.map}>
                 <ZoomableGroup 
-                    center={[16.5,0]} 
-                    zoom={0.5}
-                    // translateExtent={[
-                    //     [-containerWidth*2/3, -containerHeight],
-                    //     [containerWidth*2/3, containerHeight*1/3]
-                    //   ]}
-                      >
+                    center={center} 
+                    zoom={zoom} >
+                    <ZoomObserver />
+
                     {/* Display countries and continents */}
                     <Geographies geography={geoUrl}>
                         {({ geographies }) =>
@@ -92,17 +118,18 @@ const CircuitMap = ({ onCircuitChange, containerWidth, containerHeight }) => {
                     </Geographies>
 
                     {/* Add markers at circuit location */}
-                    {markers.map(({ name, coordinates, markerOffset }) => (
+                    {markers.map(({ name, coordinates }) => (
                         <Marker key={name} coordinates={coordinates}>
                             <g
-                                fill={clickedCircuit === name ? "#fa2d2d" : "#1dc5f5" }
+                                fill={clickedCircuit === name ? "#fa2d2d" : "#1dc5f5"}
                                 fillOpacity="0.2"
-                                stroke={clickedCircuit === name ? "#fa2d2d" : "#1dc5f5" }
+                                stroke={clickedCircuit === name ? "#fa2d2d" : "#1dc5f5"}
                                 strokeWidth="2"
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
-                                transform="translate(-12, -24)"
-                                onClick={(event) => handleClick(name, coordinates)}
+                                // transform={`translate(-12, -24) scale(${getScale()})`}
+                                transform={`translate(${-12*getScale()}, ${-24*getScale()}) scale(${getScale()})`}
+                                onClick={(event) => handleMarkerClick(name, coordinates)}
                                 onMouseEnter={(event) => handleAnnotationEnter(name, coordinates)}
                                 onMouseLeave={(event) => handleAnnotationLeave()}
                             >
@@ -115,7 +142,7 @@ const CircuitMap = ({ onCircuitChange, containerWidth, containerHeight }) => {
                     {/* on click annotation */}
                     {clickedCircuit && (    
                         <Annotation
-                            subject={[clickedMarkerCoordinates.x-2.2, clickedMarkerCoordinates.y+5.5]}
+                            subject={[clickedMarkerCoordinates.x - 2.2, clickedMarkerCoordinates.y + 5.5]}
                             dx={-30}
                             dy={-10}
                             connectorProps={{
@@ -124,7 +151,7 @@ const CircuitMap = ({ onCircuitChange, containerWidth, containerHeight }) => {
                                 strokeLinecap: "round"
                             }}
                         >
-                            <g transform={"translate(-150, -20)"} style={{ pointerEvents: 'none' }}>  {/* Adjust the position as needed */}
+                            <g transform={`scale(${getScale()})`} style={{ pointerEvents: 'none' }}>  
                                 <rect 
                                     x="0" 
                                     y="0" 
@@ -134,6 +161,7 @@ const CircuitMap = ({ onCircuitChange, containerWidth, containerHeight }) => {
                                     rx="5" 
                                     ry="5"
                                     opacity="0.5"
+                                    translate="transform(-30, -10)"
                                 />
                                 <text 
                                     x="10"
@@ -141,6 +169,7 @@ const CircuitMap = ({ onCircuitChange, containerWidth, containerHeight }) => {
                                     textAnchor="start" 
                                     alignmentBaseline="middle" 
                                     fill="#f7f7f7"
+                                    translate="transform(-30, -10)"
                                 >
                                     {clickedCircuit}
                                 </text>
@@ -160,7 +189,7 @@ const CircuitMap = ({ onCircuitChange, containerWidth, containerHeight }) => {
                                 strokeLinecap: "round"
                             }}
                         >
-                            <g transform="translate(20, -10)"  style={{ pointerEvents: 'none' }}>  {/* Adjust the position as needed */}
+                            <g transform={`scale(${getScale()})`} style={{ pointerEvents: 'none' }}>  
                                 <rect 
                                     x="0" 
                                     y="0" 
