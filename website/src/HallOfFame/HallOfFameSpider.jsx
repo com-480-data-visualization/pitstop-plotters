@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 import style from './HallOfFameSpider.module.css';
 
 const Max_value = 20;
-const SpiderChart = () => {
+const SpiderChart = ({ driver }) => {
     const chartRef = useRef(null);
 
     useEffect(() => {
@@ -25,9 +25,9 @@ const SpiderChart = () => {
             .attr("preserveAspectRatio", "xMidYMid meet");
 
         const data = [
-            { attribute: 'Bulk Apperception', value: 14},
-            { attribute: 'Candor', value: 19 },
-            { attribute: 'Vivacity', value: 17 },
+            { attribute: 'Season', value: driver.seasons},
+            { attribute: 'Constuctors', value: driver.constructors},
+            { attribute: 'Win Score', value: driver.wins/driver.grandPrix},
             { attribute: 'Coordination', value: 100 },
             { attribute: 'Meekness', value: 2 },
             { attribute: 'Humility', value: 3 },
