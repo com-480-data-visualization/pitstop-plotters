@@ -6,13 +6,26 @@ import CircuitsMap from "./CircuitsMap/CircuitsMap";
 import CircuitInfo from "./CircuitInfo/CircuitInfo";
 import lineImage_h from '../img/line1_90.png';
 
+
+
 const CircuitsPage = () => {
 
-    const [circuitCode, setCircuitCode] = useState("TODO code");
+    const defaultData = {
+      "name": "TODO",
+      "country": "TODO",
+      "location": "TODO",
+      "length": "TODO",
+      "gpHeld": "TODO",
+      "lastWinner": "TODO",
+      "fastestLap": "TODO",
+      "circuitImage": "TODO"
+    };
+    const [circuit, setCircuit] = useState(defaultData);
 
     // code manage circuit id between map and info
-    const handleCircuitChange = (newCircuitCode) => {
-        setCircuitCode(newCircuitCode);
+    const handleCircuitChange = (circuit) => {
+        setCircuit(circuit);
+        console.log('Circuit changed:', circuit.name);
     };
 
     // 
@@ -45,15 +58,16 @@ const CircuitsPage = () => {
         <div className={styles.circuits}>
             <div className={styles.border}>
                 <img src={leftImage} alt="Left Border" className={styles.boder_img}/>
-                <div className={styles.content} ref={moduleRef}>
-                    <div className={styles.top}>
+                <div className={styles.content}> 
+                    <div className={styles.top} ref={moduleRef}>
+                      <p>Container width: {dimensions.width}</p>
                         <CircuitsMap onCircuitChange={handleCircuitChange} 
                             containerWidth={dimensions.width} 
                             containerHeight={dimensions.height} />
                     </div>
                     <img src={lineImage_h} alt="Center Divider" className={styles.centerImage}/>
                     <div className={styles.bottom}>
-                        <CircuitInfo circuitCode={circuitCode} />
+                        <CircuitInfo circuit={circuit} />
                     </div>
                 </div>
                 <img src={rightImage} alt="Right Border" className={styles.boder_img}/>
