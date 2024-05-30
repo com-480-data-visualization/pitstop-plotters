@@ -24,58 +24,20 @@ function ImageRow({onDriverChange}) {
         { name: 'Hamilton', normal: ham, selected: hamSelected }
     ];
 
-    const toggleSize = index => {
+    const toggleSize = async index => {
         setSelectedImage(selectedImage === index ? null : index);
-        const selectedDriver = selectDriver(images[index].name);
+        const selectedDriver =  await selectDriver(images[index].name);
         onDriverChange(selectedDriver);
     };
 
-    const selectDriver = (driverName) => {
-        // Placeholder: Log the driver's name to the console or trigger an action to fetch/show driver data
-        console.log(`Driver selected: ${driverName}`);
-        // Here you could fetch data, update state, or trigger other actions based on the selected driver
-        switch (driverName) {
-            case 'Fangio':
-                return {
-                    name: 'Juan Manuel Fangio',
-                    born: 'Born the 24 June 1911 - Balcarce (Buenos Aires)',
-                    died: 'Died the 17 July 1995 - 84 years - Balcarce (Buenos Aires)',
-                    nation: 'Argentina',
-                    website: 'http://example.com', // Placeholder for the actual website
-                    firstGP: 'Britain 1950',
-                    lastGP: 'France 1958',
-                    bestResult: '1st',
-                    bestGrid: '1st',
-                    championships: [1951, 1954, 1955, 1956, 1957],
-                    involvements: 53,
-                    grandPrix: 51,
-                    noStarts: 2,
-                    resultsByGrandPrix: 'Specific data needed', // Placeholder for specific result data
-                    resultsByCircuit: 'Specific data needed', // Placeholder for circuit data
-                    teammates: 34,
-                    seasons: 9,
-                    constructors: 5,
-                    engineBuilders: 6,
-                    models: 9,
-                    wins: 24,
-                    polePositions: 29,
-                    fastestLaps: 23,
-                    podiums: 35,
-                    hatTricks: 9,
-                    grandSlams: 2,
-                    retirements: 14,
-                    nonWorldChampionshipInvolvements: 42,
-                    totalPoints: 277.64,
-                    pointsPerGP: 5.44,
-                    pointsPerSeason: 34.70,
-                    lapsLed: 1347,
-                    kmLed: 9316,
-                    lapsRaced: 3037,
-                    kmRaced: 20486,
-                    rankStartingGridAverage: 1.78,
-                    rankFinishLineAverage: 2.25
-                };
-            // Extend other cases for different drivers similarly
+    const selectDriver = async (driverName) => {
+        try {
+            const driverData = await import(`./${driverName}.json`);
+            console.log(`Driver data loaded: ${driverName}`, driverData);
+            return driverData;
+        } catch (error) {
+            console.error(`Failed to load data for ${driverName}:`, error);
+            return null; // Return null or default data structure in case of error
         }
     };
 

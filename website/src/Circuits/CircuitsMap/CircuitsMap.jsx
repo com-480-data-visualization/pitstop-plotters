@@ -96,7 +96,7 @@ const CircuitMap = ({ onCircuitChange, containerWidth, containerHeight }) => {
                         <Marker key={name} coordinates={coordinates}>
                             <g
                                 fill={clickedCircuit === name ? "#fa2d2d" : "#1dc5f5" }
-                                fill-opacity="0.2"
+                                fillOpacity="0.2"
                                 stroke={clickedCircuit === name ? "#fa2d2d" : "#1dc5f5" }
                                 strokeWidth="2"
                                 strokeLinecap="round"
