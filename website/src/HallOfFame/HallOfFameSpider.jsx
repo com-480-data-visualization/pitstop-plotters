@@ -12,7 +12,7 @@ const SpiderChart = () => {
         const centerCoords = [width / 2, height / 2];
         const RADIAN_OFFSET = Math.PI / 2;
 
-        const padding = 150;
+        const padding = 200;
         const radius = d3.min([width - padding, height - padding]) / 2;
 
         chart.selectAll("*").remove();

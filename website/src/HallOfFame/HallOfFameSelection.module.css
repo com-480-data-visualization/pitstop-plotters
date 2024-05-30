@@ -4,7 +4,7 @@
     align-items: flex-end; /* Keeps images aligned at the bottom */
     overflow-x: auto; /* Adds horizontal scrolling if needed */
     /* Adds padding around the images */
-    padding: 10px 10px 10px 5%;
+    padding: 20px 10px 0 20px;
     width: 100%;
     height: 100%;
 }
