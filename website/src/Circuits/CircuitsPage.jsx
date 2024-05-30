@@ -25,7 +25,6 @@ const CircuitsPage = () => {
     // code manage circuit id between map and info
     const handleCircuitChange = (circuit) => {
         setCircuit(circuit);
-        console.log('Circuit changed:', circuit.name);
     };
 
     // 
