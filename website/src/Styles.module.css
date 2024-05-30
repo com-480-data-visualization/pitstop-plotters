@@ -12,7 +12,7 @@ body {
 }
 
 h1 {
-    font-family: "IBM Plex Sans", sans-serif;
+    font-family: "f1Font","IBM Plex Sans", sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 7vw;
@@ -20,7 +20,7 @@ h1 {
 }
 
 h2 {
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: "f1Font",'IBM Plex Sans', sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 60px;
@@ -29,7 +29,7 @@ h2 {
 }
 
 p {
-    font-family: 'Noto Sans', sans-serif;
+    font-family: "f1Font",'Noto Sans', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -38,7 +38,7 @@ p {
 }
 
 button {
-    font-family: 'Noto Sans';
+    font-family: "f1Font",'Noto Sans';
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
