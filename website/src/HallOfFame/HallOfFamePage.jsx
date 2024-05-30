@@ -5,8 +5,17 @@ import lineImage from '../img/line1.png';
 import lineImage_h from '../img/line1_90.png';
 import HallOfFame from "./HallOfFame";
 import ImageRow from "./HallOfFameSelection";
+import HallOfFameInfo from "./HallOfFameInfo";
+import {useState} from "react";
 
 const HallOfFamePage = () => {
+
+    const [driver, setDriver] = useState("");
+
+    const handleDriverChange = (driver) => {
+        setDriver(driver);
+    };
+
     return (
         <div className={styles.template}>
             <div className={styles.border}>
@@ -24,12 +33,12 @@ const HallOfFamePage = () => {
                             <div className={styles.titleContainer}>
                                 Top 5 drivers of all time
                             </div>
-                            <ImageRow/>
+                            <ImageRow onDriverChange = {handleDriverChange}/>
                         </div>
                         <img src={lineImage_h} alt="Center Divider" className={styles.centerDivider}/>
                         <div className={styles.rightTop}>
                             <div className={styles.titleContainer}>
-                                Stats of name
+                                <HallOfFameInfo driver={driver}/>
                             </div>
                         </div>
                     </div>
