@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 import style from './HallOfFameSpider.module.css';
 
-const Max_value = 20;
+const Max_value = 25;
 const SpiderChart = ({ driver }) => {
     const chartRef = useRef(null);
 
@@ -13,7 +13,7 @@ const SpiderChart = ({ driver }) => {
         const centerCoords = [width / 2, height / 2];
         const RADIAN_OFFSET = Math.PI / 2;
 
-        const padding = 200;
+        const padding = 250;
         const radius = d3.min([width - padding, height - padding]) / 2;
 
         chart.selectAll("*").remove();
@@ -25,26 +25,22 @@ const SpiderChart = ({ driver }) => {
             .attr("preserveAspectRatio", "xMidYMid meet");
 
         const data = [
-            { attribute: 'Season', value: driver.seasons},
-            { attribute: 'Constuctors', value: driver.constructors},
-            { attribute: 'Win Score', value: driver.wins/driver.grandPrix},
-            { attribute: 'Coordination', value: 100 },
-            { attribute: 'Meekness', value: 2 },
-            { attribute: 'Humility', value: 3 },
-            { attribute: 'Cruelty', value: 1 },
-            { attribute: 'Self-Preservation', value: 10 },
-            { attribute: 'Patience', value: 3 },
-            { attribute: 'Decisiveness', value: 14 },
-            { attribute: 'Imagination', value: 13 },
-            { attribute: 'Curiosity', value: 8 },
-            { attribute: 'Aggression', value: 5 },
-            { attribute: 'Loyalty', value: 16 },
-            { attribute: 'Empathy', value: 9 },
-            { attribute: 'Tenacity', value: 17 },
-            { attribute: 'Courage', value: 15 },
-            { attribute: 'Sensuality', value: 18 },
-            { attribute: 'Charm', value: 18 },
-            { attribute: 'Humor', value: 9 }
+            { attribute: 'Season', value: driver.seasons },
+            { attribute: 'Constuctors', value: driver.constructors },
+            { attribute: 'Win', value: (driver.wins/driver.grandPrix).toFixed(2) * Max_value },
+            { attribute: 'Pole Pos', value: (driver.polePositions/driver.grandPrix).toFixed(2) * Max_value },
+            { attribute: 'Fast Lap', value: (driver.fastestLaps/driver.grandPrix).toFixed(2) * Max_value },
+            { attribute: 'Podium', value: (driver.podiums/driver.grandPrix).toFixed(2) * Max_value },
+            { attribute: 'Hat Tricks', value: driver.hatTricks },
+            { attribute: 'Grand Slams', value: driver.grandSlams },
+            { attribute: 'Retirement', value: (driver.retirements/driver.grandPrix).toFixed(2) * Max_value },
+            { attribute: 'Points / GP', value: driver.pointsPerGP },
+            { attribute: 'Laps Led', value: (driver.lapsLed/driver.lapsRaced).toFixed(2) * Max_value },
+            { attribute: 'Km led', value: (driver.kmLed/driver.kmRaced).toFixed(2) * Max_value },
+            { attribute: 'Starting Grid', value: 24 - driver.rankStartingGridAverage },
+            { attribute: 'Finish Line', value: 24 - driver.rankFinishLineAverage },
+            { attribute: 'Championships', value: driver.championships.length },
+            { attribute: 'Models drove', value: driver.models}
         ];
 
         const domain = [0, Max_value];
@@ -136,7 +132,7 @@ const SpiderChart = ({ driver }) => {
             .style("text-anchor", (d, i) => labelAnchor(i))
             .text(d => `${d.attribute.toUpperCase()} [${d.value}]`);
 
-    }, []);
+    }, [driver]); // Add driver as a dependency
 
     return <div style={{ width: '100%', height: '100%' }} ref={chartRef}></div>;
 };
