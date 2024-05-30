@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Sans&display=swap');
 @font-face {
     font-family: 'f1Font';
-    src: url('https://rawcdn.githack.com/com-480-data-visualization/pitstop-plotters/c768d976cfe5dda9eab469ee7f4f3ff95efea86a/website/src/fonts/Formula1-Regular_web_0.ttf') format('ttf');
+    src: url('https://rawcdn.githack.com/com-480-data-visualization/pitstop-plotters/e387d68fc4919d6f938e748e9a867d4ab25e767a/website/src/fonts/Formula1-Regular_web_0.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
