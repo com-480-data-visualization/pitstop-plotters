@@ -50,7 +50,11 @@ const DriverProfile = ({ driver }) => {
                 <p><span className={styles.label}>Podiums:</span> <span
                     className={styles.value}>{displayOrFallback(driver.podiums, '0')}</span></p>
             </div>
-            <div className={styles.item}>
+        </div>
+    );
+}
+/*
+<div className={styles.item}>
                 <p><span className={styles.label}>Total Seasons:</span> <span
                     className={styles.value}>{displayOrFallback(driver.seasons, '0')}</span></p>
                 <p><span className={styles.label}>Total Laps Led:</span> <span
@@ -62,7 +66,7 @@ const DriverProfile = ({ driver }) => {
                 <p><span className={styles.label}>Total Kilometers Raced:</span> <span
                     className={styles.value}>{displayOrFallback(driver.kmRaced, '0')}</span></p>
             </div>
-            <div className={styles.item}>
+<div className={styles.item}>
                 <p><span className={styles.label}>Grand Slams:</span> <span
                     className={styles.value}>{displayOrFallback(driver.grandSlams, '0')}</span></p>
                 <p><span className={styles.label}>Hat Tricks:</span> <span
@@ -74,8 +78,6 @@ const DriverProfile = ({ driver }) => {
                 <p><span className={styles.label}>Finish Line Average:</span> <span
                     className={styles.value}>{displayOrFallback(driver.rankFinishLineAverage, 'N/A')}</span></p>
             </div>
-        </div>
-    );
-}
+ */
 
 export default DriverProfile;
