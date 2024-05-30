@@ -7,6 +7,7 @@ import {
     ZoomableGroup,
     Annotation
 } from "react-simple-maps";
+import styles from "./CircuitsMap.module.css";
 
 const geoUrl = "https://unpkg.com/world-atlas@2.0.2/countries-110m.json";
 
@@ -25,7 +26,7 @@ const markers = [
     { markerOffset: 15, name: "Lima", coordinates: [-77.0428, -12.0464] }
 ];
 
-const CircuitMap = ({ onCircuitChange }) => {
+const CircuitMap = ({ onCircuitChange, containerWidth, containerHeight }) => {
     const [clickedCircuit, setClickedCircuit] = useState(null);
     const [clickedMarkerCoordinates, setClickMarkerCoordinates] = useState([0, 0]);
 
@@ -63,9 +64,19 @@ const CircuitMap = ({ onCircuitChange }) => {
     }
 
     return (
-        <div style={{ width: "500px", height: "100px" }}>
-            <ComposableMap>
-                <ZoomableGroup center={[16.5,0]} zoom={1}>
+        <div className={styles.mapContainer} style={{ width: containerWidth }}>
+            <ComposableMap
+            width={containerWidth/2}
+            height={containerHeight*1/3}
+            className={styles.map}>
+                <ZoomableGroup 
+                    center={[16.5,0]} 
+                    zoom={0.5}
+                    // translateExtent={[
+                    //     [-containerWidth*2/3, -containerHeight],
+                    //     [containerWidth*2/3, containerHeight*1/3]
+                    //   ]}
+                      >
                     {/* Display countries and continents */}
                     <Geographies geography={geoUrl}>
                         {({ geographies }) =>
