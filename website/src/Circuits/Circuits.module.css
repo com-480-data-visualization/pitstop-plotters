@@ -19,9 +19,19 @@
 
 .content {
     position: relative;
+    display: flex;
+    flex-direction: column;
     flex-grow : 1;
     align-items: center;
     overflow: hidden;
+}
+
+.top {
+  flex: 3;
+}
+
+.bottom {
+  flex: 1;
 }
 
 .boder_img {
@@ -42,9 +52,4 @@ body {
   height: 33px;
   display: block; /* Ensures it doesn't have extra space around it */
   opacity: 0.8;
-}
-
-.rsm-geographies{
-  fill: white;
-  stroke: green;
 }

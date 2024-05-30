@@ -1,15 +1,52 @@
 .infobox {
-    /* background: red; */
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    height: 100%;
+    display: flex;
+    padding: 20px;
+    /* border: 1px solid #ddd; */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+    align-items: flex-start;
+}
+
+.infoContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 3;
+}
+
+.infoColumn {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 200px; /* Ensure a minimum width for responsiveness */
+    margin: 10px;
 }
 
 .title {
-    font-size: 2em;
+    font-size: 1.8em;
     font-weight: bold;
-    margin-bottom: 5px;
-    margin-top: 10px;
-    padding: 0;
+    margin-bottom: 15px;
+    color: #F0F0F0;
+    width: 100%; /* Make sure title takes full width */
+}
+
+.info {
+    font-size: 1em;
+    margin: 5px 0;
+    color: #F0F0F0;
+}
+
+.imageContainer {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px; /* Space between text and image */
+}
+
+.circuitImage {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
 }

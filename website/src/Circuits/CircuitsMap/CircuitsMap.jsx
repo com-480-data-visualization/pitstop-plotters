@@ -35,7 +35,7 @@ const CircuitMap = ({ onCircuitChange }) => {
     //TODO change all circuit names to the circuit codes
 
     //
-    // Handl mouse events
+    // Handle mouse events
     //
     const handleClick = (name, markerCoordinates) => {
         if (clickedCircuit !== name) {
@@ -63,116 +63,118 @@ const CircuitMap = ({ onCircuitChange }) => {
     }
 
     return (
-        <ComposableMap>
-            <ZoomableGroup center={[16.5,0]} zoom={1}>
-                {/* Display countries and continents */}
-                <Geographies geography={geoUrl}>
-                    {({ geographies }) =>
-                        geographies.map((geo) => (
-                            <Geography
-                                key={geo.rsmKey}
-                                geography={geo}
-                                fill="#22325e"
-                                stroke="#c1c6d6"
-                            />
-                        ))
-                    }
-                </Geographies>
+        <div style={{ width: "500px", height: "100px" }}>
+            <ComposableMap>
+                <ZoomableGroup center={[16.5,0]} zoom={1}>
+                    {/* Display countries and continents */}
+                    <Geographies geography={geoUrl}>
+                        {({ geographies }) =>
+                            geographies.map((geo) => (
+                                <Geography
+                                    key={geo.rsmKey}
+                                    geography={geo}
+                                    fill="#22325e"
+                                    stroke="#c1c6d6"
+                                />
+                            ))
+                        }
+                    </Geographies>
 
-                {/* Add markers at circuit location */}
-                {markers.map(({ name, coordinates, markerOffset }) => (
-                    <Marker key={name} coordinates={coordinates}>
-                        <g
-                            fill={clickedCircuit === name ? "#fa2d2d" : "#1dc5f5" }
-                            fill-opacity="0.2"
-                            stroke={clickedCircuit === name ? "#fa2d2d" : "#1dc5f5" }
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            transform="translate(-12, -24)"
-                            onClick={(event) => handleClick(name, coordinates)}
-                            onMouseEnter={(event) => handleAnnotationEnter(name, coordinates)}
-                            onMouseLeave={(event) => handleAnnotationLeave()}
+                    {/* Add markers at circuit location */}
+                    {markers.map(({ name, coordinates, markerOffset }) => (
+                        <Marker key={name} coordinates={coordinates}>
+                            <g
+                                fill={clickedCircuit === name ? "#fa2d2d" : "#1dc5f5" }
+                                fill-opacity="0.2"
+                                stroke={clickedCircuit === name ? "#fa2d2d" : "#1dc5f5" }
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                transform="translate(-12, -24)"
+                                onClick={(event) => handleClick(name, coordinates)}
+                                onMouseEnter={(event) => handleAnnotationEnter(name, coordinates)}
+                                onMouseLeave={(event) => handleAnnotationLeave()}
+                            >
+                                <circle cx="12" cy="10" r="3" />
+                                <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z" />
+                            </g>
+                        </Marker>
+                    ))}
+
+                    {/* on click annotation */}
+                    {clickedCircuit && (    
+                        <Annotation
+                            subject={[clickedMarkerCoordinates.x-2.2, clickedMarkerCoordinates.y+5.5]}
+                            dx={-30}
+                            dy={-10}
+                            connectorProps={{
+                                stroke: "#f7f7f7",
+                                strokeWidth: 3,
+                                strokeLinecap: "round"
+                            }}
                         >
-                            <circle cx="12" cy="10" r="3" />
-                            <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z" />
-                        </g>
-                    </Marker>
-                ))}
+                            <g transform={"translate(-150, -20)"} style={{ pointerEvents: 'none' }}>  {/* Adjust the position as needed */}
+                                <rect 
+                                    x="0" 
+                                    y="0" 
+                                    width="150" 
+                                    height="40" 
+                                    fill="#fa2d2d" 
+                                    rx="5" 
+                                    ry="5"
+                                    opacity="0.5"
+                                />
+                                <text 
+                                    x="10"
+                                    y="25" 
+                                    textAnchor="start" 
+                                    alignmentBaseline="middle" 
+                                    fill="#f7f7f7"
+                                >
+                                    {clickedCircuit}
+                                </text>
+                            </g>
+                        </Annotation> 
+                    )}
 
-                {/* on click annotation */}
-                {clickedCircuit && (    
-                    <Annotation
-                        subject={[clickedMarkerCoordinates.x-2.2, clickedMarkerCoordinates.y+5.5]}
-                        dx={-30}
-                        dy={-10}
-                        connectorProps={{
-                            stroke: "#f7f7f7",
-                            strokeWidth: 3,
-                            strokeLinecap: "round"
-                        }}
-                    >
-                        <g transform={"translate(-150, -20)"} style={{ pointerEvents: 'none' }}>  {/* Adjust the position as needed */}
-                            <rect 
-                                x="0" 
-                                y="0" 
-                                width="150" 
-                                height="40" 
-                                fill="#fa2d2d" 
-                                rx="5" 
-                                ry="5"
-                                opacity="0.5"
-                            />
-                            <text 
-                                x="10"
-                                y="25" 
-                                textAnchor="start" 
-                                alignmentBaseline="middle" 
-                                fill="#f7f7f7"
-                            >
-                                {clickedCircuit}
-                            </text>
-                        </g>
-                    </Annotation> 
-                )}
-
-                {/* on hover annotation */}
-                {hoveredCircuit && clickedCircuit !== hoveredCircuit && (    
-                    <Annotation
-                        subject={[hoveredMarkerCoordinates.x, hoveredMarkerCoordinates.y]}
-                        dx={0}
-                        dy={0}
-                        connectorProps={{
-                            stroke: "white",
-                            strokeWidth: 0,
-                            strokeLinecap: "round"
-                        }}
-                    >
-                        <g transform="translate(20, -10)"  style={{ pointerEvents: 'none' }}>  {/* Adjust the position as needed */}
-                            <rect 
-                                x="0" 
-                                y="0" 
-                                width="150" 
-                                height="40" 
-                                fill="#1dc5f5" 
-                                rx="5" 
-                                ry="5"
-                                opacity="0.5"
-                            />
-                            <text 
-                                x="10"
-                                y="25" 
-                                textAnchor="left" 
-                                alignmentBaseline="middle" 
-                                fill="#f7f7f7"
-                            >
-                                {hoveredCircuit}
-                            </text>
-                        </g>
-                    </Annotation> 
-                )}
-            </ZoomableGroup>
-        </ComposableMap>
+                    {/* on hover annotation */}
+                    {hoveredCircuit && clickedCircuit !== hoveredCircuit && (    
+                        <Annotation
+                            subject={[hoveredMarkerCoordinates.x, hoveredMarkerCoordinates.y]}
+                            dx={0}
+                            dy={0}
+                            connectorProps={{
+                                stroke: "white",
+                                strokeWidth: 0,
+                                strokeLinecap: "round"
+                            }}
+                        >
+                            <g transform="translate(20, -10)"  style={{ pointerEvents: 'none' }}>  {/* Adjust the position as needed */}
+                                <rect 
+                                    x="0" 
+                                    y="0" 
+                                    width="150" 
+                                    height="40" 
+                                    fill="#1dc5f5" 
+                                    rx="5" 
+                                    ry="5"
+                                    opacity="0.5"
+                                />
+                                <text 
+                                    x="10"
+                                    y="25" 
+                                    textAnchor="left" 
+                                    alignmentBaseline="middle" 
+                                    fill="#f7f7f7"
+                                >
+                                    {hoveredCircuit}
+                                </text>
+                            </g>
+                        </Annotation> 
+                    )}
+                </ZoomableGroup>
+            </ComposableMap>
+        </div>
     );
 };
 

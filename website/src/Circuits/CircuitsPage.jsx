@@ -15,15 +15,18 @@ const CircuitsPage = () => {
         setCircuitCode(newCircuitCode);
     };
 
-
     return (
         <div className={styles.circuits}>
             <div className={styles.border}>
                 <img src={leftImage} alt="Left Border" className={styles.boder_img}/>
                 <div className={styles.content}>
-                    <CircuitsMap onCircuitChange={handleCircuitChange} />
+                    <div className={styles.top}>
+                        <CircuitsMap onCircuitChange={handleCircuitChange} />
+                    </div>
                     <img src={lineImage_h} alt="Center Divider" className={styles.centerImage}/>
-                    <CircuitInfo circuitCode={circuitCode} />
+                    <div className={styles.bottom}>
+                        <CircuitInfo circuitCode={circuitCode} />
+                    </div>
                 </div>
                 <img src={rightImage} alt="Right Border" className={styles.boder_img}/>
             </div>
