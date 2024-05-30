@@ -58,9 +58,9 @@ const CircuitsPage = () => {
         <div className={styles.circuits}>
             <div className={styles.border}>
                 <img src={leftImage} alt="Left Border" className={styles.boder_img}/>
-                <div className={styles.content}> 
-                    <div className={styles.top} ref={moduleRef}>
-                      <p>Container width: {dimensions.width}</p>
+                <div className={styles.content} ref={moduleRef}> 
+                    <div className={styles.top}>
+                      {/* <p>Container width: {dimensions.width}</p> */}
                         <CircuitsMap onCircuitChange={handleCircuitChange} 
                             containerWidth={dimensions.width} 
                             containerHeight={dimensions.height} />
