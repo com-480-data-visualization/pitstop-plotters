@@ -3,16 +3,18 @@ import * as d3 from 'd3';
 import style from "./HallOfFameSpider.module.css"
 
 
+const domain_end = 20;
 const SpiderChart = () => {
     const chartRef = useRef(null);
 
     useEffect(() => {
         const chart = d3.select(chartRef.current);
-        const width = 960, height = 500;
+        const width = chartRef.current.clientWidth;
+        const height = chartRef.current.clientHeight;
         const centerCoords = [width / 2, height / 2];
         const RADIAN_OFFSET = Math.PI / 2;
 
-        const padding = 60;
+        const padding = 100;
         const radius = d3.min([width - padding, height - padding]) / 2;
 
         chart.selectAll("*").remove();
@@ -34,17 +36,9 @@ const SpiderChart = () => {
             { attribute: 'Decisiveness', value: 14 },
             { attribute: 'Imagination', value: 13 },
             { attribute: 'Curiosity', value: 8 },
-            { attribute: 'Aggression', value: 5 },
-            { attribute: 'Loyalty', value: 16 },
-            { attribute: 'Empathy', value: 9 },
-            { attribute: 'Tenacity', value: 17 },
-            { attribute: 'Courage', value: 15 },
-            { attribute: 'Sensuality', value: 18 },
-            { attribute: 'Charm', value: 18 },
-            { attribute: 'Humor', value: 9 }
         ];
 
-        const domain = [0, 20];
+        const domain = [0, domain_end];
 
         const angle = d3.scaleLinear()
             .domain([0, data.length])
@@ -128,10 +122,10 @@ const SpiderChart = () => {
             .data(data).enter()
             .append('text')
             .classed('label', true)
-            .attr('x', (d, i) => X(i, radius, 20))
-            .attr('y', (d, i) => Y(i, radius, 20))
+            .attr('x', (d, i) => X(i, radius, domain_end))
+            .attr('y', (d, i) => Y(i, radius, domain_end))
             .style("text-anchor", (d, i) => labelAnchor(i))
-            .text(d => `${d.attribute.toUpperCase()} [${d.value}]`);
+            .text(d => `${d.attribute.toUpperCase()}=  ${d.value}`);
 
     }, []);
 

@@ -23,9 +23,6 @@ const HallOfFamePage = () => {
                 <img src={leftImage} alt="Left Border" className={styles.boder_img}/>
                 <div className={styles.content}>
                     <div className={styles.leftSide}>
-                        <div className={styles.titleContainer}>
-                            name Skills
-                        </div>
                         <SpiderChart/>
                     </div>
                     <img src={lineImage} alt="Center line" className={styles.centerImage}/>
