@@ -161,7 +161,8 @@ const CircuitMap = ({ onCircuitChange, containerWidth, containerHeight }) => {
                                     rx="5" 
                                     ry="5"
                                     opacity="0.5"
-                                    translate="transform(-30, -10)"
+                                    // translate="transform(-30, -10)"
+                                    // transform={`translate(${-30*getScale()}, ${-10*getScale()})`}
                                 />
                                 <text 
                                     x="10"
@@ -169,7 +170,7 @@ const CircuitMap = ({ onCircuitChange, containerWidth, containerHeight }) => {
                                     textAnchor="start" 
                                     alignmentBaseline="middle" 
                                     fill="#f7f7f7"
-                                    translate="transform(-30, -10)"
+                                    // transform={`translate(${-30*getScale()}, ${-10*getScale()})`}
                                 >
                                     {clickedCircuit}
                                 </text>
