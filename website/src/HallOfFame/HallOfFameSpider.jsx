@@ -1,9 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
-import style from "./HallOfFameSpider.module.css"
+import style from './HallOfFameSpider.module.css';
 
-
-const domain_end = 20;
 const SpiderChart = () => {
     const chartRef = useRef(null);
 
@@ -14,14 +12,16 @@ const SpiderChart = () => {
         const centerCoords = [width / 2, height / 2];
         const RADIAN_OFFSET = Math.PI / 2;
 
-        const padding = 100;
+        const padding = 150;
         const radius = d3.min([width - padding, height - padding]) / 2;
 
         chart.selectAll("*").remove();
 
         const svg = chart.append("svg")
-            .attr("height", height)
-            .attr("width", width);
+            .attr("width", "100%")
+            .attr("height", "100%")
+            .attr("viewBox", `0 0 ${width} ${height}`)
+            .attr("preserveAspectRatio", "xMidYMid meet");
 
         const data = [
             { attribute: 'Bulk Apperception', value: 14 },
@@ -36,9 +36,17 @@ const SpiderChart = () => {
             { attribute: 'Decisiveness', value: 14 },
             { attribute: 'Imagination', value: 13 },
             { attribute: 'Curiosity', value: 8 },
+            { attribute: 'Aggression', value: 5 },
+            { attribute: 'Loyalty', value: 16 },
+            { attribute: 'Empathy', value: 9 },
+            { attribute: 'Tenacity', value: 17 },
+            { attribute: 'Courage', value: 15 },
+            { attribute: 'Sensuality', value: 18 },
+            { attribute: 'Charm', value: 18 },
+            { attribute: 'Humor', value: 9 }
         ];
 
-        const domain = [0, domain_end];
+        const domain = [0, 20];
 
         const angle = d3.scaleLinear()
             .domain([0, data.length])
@@ -122,14 +130,14 @@ const SpiderChart = () => {
             .data(data).enter()
             .append('text')
             .classed('label', true)
-            .attr('x', (d, i) => X(i, radius, domain_end))
-            .attr('y', (d, i) => Y(i, radius, domain_end))
+            .attr('x', (d, i) => X(i, radius, 20))
+            .attr('y', (d, i) => Y(i, radius, 20))
             .style("text-anchor", (d, i) => labelAnchor(i))
-            .text(d => `${d.attribute.toUpperCase()}=  ${d.value}`);
+            .text(d => `${d.attribute.toUpperCase()} [${d.value}]`);
 
     }, []);
 
-    return <div ref={chartRef}></div>;
+    return <div style={{ width: '100%', height: '100%' }} ref={chartRef}></div>;
 };
 
 export default SpiderChart;
