@@ -68,7 +68,7 @@
     align-items: center;
     justify-content: center;
     width: 100%; /* Ensures full width within the parent container */
-
+    margin: 0;
 }
 
 .centerImage {
