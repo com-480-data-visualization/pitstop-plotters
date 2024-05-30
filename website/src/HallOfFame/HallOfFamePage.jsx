@@ -31,6 +31,9 @@ const HallOfFamePage = () => {
                             <div className={styles.titleContainer}>
                                 Top 5 drivers of all time
                             </div>
+                            <div className={styles.desc}>
+                                {driver.description}
+                            </div>
                             <ImageRow onDriverChange = {handleDriverChange}/>
                         </div>
                         <img src={lineImage_h} alt="Center Divider" className={styles.centerDivider}/>

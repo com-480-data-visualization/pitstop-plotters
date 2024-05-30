@@ -72,7 +72,7 @@ function ImageRow({onDriverChange}) {
                         src={getImageSrc(image, index)}
                         alt={`Image ${image.name}`}
                         style={{
-                            width: selectedImage === index ? '200px' : '100px',
+                            width: selectedImage === index ? '130px' : '100px',
                             height: 'auto'
                         }}
                         onClick={() => toggleSize(index)}
