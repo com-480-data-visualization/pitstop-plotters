@@ -62,6 +62,8 @@ input[type="range"]::-moz-range-thumb {
     height: 5%;
     width: 5%;
     background-image: url('../../img/f1_t.png');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 
