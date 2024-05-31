@@ -35,10 +35,10 @@ const DriverTeamRelations = () => {
 
         const simulation = d3.forceSimulation(nodes)
             .force('link', d3.forceLink(links).id(d => d.id).distance(100))
-            .force('charge', d3.forceManyBody().strength(-300))
+            .force('charge', d3.forceManyBody().strength(-250))
             .force('center', d3.forceCenter(0, 0))
-            .force('x', d3.forceX().strength(0.1))
-            .force('y', d3.forceY().strength(0.1));
+            .force('x', d3.forceX().strength(0.15))
+            .force('y', d3.forceY().strength(0.15));
 
         const svg = d3.select(chartRef.current)
             .attr('width', width)
