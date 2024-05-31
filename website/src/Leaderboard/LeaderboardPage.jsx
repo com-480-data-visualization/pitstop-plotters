@@ -11,37 +11,38 @@ import constructorUrl from "./ordered_data.csv?url";
 const LeaderboardPage = () => {
     const [year, setYear] = useState(Math.min(...years));
     const [containerWidth, setContainerWidth] = useState(0);
+    const [containerHeight, setContainerHeight] = useState(0);
     const containerRef = useRef(null);
 
     useEffect(() => {
-        if (containerRef.current) {
-            setContainerWidth(containerRef.current.offsetWidth);
-        }
-
-        const handleResize = () => {
+        const updateDimensions = () => {
             if (containerRef.current) {
                 setContainerWidth(containerRef.current.offsetWidth);
+                setContainerHeight(containerRef.current.offsetHeight);
             }
         };
 
-        window.addEventListener('resize', handleResize);
+        updateDimensions(); // Set initial dimensions
+
+        window.addEventListener('resize', updateDimensions);
 
         return () => {
-            window.removeEventListener('resize', handleResize);
+            window.removeEventListener('resize', updateDimensions);
         };
     }, []);
 
-    const leaderboardWidth = (containerWidth/2 + 150) ; // Adjust 20 for margin/padding
+    const leaderboardWidth = (containerWidth / 2) + 150; // Adjust as needed
+    const leaderboardHeight = containerHeight/1.5; // Adjust as needed to fit within the container
 
     return (
         <div className={styles.template}>
             <div className={styles.border}>
                 <img src={leftImage} alt="Left Border" className={styles.boder_img}/>
                 <div className={styles.content} ref={containerRef}>
-                    <h1 style={{fontSize: "3em", fontFamily: "f1Font",}}>Formula 1 Leaderboard</h1>
+                    <h1 style={{fontSize: "3em", fontFamily: "f1Font", marginTop: "-0.5em", marginBottom: "-1em"}}>Formula 1 Leaderboard</h1>
                     <div className={styles.leader}>
-                        <Leaderboard year={year} width={leaderboardWidth} height={500} dataUrl={driverUrl}/>
-                        <Leaderboard year={year} width={leaderboardWidth} height={500} dataUrl={constructorUrl}/>
+                        <Leaderboard year={year} width={leaderboardWidth} height={leaderboardHeight} dataUrl={driverUrl}/>
+                        <Leaderboard year={year} width={leaderboardWidth} height={leaderboardHeight} dataUrl={constructorUrl}/>
                     </div>
                     <ProgressBar year={year} onYearChanged={(year) => setYear(year)}/>
                 </div>

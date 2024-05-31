@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from "react";
 import style from "./Leaderboard.module.css";
 import { useTransition, animated } from "react-spring";
 import * as d3 from "d3";
+import { teamColors } from "./const"; // Ensure teamColors is correctly imported
 
 const Leaderboard = (props) => {
     const { width, height, year, dataUrl } = props;
@@ -9,7 +10,7 @@ const Leaderboard = (props) => {
     const [items, setItems] = useState([]);
     const [data, setData] = useState(null);
 
-    const div_height = height / 10; // Adjusted from 10 to 9 to increase space
+    const div_height = height / 10;
 
     const transitions = useTransition(
         items.map((item, i) => ({ item: item, index: i + 1, y: i * div_height })),
@@ -27,7 +28,11 @@ const Leaderboard = (props) => {
         const ret = {};
         for (let score of csv) {
             if (!ret[score.year]) ret[score.year] = {};
-            ret[score.year][score.name] = { score: +score.value };
+            ret[score.year][score.name] = {
+                score: +score.value,
+                constructor_name: score.constructor_name,
+                name: score.name
+            };
         }
         return ret;
     };
@@ -42,13 +47,19 @@ const Leaderboard = (props) => {
     useEffect(() => {
         if (data == null) return;
         if (data[year] === undefined) return;
-        const newItems = Object.keys(data[year]).sort((a, b) => data[year][b] - data[year][a]);
+        const newItems = Object.keys(data[year]).sort((a, b) => data[year][b].score - data[year][a].score);
         setItems(newItems.slice(0, 10));
     }, [year, data]);
 
     const scoreToWidth = d3.scaleLinear().domain([0, 234]).nice().range([width / 2, width * 1.1]);
 
-    const color = d3.scaleSequential().domain([7.9, 7]).nice().interpolator(d3.interpolateInferno);
+    const getColor = (item) => {
+        const teamName = data[year][item.item].name;
+        console.log(teamName + "TEAMNAME");
+        const constructorName = data[year][item.item].constructor_name;
+        return teamColors[teamName] || teamColors[constructorName] || '#cccccc'; // Fallback color if no match
+    };
+
     const pos = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
     return (
@@ -68,7 +79,7 @@ const Leaderboard = (props) => {
                     >
                         <div className={style.leaderboardItem} style={{
                             width: scoreToWidth(data[year][item.item].score),
-                            backgroundColor: color(data[year][item.item].score)
+                            backgroundColor: getColor(item)
                         }}>
                             <p className={style.itemName}>{item.item}</p>
                         </div>
