@@ -82,7 +82,7 @@ const Leaderboard = (props) => {
                             backgroundColor: getColor(item),
                             display: 'flex',
                             alignItems: 'center',
-                            justifyContent: 'center'
+                            justifyContent: 'left'
                         }}>
                             <p className={style.itemName}>{item.item}</p>
                         </div>
