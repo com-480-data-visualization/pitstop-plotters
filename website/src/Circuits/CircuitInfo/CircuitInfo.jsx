@@ -1,10 +1,21 @@
 import React from 'react';
 import styles from "./CircuitInfo.module.css"
 import lineImage from '../../img/line1.png';
-import circuitImage from "../../img/Circuits/Melbourne.jpg"
+
+const circuitImages = require.context('../../img/Circuits', false, /\.(png|jpe?g|svg)$/);
 
 const CircuitInfo = ({ circuit }) => {
     
+    const getCircuitImage = (circuitName) => {
+        try {
+            return circuitImages(`./${circuitName}.jpg`);
+        } catch (error) {
+            // Handle the case where the image is not found
+            console.error(`Image not found for circuit: ${circuitName}`);
+            return null;
+        }
+    };
+
     return (
         <div className={styles.infobox}>
             {/* content  */}
@@ -35,7 +46,7 @@ const CircuitInfo = ({ circuit }) => {
 
             {/* circuit layout  */}
             <div className={styles.imageContainer}>
-                <img src={circuit.circuitImage} alt={`${circuit.name} Circuit`} className={styles.circuitImage} />
+                <img src={getCircuitImage(circuit.name)} alt={`${circuit.name} Circuit`} className={styles.circuitImage} />
             </div>
         </div>
     );
