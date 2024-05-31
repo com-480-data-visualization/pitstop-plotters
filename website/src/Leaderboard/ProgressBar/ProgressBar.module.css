@@ -30,6 +30,14 @@ input[type="range"] {
 }
 
 input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%; /* Updated to fill available space */
+    cursor: pointer;
+    outline: none;
+}
+
+input[type="range"] {
     height: 15px;
     background: #ccc;
     border-radius: 16px;
@@ -50,26 +58,25 @@ input[type="range"]::-moz-range-track {
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    height: 15px;
-    width: 15px;
-    background-color: purple;
-    border-radius: 50%;
-}
-
-/*button*/
-input[type="range"]::-moz-range-thumb {
-    height: 15px;
-    width: 15px;
-    background-color: red;
-    border-radius: 50%;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-    box-shadow: -807px 0 0 800px red;
+    height: 100px; /* Adjust height as needed */
+    width: 100px;  /* Adjust width as needed */
+    background: url('../../img/f1_t.png') no-repeat center;
+    background-size: contain; /* Ensure the image fits within the thumb */
+    border: none; /* Remove border to avoid cropping */
+    cursor: pointer;
 }
 
 input[type="range"]::-moz-range-thumb {
-    box-shadow: -807px 0 0 800px red;
+    height: 100px; /* Adjust height as needed */
+    width: 100px;  /* Adjust width as needed */
+    background: url('../../img/f1_t.png') no-repeat center;
+    background-size: contain; /* Ensure the image fits within the thumb */
+    border: none; /* Remove border to avoid cropping */
+    cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+    box-shadow: -800px 0 0 800px #AAAAAA;
 }
 
 input[type="range"] {
