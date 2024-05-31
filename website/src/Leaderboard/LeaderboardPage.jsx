@@ -4,8 +4,8 @@ import rightImage from '../img/apex_right.png';
 import { useState } from "react";
 import Leaderboard from "./Leaderboard";
 import ProgressBar from "./ProgressBar/ProgressBar";
+import { years } from "./const";
 
-const years = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023];
 const LeaderboardPage = () => {
     const [year, setYear] = useState(Math.min(...years));
     return (

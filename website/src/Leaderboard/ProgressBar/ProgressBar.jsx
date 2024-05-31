@@ -1,7 +1,7 @@
 import style from "./ProgressBar.module.css";
 import ProgressController from "./ProgressController";
+import { years } from "../const";
 
-const years = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023];
 const ProgressBar = ({ year, onYearChanged }) => {
     return (
         <div className={style.bar}>

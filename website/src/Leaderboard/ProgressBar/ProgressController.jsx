@@ -2,14 +2,15 @@ import { useState } from "react";
 import useInterval from "./UseInterval";
 import { FaPlay, FaStop } from 'react-icons/fa';
 import style from "./ProgressBar.module.css";
+import { years } from "../const";
 
-const years = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023];
+
 const ProgressController = ({ year, onYearChanged }) => {
     const [isPlaying, setIsPlaying] = useState(false);
 
     useInterval(() => {
         const maxYear = Math.max(...years);
-        if (year == maxYear) {
+        if (year === maxYear) {
             setIsPlaying(false);
         } else {
             increaseYear();
@@ -18,13 +19,13 @@ const ProgressController = ({ year, onYearChanged }) => {
 
     const increaseYear = () => {
         const maxYear = Math.max(...years);
-        if (year == maxYear) return;
+        if (year === maxYear) return;
         onYearChanged(year + 1);
     };
 
     const decreaseYear = () => {
         const maxYear = Math.min(...years);
-        if (year == maxYear) return;
+        if (year === maxYear) return;
         onYearChanged(year - 1);
     };
 
