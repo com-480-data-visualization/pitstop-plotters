@@ -82,7 +82,7 @@ const Leaderboard = (props) => {
                         }}>
                             <p className={style.itemName}>{item.item}</p>
                         </div>
-                        <p className={style.leaderboardScore}>{data[year][item.item].score.toFixed(2)}</p>
+                        <p className={style.leaderboardScore}>{Math.round(data[year][item.item].score)}</p>
                     </animated.div>
                 ))}
             </div>
