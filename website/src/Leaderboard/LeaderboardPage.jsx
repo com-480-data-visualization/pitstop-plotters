@@ -17,8 +17,8 @@ const LeaderboardPage = () => {
                 <div className={styles.content}>
                     <h1 style={{fontSize: "3em", fontFamily: "f1Font",}}>Formula 1 Leaderboard</h1>
                     <div className={styles.leader}>
-                        <Leaderboard year={year} width={360} height={400} dataUrl={driverUrl}/>
-                        <Leaderboard year={year} width={360} height={400} dataUrl={constructorUrl}/>
+                        <Leaderboard year={year} width={370*2} height={500} dataUrl={driverUrl}/>
+                        <Leaderboard year={year} width={370*2} height={500} dataUrl={constructorUrl}/>
                     </div>
                     <ProgressBar year={year} onYearChanged={(year) => setYear(year)}/>
                 </div>

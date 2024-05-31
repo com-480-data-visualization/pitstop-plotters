@@ -49,7 +49,7 @@ const Leaderboard = (props) => {
 
 
 
-    const scoreToWidth = d3.scaleLinear().domain([7.1, 7.8]).nice().range([width / 3 + 6, width - 80])
+    const scoreToWidth = d3.scaleLinear().domain([0, 234]).nice().range([width/2, width*1.1]);
 
     const color = d3.scaleSequential().domain([7.9, 7]).nice().interpolator(d3.interpolateInferno);
     const pos = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -63,7 +63,7 @@ const Leaderboard = (props) => {
                 {data && transitions(({ y, ...rest }, item, { key }) => (
                     <animated.div
                         key={key}
-                        className={style.countryContainer}
+                        className={style.itemContainer}
                         style={{
                             transform: y.to((y) => `translate3d(0,${y}px,0)`),
                             ...rest
