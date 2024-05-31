@@ -6,6 +6,31 @@ const DriverTeamRelations = () => {
     const chartRef = useRef(null);
     const containerRef = useRef(null);
 
+    const colorMap = {
+        "McLaren": "#FF8700",
+        "Mercedes": "#00D2BE",
+        "Renault": "#FFF500",
+        "Ferrari": "#DC0000",
+        "Aston Martin": "#006F62",
+        "Alpine F1 Team": "#0090FF",
+        "Lotus": "#FFB800",
+        "Caterham": "#00352F",
+        "Lotus F1": "#FFB800",
+        "Alfa Romeo": "#900000",
+        "Williams": "#005AFF",
+        "Virgin": "#E31837",
+        "Marussia": "#D40000",
+        "Force India": "#FF8700",
+        "Sauber": "#006EFF",
+        "Red Bull": "#1E41FF",
+        "HRT": "#BEBEBE",
+        "Toro Rosso": "#0032FF",
+        "Haas F1 Team": "#787878",
+        "Racing Point": "#F596C8",
+        "AlphaTauri": "#2B4562",
+        "Manor Marussia": "#E40000"
+    };
+
     useEffect(() => {
         const loadData = async () => {
             try {
@@ -28,7 +53,6 @@ const DriverTeamRelations = () => {
 
         const container = containerRef.current;
         const { width, height } = container.getBoundingClientRect();
-        const color = d3.scaleOrdinal(d3.schemeCategory10);
 
         const links = data.links.map(d => ({ ...d }));
         const nodes = data.nodes.map(d => ({ ...d }));
@@ -49,35 +73,35 @@ const DriverTeamRelations = () => {
         svg.selectAll("*").remove();
 
         const link = svg.append('g')
-            .attr('stroke', '#999')
             .attr('stroke-opacity', 0.6)
             .selectAll('line')
             .data(links)
             .enter().append('line')
-            .attr('stroke-width', d => Math.sqrt(d.value));
+            .attr('stroke-width', d => Math.sqrt(d.value))
+            .attr('stroke', d => colorMap[d.source.id] || '#00ff00'); // Use color of source node
 
         const node = svg.append('g')
-            .attr('stroke', '#fff')
             .attr('stroke-width', 1.5)
             .selectAll('circle')
             .data(nodes)
             .enter().append('circle')
             .attr('r', d => d.radius) // Set radius from data
-            .attr('fill', d => color(d.group))
+            .attr('fill', d => colorMap[d.id] || '#00ff00')
+            .attr('stroke', d => colorMap[d.id] || '#fff')// Use color from colorMap
             .call(d3.drag()
                 .on('start', dragstarted)
                 .on('drag', dragged)
                 .on('end', dragended));
 
         const text = svg.append('g')
-            .attr('stroke', '#fff')
             .attr('stroke-width', 1.5)
             .selectAll('text')
             .data(nodes)
             .enter().append('text')
             .attr('dx', 12)
             .attr('dy', '.35em')
-            .text(d => d.id);
+            .text(d => d.id)
+            .attr('color', d => colorMap[d.id] || '#fff');
 
         node.append('title')
             .text(d => d.id);
