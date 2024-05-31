@@ -7,6 +7,7 @@ import ProgressBar from "./ProgressBar/ProgressBar";
 import { years } from "./const";
 import driverUrl from "./driver_cumulative_wins_with_constructors.csv?url";
 import constructorUrl from "./ordered_data.csv?url";
+import lineImage from "../img/line1.png";
 
 const LeaderboardPage = () => {
     const [year, setYear] = useState(Math.min(...years));
@@ -41,8 +42,11 @@ const LeaderboardPage = () => {
                 <div className={styles.content} ref={containerRef}>
                     <h1 style={{fontSize: "3em", fontFamily: "f1Font", marginTop: "-0.5em", marginBottom: "-1em"}}>Formula 1 Leaderboard</h1>
                     <div className={styles.leader}>
-                        <Leaderboard year={year} width={leaderboardWidth} height={leaderboardHeight} dataUrl={driverUrl}/>
-                        <Leaderboard year={year} width={leaderboardWidth} height={leaderboardHeight} dataUrl={constructorUrl}/>
+                        <Leaderboard year={year} width={leaderboardWidth} height={leaderboardHeight}
+                                     dataUrl={driverUrl}/>
+                        <img src={lineImage} alt="Center line" className={styles.centerImage}/>
+                        <Leaderboard year={year} width={leaderboardWidth} height={leaderboardHeight}
+                                     dataUrl={constructorUrl}/>
                     </div>
                     <ProgressBar year={year} onYearChanged={(year) => setYear(year)}/>
                 </div>

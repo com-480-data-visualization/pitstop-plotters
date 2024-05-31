@@ -91,3 +91,11 @@
   flex-grow: 1;
 }
 
+.centerImage {
+  width: 33px;
+  height: 99%;
+  opacity: 0.75;
+  padding-left: -70em;
+  padding-right: 4em;
+}
+
