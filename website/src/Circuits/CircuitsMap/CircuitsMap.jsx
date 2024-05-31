@@ -54,7 +54,6 @@ const CircuitMap = ({ onCircuitChange, containerWidth, containerHeight }) => {
             // zoom on the marker
             if (1/zoomScale < zoomIn-1.5) {
                 setCenter(marker.coordinates);
-                console.log("Zooming in!");
                 setZoom(zoomIn);
                 setZoomScale(1/zoom);
             }

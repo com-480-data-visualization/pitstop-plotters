@@ -19,12 +19,9 @@ const SeasonEvolution = () => {
     let colorIndex = 0;
 
     data.forEach(row => {
-        console.log(row)
       if (!teamColors[row.teamId]) {
         teamColors[row.teamId] = coolColors[colorIndex % coolColors.length];
         colorIndex += 1;
-      } else {
-        console.log("color for team " + row.teamId + " is " + teamColors[row.teamId]);
       }
     });
 
@@ -56,15 +53,28 @@ const SeasonEvolution = () => {
   };
 
   return (
-    <div>
+    <div className={styles.plotContainer}>
+      {/* Graph */}
       <Plot
         data={traces}
         layout={{
           title: `Points of drivers in ${currentYear}`,
-          xaxis: { title: 'Date' },
-          yaxis: { title: 'Points' },
+          xaxis: { title: 'Circuit', linecolor: 'white', linewidth: 2 },
+          yaxis: { title: 'Points', linecolor: 'white', linewidth: 2 },
+          paper_bgcolor: 'rgba(40,40,40,0)',
+          plot_bgcolor: 'rgba(40,40,40,0)',
+          font: { color: 'white' },
+          margin: { l: 50, r: 50, t: 50, b: 50 }, // Added margin to ensure border visibility
+          width: '100%',
+          height: '100%',
+          mode: 'lines',
+          grid: { color: 'white', width: 1 },
         }}
+        useResizeHandler
+        style={{ width: '100%', height: '100%' }}
       />
+
+      {/* slider */}
       <div className={styles.sliderContainer}>
         <input
           type="range"
