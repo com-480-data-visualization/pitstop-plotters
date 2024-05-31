@@ -61,9 +61,8 @@ input[type="range"]::-webkit-slider-thumb {
 input[type="range"]::-moz-range-thumb {
     height: 100px;
     width: 100px;
-    background-image: url('/Users/mac/Desktop/pitstop-plotters/website/src/img/f1_t.png'); 
-    background-color: red;
-    border-radius: 50%;
+    background-image: url('https://rawcdn.githack.com/com-480-data-visualization/pitstop-plotters/5353772f4961e8163bb0ba40a886580fa8d187ac/website/src/img/f1_t.png');
+
 }
 
 

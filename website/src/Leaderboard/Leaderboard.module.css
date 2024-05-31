@@ -106,3 +106,9 @@
 .boder_img {
   width: 5%;
 }
+.border {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
