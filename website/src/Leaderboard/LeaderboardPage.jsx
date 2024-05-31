@@ -1,7 +1,7 @@
 import styles from './Leaderboard.module.css';
 import leftImage from '../img/apex_left.png';
 import rightImage from '../img/apex_right.png';
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Leaderboard from "./Leaderboard";
 import ProgressBar from "./ProgressBar/ProgressBar";
 import { years } from "./const";
@@ -10,15 +10,38 @@ import constructorUrl from "./ordered_data.csv?url";
 
 const LeaderboardPage = () => {
     const [year, setYear] = useState(Math.min(...years));
+    const [containerWidth, setContainerWidth] = useState(0);
+    const containerRef = useRef(null);
+
+    useEffect(() => {
+        if (containerRef.current) {
+            setContainerWidth(containerRef.current.offsetWidth);
+        }
+
+        const handleResize = () => {
+            if (containerRef.current) {
+                setContainerWidth(containerRef.current.offsetWidth);
+            }
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    const leaderboardWidth = (containerWidth/2 + 150) ; // Adjust 20 for margin/padding
+
     return (
         <div className={styles.template}>
             <div className={styles.border}>
                 <img src={leftImage} alt="Left Border" className={styles.boder_img}/>
-                <div className={styles.content}>
+                <div className={styles.content} ref={containerRef}>
                     <h1 style={{fontSize: "3em", fontFamily: "f1Font",}}>Formula 1 Leaderboard</h1>
                     <div className={styles.leader}>
-                        <Leaderboard year={year} width={370*2} height={500} dataUrl={driverUrl}/>
-                        <Leaderboard year={year} width={370*2} height={500} dataUrl={constructorUrl}/>
+                        <Leaderboard year={year} width={leaderboardWidth} height={500} dataUrl={driverUrl}/>
+                        <Leaderboard year={year} width={leaderboardWidth} height={500} dataUrl={constructorUrl}/>
                     </div>
                     <ProgressBar year={year} onYearChanged={(year) => setYear(year)}/>
                 </div>
