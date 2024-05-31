@@ -13,10 +13,10 @@ import geoUrl from "../world-110m.json";
 import mapMarkers from "../map_info.json";
 
 const CircuitMap = ({ onCircuitChange, containerWidth, containerHeight }) => {
-    const zoomIn = 4;
+    const zoomIn = 3;
     const [markers, setMarkers] = useState([]);
     const [zoom, setZoom] = useState(1); // manage map zoom level
-    const [center, setCenter] = useState([0, 11]); // manage map center
+    const [center, setCenter] = useState([15, 8]); // manage map center
     const [zoomScale, setZoomScale] = useState(1); // manage zoom scale
 
     const [clickedCircuit, setClickedCircuit] = useState(null);
@@ -37,6 +37,17 @@ const CircuitMap = ({ onCircuitChange, containerWidth, containerHeight }) => {
                 }));
 
                 setMarkers(updatedMarkers);
+
+
+                for( var i = 0; i < updatedMarkers.length; i++) {
+                    console.log(updatedMarkers[i].name + i);
+                }
+
+                // select the default marker 
+                const defaultMarker = updatedMarkers[9];
+                setClickedCircuit(defaultMarker.name);
+                setClickMarkerCoordinates({ x: defaultMarker.coordinates[0], y: defaultMarker.coordinates[1]});
+                onCircuitChange(defaultMarker);
             } catch (error) {
                 console.error('Error loading markers:', error);
             }
@@ -76,7 +87,7 @@ const CircuitMap = ({ onCircuitChange, containerWidth, containerHeight }) => {
     }
 
     const getScale = () => {
-        return zoomScale*1.5;
+        return zoomScale*1.3;
     };
     
     const ZoomObserver = () => {
