@@ -55,7 +55,6 @@ const Leaderboard = (props) => {
 
     const getColor = (item) => {
         const teamName = data[year][item.item].name;
-        console.log(teamName + "TEAMNAME");
         const constructorName = data[year][item.item].constructor_name;
         return teamColors[teamName] || teamColors[constructorName] || '#cccccc'; // Fallback color if no match
     };
