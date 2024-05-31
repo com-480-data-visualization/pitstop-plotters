@@ -1,11 +1,10 @@
-import React, { useEffect, useRef, useState} from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
 
 const DriverTeamRelations = () => {
     const [data, setData] = useState(null);
-
-
     const chartRef = useRef(null);
+    const containerRef = useRef(null);
 
     useEffect(() => {
         const loadData = async () => {
@@ -21,21 +20,19 @@ const DriverTeamRelations = () => {
         loadData();
     }, []);
 
-
-
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (!data) {
             console.log('No data to display');
-            return
-        };
-        const width = 928;
-        const height = 680;
+            return;
+        }
+
+        const container = containerRef.current;
+        const { width, height } = container.getBoundingClientRect();
         const color = d3.scaleOrdinal(d3.schemeCategory10);
 
-
         const links = data.links.map(d => ({ ...d }));
-
         const nodes = data.nodes.map(d => ({ ...d }));
+
         const simulation = d3.forceSimulation(nodes)
             .force('link', d3.forceLink(links).id(d => d.id))
             .force('charge', d3.forceManyBody())
@@ -107,9 +104,13 @@ const DriverTeamRelations = () => {
         return () => {
             simulation.stop();
         };
-    }, []);
+    }, [data]);
 
-    return <svg ref={chartRef}></svg>;
+    return (
+        <div ref={containerRef} style={{ width: '100%', height: '100%' }}>
+            <svg ref={chartRef}></svg>
+        </div>
+    );
 };
 
 export default DriverTeamRelations;
