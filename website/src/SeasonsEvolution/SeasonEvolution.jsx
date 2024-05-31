@@ -1,81 +1,101 @@
 import styles from "./SeasonsEvolution.module.css";
-import * as d3 from "d3";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import Plot from 'react-plotly.js';
+import data from './season_evolution.json';
 
-const SeasonEvolution = (props) => {
+const SeasonEvolution = () => {
+  const years = [...new Set(data.map(row => row.year))];
+  const [currentYear, setCurrentYear] = useState(years[2]);
+  const [traces, setTraces] = useState([]);
 
-    useEffect(() => {
-        const margin = { top: 10, right: 20, bottom: 30, left: 50 }; // Adjust margins as needed
-        const fullWidth = 460; // Width of the component
-        const width = fullWidth - margin.left - margin.right,
-            height = 400 - margin.top - margin.bottom;
+  // List of cool colors
+  const coolColors = [
+    '#FF5733', '#33FF57', '#3357FF', '#FF33A1', '#FF8C33',
+    '#33FFF0', '#8D33FF', '#FF3333', '#33FF33', '#FF33FF'
+  ];
 
-        // avoid multiple svg elements display
-        d3.select("#seasonevolution svg").remove();
+  const assignTeamColors = () => {
+    const teamColors = {};
+    let colorIndex = 0;
 
-        // add the svg element only once
-        const svg = d3.select("#seasonevolution")
-            .append("svg")
-            .attr("width", fullWidth) // Set full width here
-            .attr("height", height + margin.top + margin.bottom)
-            .append("g")
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    data.forEach(row => {
+      if (!teamColors[row.teamId]) {
+        teamColors[row.teamId] = coolColors[colorIndex % coolColors.length];
+        colorIndex += 1;
+      }
+    });
 
-        // Read the data
-        d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/5_OneCatSevNumOrdered.csv").then(function (data) {
-            // Preprocess the data to group by name
-            var groupedData = d3.groups(data, d => d.name);
+    return teamColors;
+  };
 
-            // Add X axis --> it is a date format
-            var x = d3.scaleLinear()
-                .domain(d3.extent(data, function (d) { return +d.year; }))
-                .range([0, width]);
-            var xAxis = svg.append("g")
-                .attr("transform", "translate(0," + height + ")")
-                .call(d3.axisBottom(x).ticks(5));
+  useEffect(() => {
+    const teamColors = assignTeamColors();
 
-            // put text and lines in white
-            xAxis.selectAll("text").style("fill", "white");
-            xAxis.selectAll("line").style("stroke", "white");
-            xAxis.selectAll("path").style("stroke", "white");
+    const filteredData = data.filter(row => row.year === currentYear);
+    const driverIds = [...new Set(filteredData.map(row => row.driverId))];
+    const yearTraces = driverIds.map(driverId => {
+      const driverRes = filteredData.filter(d => d.driverId === driverId);
+      const teamColor = teamColors[driverRes[0].teamId];
+      return {
+        x: driverRes.map(d => d.gp_name),
+        y: driverRes.map(d => d.points),
+        mode: 'lines+markers',
+        name: `${driverRes[0].forename} ${driverRes[0].surname}`, // Shortened surname in legend with full name in hover
+        line: { color: driverRes[0].color || teamColor },
+        text: driverRes.map(d => `${d.forename} ${d.surname} - ${d.gp_name}: ${d.points} points`), // Add full driver name, circuit name, and points for hover
+        hoverinfo: 'text', // Display full driver name, circuit name, and points on hover
+      };
+    });
 
-            // Add Y axis
-            var y = d3.scaleLinear()
-                .domain([0, d3.max(data, function (d) { return +d.n; })])
-                .range([height, 0]);
-            var yAxis = svg.append("g")
-                .call(d3.axisLeft(y));
+    setTraces(yearTraces);
+  }, [currentYear]);
 
-            // color y axis in white
-            yAxis.selectAll("text").style("fill", "white");
-            yAxis.selectAll("line").style("stroke", "white");
-            yAxis.selectAll("path").style("stroke", "white");
+  const handleSliderChange = (e) => {
+    setCurrentYear(Number(e.target.value));
+  };
 
-            // color palette
-            var color = d3.scaleOrdinal()
-                .domain(groupedData.map(d => d[0]))
-                .range(['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00', '#ffff33', '#a65628', '#f781bf', '#999999']);
+  return (
+    <div className={styles.plotContainer}>
+      {/* Graph */}
+      <Plot
+        data={traces}
+        layout={{
+          title: `Points of drivers in ${currentYear}`,
+          xaxis: {
+            title: 'Circuit',
+            linecolor: 'white',
+            linewidth: 2,
+            tickvals: data.filter(row => row.year === currentYear).map(d => d.gp_name),
+            ticktext: data.filter(row => row.year === currentYear).map(d => d.gp_name.slice(0, 3).toUpperCase()), // Show only first three letters in uppercase
+            hovermode: 'x', // Add hovermode to show text on x-axis hover
+          },
+          yaxis: { title: 'Points', linecolor: 'white', linewidth: 2 },
+          paper_bgcolor: 'rgba(40,40,40,0)',
+          plot_bgcolor: 'rgba(40,40,40,0)',
+          font: { color: 'white' },
+          margin: { l: 50, r: 50, t: 50, b: 50 }, // Added margin to ensure border visibility
+          width: '100%',
+          height: '100%',
+          grid: { color: 'white', width: 1},
+        }}
+        useResizeHandler
+        style={{ width: '100%', height: '100%' }}
+      />
 
-            // Draw the lines
-            groupedData.forEach(function (group) {
-                svg.append("path")
-                    .datum(group[1])
-                    .attr("fill", "none")
-                    .attr("stroke", color(group[0]))
-                    .attr("stroke-width", 1.5)
-                    .attr("d", d3.line()
-                        .x(function (d) { return x(+d.year); })
-                        .y(function (d) { return y(+d.n); })
-                    );
-            });
-        });
-    }, []); // Empty dependency array to run the effect only once
-
-    return (
-        <div id="seasonevolution" style={{display:"flex",justifyContent:"center"}}>
-            {/* Remove the unnecessary div */}
-        </div>
-    );
-}
+      {/* slider */}
+      <div className={styles.sliderContainer}>
+        <input
+          type="range"
+          min={Math.min(...years)}
+          max={Math.max(...years)}
+          value={currentYear}
+          onChange={handleSliderChange}
+          className={styles.slider}
+        />
+        <div className={styles.yearLabel}>{currentYear}</div>
+      </div>
+    </div>
+  );
+};
 
 export default SeasonEvolution;

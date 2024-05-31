@@ -1,65 +1,116 @@
-import * as d3 from "d3";
-import { useEffect } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import * as d3 from 'd3';
+import styles from "./DriverTeamRelations.module.css"; // Import the CSS module
 
-const DriverTeamRelations = (props) => {
+const DriverTeamRelations = () => {
+    const [data, setData] = useState(null);
+    const chartRef = useRef(null);
+    const containerRef = useRef(null);
+
     useEffect(() => {
-        const width = 500; // example width
-        const height = 300; // example height
+        const loadData = async () => {
+            try {
+                const data = await import(`./graph.json`);
+                console.log(`Graph data loaded`);
+                setData(data.default);
+            } catch (error) {
+                console.error(`Failed to load data for graph`, error);
+            }
+        };
 
-        // remove the svg if it already exists
-        d3.select("#driverteamrelation").select("svg").remove();
+        loadData();
+    }, []);
 
-        const svg = d3.select("#driverteamrelation")
-            .append("svg")
-            .attr("width", width)
-            .attr("height", height);
+    useLayoutEffect(() => {
+        if (!data) {
+            console.log('No data to display');
+            return;
+        }
 
-        // Custom color scale or an alternative predefined color scheme
-        const color = d3.scaleOrdinal(d3.schemeCategory10);
+        const container = containerRef.current;
+        const { width, height } = container.getBoundingClientRect();
 
-        const simulation = d3.forceSimulation()
-            .force("link", d3.forceLink().id(function(d) { return d.id; }))
-            .force("charge", d3.forceManyBody())
-            .force("center", d3.forceCenter(width / 2, height / 2));
+        const links = data.links.map(d => ({ ...d }));
+        const nodes = data.nodes.map(d => ({ ...d }));
 
-        const graph = generateLargeGraph(); // Generate the graph outside useEffect
+        const simulation = d3.forceSimulation(nodes)
+            .force('link', d3.forceLink(links).id(d => d.id).distance(100))
+            .force('charge', d3.forceManyBody().strength(-300))
+            .force('center', d3.forceCenter(0, 0))
+            .force('x', d3.forceX().strength(0.1))
+            .force('y', d3.forceY().strength(0.1));
 
-        var link = svg.append("g")
-            .attr("class", "links")
-            .selectAll("line")
-            .data(graph.links)
-            .enter().append("line")
-            .attr("stroke", "white") // Set relation lines to white
-            .attr("stroke-width", function(d) { return Math.sqrt(d.value); });
+        const svg = d3.select(chartRef.current)
+            .attr('width', width)
+            .attr('height', height)
+            .attr('viewBox', [-width / 2, -height / 2, width, height])
+            .style('max-width', '100%')
+            .style('height', 'auto');
 
-        var node = svg.append("g")
-            .attr("class", "nodes")
-            .selectAll("circle")
-            .data(graph.nodes)
-            .enter().append("circle")
-            .attr("r", 5)
-            .attr("fill", function(d, i) { return color(i); }) // Assigning color based on index
+        svg.selectAll("*").remove();
+
+        const link = svg.append('g')
+            .attr('class', styles.link) // Apply the link opacity class
+            .selectAll('line')
+            .data(links)
+            .enter().append('line')
+            .attr('stroke-width', d => Math.sqrt(d.value))
+            .attr('class', d => styles[`team-${d.target.id.replace(/\s+/g, '-')}`]); // Apply class based on target team
+
+        const node = svg.append('g')
+            .attr('stroke', '#fff')
+            .attr('stroke-width', 1.5)
+            .selectAll('circle')
+            .data(nodes)
+            .enter().append('circle')
+            .attr('r', d => d.radius) // Set radius from data
+            .attr('class', d => styles[`team-${d.id.replace(/\s+/g, '-')}`]) // Apply class based on team
+            .style('pointer-events', 'all') // Ensure nodes are interactable
             .call(d3.drag()
-                .on("start", function(event, d) { dragstarted(event, d); })
-                .on("drag", function(event, d) { dragged(event, d); })
-                .on("end", function(event, d) { dragended(event, d); }));
+                .on('start', dragstarted)
+                .on('drag', dragged)
+                .on('end', dragended));
 
-        node.append("title")
-            .text(function(d) { return d.id; });
+        const text = svg.append('g')
+            .attr('stroke-width', 0)
+            .selectAll('text')
+            .data(nodes)
+            .enter().append('text')
+            .attr('dx', 12)
+            .attr('dy', '.35em')
+            .attr('class', d => styles[`text-${d.id.replace(/\s+/g, '-')}`]) // Apply text color based on team
+            .text(d => d.id);
 
-        simulation
-            .nodes(graph.nodes)
-            .on("tick", ticked);
+        node.append('title')
+            .text(d => d.id);
 
-        simulation.force("link")
-            .links(graph.links);
+        simulation.on('tick', () => {
+            link
+                .attr('x1', d => d.source.x)
+                .attr('y1', d => d.source.y)
+                .attr('x2', d => d.target.x)
+                .attr('y2', d => d.target.y);
+
+            node
+                .attr('cx', d => d.x)
+                .attr('cy', d => d.y);
+
+            text
+                .attr('x', d => d.x)
+                .attr('y', d => d.y);
+        });
 
         function dragstarted(event, d) {
             if (!event.active) simulation.alphaTarget(0.3).restart();
-            node.each(function(d){
-                d.fx = d.x;
-                d.fy = d.y;
-            });
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
+
+        function dragstarted(event, d) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
         }
 
         function dragged(event, d) {
@@ -73,55 +124,16 @@ const DriverTeamRelations = (props) => {
             d.fy = null;
         }
 
-        function ticked() {
-            link
-                .attr("x1", function(d) { return d.source.x; })
-                .attr("y1", function(d) { return d.source.y; })
-                .attr("x2", function(d) { return d.target.x; })
-                .attr("y2", function(d) { return d.target.y; });
-
-            node
-                .attr("cx", function(d) { return d.x; })
-                .attr("cy", function(d) { return d.y; });
-        }
-    }, []); // empty dependency array to execute useEffect only once
+        return () => {
+            simulation.stop();
+        };
+    }, [data]);
 
     return (
-        <div id="driverteamrelation" style={{display:"flex",justifyContent:"center"}}>
-            <div className="svg"> </div>
+        <div ref={containerRef} style={{ width: '100%', height: '100%' }}>
+            <svg ref={chartRef}></svg>
         </div>
     );
-}
-
-function generateLargeGraph() {
-    const initialData = {
-        "nodes": [
-            {"id": "A"},
-            {"id": "B"},
-            {"id": "C"}
-        ],
-        "links": [
-            {"source": "A", "target": "B", "value": 1},
-            {"source": "B", "target": "C", "value": 2},
-            {"source": "C", "target": "A", "value": 3}
-        ]
-    };
-
-    const nodes = [];
-    const links = [];
-
-    // Create initial nodes and links
-    initialData.nodes.forEach(node => nodes.push({ id: node.id }));
-    initialData.links.forEach(link => links.push({ source: link.source, target: link.target }));
-
-    // Add additional nodes and links
-    for (let i = 0; i < 20 - 3; i++) {
-        const newNodeId = String.fromCharCode(65 + i); // Generating node id starting from 'D'
-        nodes.push({ id: newNodeId });
-        links.push({ source: newNodeId, target: String.fromCharCode(65 + (i + 1) % (20 - 3)) }); // Connect to the next node in a ring-like structure
-    }
-
-    return { nodes, links };
-}
+};
 
 export default DriverTeamRelations;

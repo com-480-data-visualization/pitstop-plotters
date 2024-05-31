@@ -5,24 +5,42 @@ import lineImage from '../img/line1.png';
 import lineImage_h from '../img/line1_90.png';
 import HallOfFame from "./HallOfFame";
 import ImageRow from "./HallOfFameSelection";
+import HallOfFameInfo from "./HallOfFameInfo";
+import {useState} from "react";
+import SpiderChart from "./HallOfFameSpider";
 
 const HallOfFamePage = () => {
+
+    const [driver, setDriver] = useState("");
+
+    const handleDriverChange = (driver) => {
+        setDriver(driver);
+    };
+
     return (
         <div className={styles.template}>
             <div className={styles.border}>
                 <img src={leftImage} alt="Left Border" className={styles.boder_img}/>
                 <div className={styles.content}>
                     <div className={styles.leftSide}>
-                        <HallOfFame/>
+                        <SpiderChart driver = {driver}/>
                     </div>
                     <img src={lineImage} alt="Center line" className={styles.centerImage}/>
                     <div className={styles.rightSide}>
                         <div className={styles.rightBottom}>
-                           <ImageRow/>
+                            <div className={styles.titleContainer}>
+                                Top 5 drivers of all time
+                            </div>
+                            <div className={styles.desc}>
+                                {driver.description}
+                            </div>
+                            <ImageRow onDriverChange = {handleDriverChange}/>
                         </div>
                         <img src={lineImage_h} alt="Center Divider" className={styles.centerDivider}/>
                         <div className={styles.rightTop}>
-                            Right Top
+                            <div className={styles.titleContainer}>
+                                <HallOfFameInfo driver={driver}/>
+                            </div>
                         </div>
                     </div>
                 </div>

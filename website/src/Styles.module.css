@@ -1,13 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Sans&display=swap');
-
+@font-face {
+    font-family: 'f1Font';
+    src: url('https://rawcdn.githack.com/com-480-data-visualization/pitstop-plotters/e387d68fc4919d6f938e748e9a867d4ab25e767a/website/src/fonts/Formula1-Regular_web_0.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 body {
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'f1Font','Noto Sans', sans-serif;
     margin: 0;
     overflow: hidden;
 }
 
 h1 {
-    font-family: "IBM Plex Sans", sans-serif;
+    font-family: "f1Font","IBM Plex Sans", sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 7vw;
@@ -15,7 +20,7 @@ h1 {
 }
 
 h2 {
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: "f1Font",'IBM Plex Sans', sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 60px;
@@ -24,7 +29,7 @@ h2 {
 }
 
 p {
-    font-family: 'Noto Sans', sans-serif;
+    font-family: "f1Font",'Noto Sans', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -33,7 +38,7 @@ p {
 }
 
 button {
-    font-family: 'Noto Sans';
+    font-family: "f1Font",'Noto Sans';
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
