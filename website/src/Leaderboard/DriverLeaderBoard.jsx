@@ -1,46 +1,42 @@
 import { useRef, useEffect, useState } from "react";
-import style from "./Leaderboard.module.css";
+import style from "./DriverLeaderBoard.module.css";
 import { useTransition, animated } from "react-spring";
-
-import dataUrl2 from "./ordered_data.csv?url";
-
+import dataUrl from "./good_data_drivers.csv?url";
 
 import * as d3 from "d3";
 
-const Leaderboard = (props) => {
+const DriverLeaderboard = (props) => {
     const { width, height, year } = props;
     const ref = useRef();
-    const [teams, setTeams] = useState([]);
+    const [drivers, setDrivers] = useState([]);
     const [data, setData] = useState(null);
-    const [constructorColors, setConstructorColors] = useState({});
-
 
     const div_height = height / 10;
 
     const transitions = useTransition(
-        teams.map((item, i) => ({ item: item, index: i + 1, y: i * div_height })),
-        {
-            config: { duration: 300 },
+        drivers.map((item, i) => ({ item: item, index: i + 1, y: i * div_height })),
+        {config: { duration: 300 },
             from: { position: "absolute", opacity: 0, y: height },
-            leave: { opacity: 0 },
-            enter: ({ y }) => ({ y, opacity: 1 }),
+            leave: { opacity: 0},
+            enter: ({ y }) => ({y, opacity: 1 }),
             update: ({ y }) => ({ y }),
             key: (item) => item.item
         }
     );
 
     const preprocessData = (csv) => {
-        const ret = {};
+        const ret_dict = {};
         for (let score of csv) {
-          
-            if (!ret[score.year]) ret[score.year] = {};
-            ret[score.year][score.name] = { score: +score.value };
+            if (!ret_dict[score.year]) ret_dict[score.year] = {};
+            ret_dict[score.year][score.name] = { score: +score.value,
+                                        
+             };
         }
-        return ret;
+        return ret_dict;
     };
 
     useEffect(() => {
-        d3.csv(dataUrl2)
+        d3.csv(dataUrl)
             .then((csv) => preprocessData(csv))
             .then((json) => setData(json))
             .catch((err) => console.error(err));
@@ -49,37 +45,22 @@ const Leaderboard = (props) => {
     useEffect(() => {
         if (data == null) return
         if (data[year] === undefined) return
-        const newTeams = Object.keys(data[year]).sort((a, b) => data[year][b] - data[year][a])
         
-        setTeams(newTeams.slice(0, 5))
+        const newDrivers = Object.keys(data[year]).sort((a, b) => data[year][b].score - data[year][a].score)
+        setDrivers(newDrivers.slice(0,5))
     }, [year, data]);
 
-    useEffect(() => {
-        d3.csv("./constructor_colors.csv") // Adjust this path as necessary
-            .then(data => {
-                const colorMap = data.reduce((acc, d) => {
-                    acc[d.constructor] = d.color;
-                    return acc;
-                }, {});
-                setConstructorColors(colorMap);
-            })
-            .catch(err => console.error(err));
-    }, []);
 
 
-    const scoreToWidth = d3.scaleLinear().domain([0, 300]).nice().range([width / 2 , width*1.3])
+    const scoreToWidth = d3.scaleLinear().domain([0, 200]).nice().range([width / 2 , width*1.5])
 
-    //const color = d3.scaleSequential().domain([110, 0]).nice().interpolator(d3.interpolatePlasma);
-    const defaultColor = "#cccccc"; 
+    const color = d3.scaleSequential().domain([125, 10]).nice().interpolator(d3.interpolatePlasma);
     const pos = [0, 1, 2, 3, 4]
-    const getColor = (teamName) => {
-        return constructorColors[teamName] || defaultColor;
-    };
 
     return (
         <div className={style.container} style={{ minWidth: width + "px", height: height + "px" }}>
             <div className={style.pos}>
-                {pos.map(pos => <p key={pos} className={style.leaderPos} style={{ position: "absolute", top: `${pos * div_height}px` }}>{pos + 1}.</p>)}
+                {pos.map(pos => <p key={pos} className={style.leaderPosition} style={{ position: "absolute", top: `${pos * div_height}px` }}>{pos + 1}.</p>)}
             </div>
             <div className={style.leaderboard}>
                 {data && transitions(({ y, ...rest }, item, { key }) => (
@@ -91,9 +72,9 @@ const Leaderboard = (props) => {
                             ...rest
                         }}
                     >
-                        <div className={style.leaderItem} style={{
+                        <div className={style.leaderboardItem} style={{
                             width: scoreToWidth(data[year][item.item].score),
-                            backgroundColor: getColor(item.item)
+                            backgroundColor: color(data[year][item.item].score)
                         }}>
                             <p className={style.name}>{item.item}</p>
                         </div>
@@ -105,4 +86,4 @@ const Leaderboard = (props) => {
     );
 }
 
-export default Leaderboard;
+export default DriverLeaderboard;

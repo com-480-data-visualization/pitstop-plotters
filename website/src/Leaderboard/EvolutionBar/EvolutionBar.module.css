@@ -1,0 +1,74 @@
+.bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+
+.play {
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.play:hover {
+    transform: scale(1.15);
+}
+
+.year {
+    color: white;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 700;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    
+    width: 500px;
+    cursor: pointer;
+    outline: none;
+}
+
+input[type="range"] {
+    height: 100px;
+    background: transparent;
+    border-radius: 16px;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    height: 300px;
+    background: transparent;
+    border-radius: 16px;
+}
+
+input[type="range"]::-moz-range-track {
+    height: 300px;
+    background: transparent;
+    border-radius: 16px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 15px;
+    width: 15px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+input[type="range"]::-moz-range-thumb {
+    height: 100px;
+    width: 100px;
+    background-image: url('/Users/mac/Desktop/pitstop-plotters/website/src/img/f1_t.png'); 
+    background-color: red;
+    border-radius: 50%;
+}
+
+
+
+input[type="range"] {
+    overflow: hidden;
+    border-radius: 16px;
+}

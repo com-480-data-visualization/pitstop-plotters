@@ -1,0 +1,79 @@
+.template {
+    height: 100%;
+    overflow-wrap: break-word;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-image: url('../img/background_road.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+  }
+
+  
+  
+  .leaderboard {
+    position: relative;
+    margin: 0 auto;
+    width: 70%; 
+    margin-bottom: -400px; 
+    height: 0%;
+  }
+  .leaderboardItem {
+    border-radius: 32px;
+    transition: width 0.5s ease-out, background-color 0.3s ease-out;
+  }
+    
+  .name {
+    color: white;
+    font-family: "IBM Plex Sans", sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-block: 0;
+    margin-left: 8px;
+  }
+  
+  .leaderScore {
+    color: white;
+    margin: 0;
+    font-weight: bold;
+    font-family: "IBM Plex Sans", sans-serif;
+    margin-left: 6px;
+  }
+  
+  .leaderPosition {
+    color: white;
+    margin: 0;
+    text-align: right;
+    font-weight: bold;
+    font-family: "IBM Plex Sans", sans-serif;
+    width: 190px;
+
+
+  }
+  
+  .nameContainer {
+    display: flex;
+    margin: 0 auto;
+    flex-direction: line;
+    align-items: flex-start;
+    position: absolute;
+    margin-bottom: 100%;
+    
+
+  }
+  .container {
+    margin-bottom: 100%;
+    margin: 0 auto;
+    flex-direction: left;
+    position: relative;
+    width: 90%;
+    position: relative;
+    height: 2%;
+  }
+  
+  .boder_img {
+    width: 5%;
+  }
+  

@@ -1,29 +1,108 @@
 .template {
-    height: 100%;
-    overflow-wrap: break-word;
-    min-height: 100vh;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    background-image: url('../img/background_road.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: repeat;
+  height: 100%;
+  overflow-wrap: break-word;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-image: url('../img/background_road.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+}
+.evolutionBarContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: -10%;
 }
 
-.border {
-    display: flex;
-    justify-content: space-between;
-    height: 100%;
+
+.leaderboard {
+  position: relative;
+  margin: 0 auto;
+  width: 80%; 
+  margin-bottom: 400px;
+  height: 100%;
+
+  align-items: flex-end;
+}
+.leaderItem {
+  border-radius: 32px;
+  transition: width 0.5s ease-out, background-color 0.3s ease-out;
+}
+.pilotsHeader{
+  display: flex;
+  color: white;
+  margin-left: 350px;
+  font-family: "IBM Plex Sans";
+  font-weight: bold;
+  align-items: center;
+  flex-direction: line;
+  
+  margin-top: -1%;
+
+
+}
+.teamsHeader{
+  display: flex;
+  color: white;
+  font-family: "IBM Plex Sans";
+  font-weight: bold;
+  flex-direction: line;
+
+  margin-left: 50%;
+  margin-top: 1%;
+
+}
+.name {
+  color: white;
+  font-family: "IBM Plex Sans";
+  font-weight: bold;
+  margin-block: 0;
+  margin-left: 8px;
 }
 
-.content {
-    position: relative;
-    flex-grow : 1;
-    align-items: center;
-    overflow: hidden;
+.leaderScore {
+  color: white;
+  margin: 0;
+  font-weight: bold;
+  font-family: "IBM Plex Sans";
+  margin-left: 6px;
 }
+
+.leaderPos {
+  color: white;
+  margin: 0;
+  text-align: right;
+  font-weight: bold;
+  font-family: "IBM Plex Sans";
+  width: 350px;
+  margin-top: 1%;
+}
+
+.nameContainer {
+  display: flex;
+  margin: 0 auto;
+  margin-left: 100%;
+  flex-direction: line;
+  align-items: flex-start;
+  position: relative;
+  height: 50%;
+  margin-top: 1%;
+
+}
+.container {
+  margin-top: 100%;
+  margin: 0 auto;
+  flex-direction: line;
+  align-items: flex-start;
+  position: relative;
+  width: 1%;
+}
+
 
 .boder_img {
-    width: 5%;
+  width: 5%;
 }
