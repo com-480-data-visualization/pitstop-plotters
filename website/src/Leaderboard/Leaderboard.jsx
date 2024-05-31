@@ -2,7 +2,7 @@ import { useRef, useEffect, useState } from "react";
 import style from "./Leaderboard.module.css";
 import { useTransition, animated } from "react-spring";
 import * as d3 from "d3";
-import { teamColors } from "./const"; // Ensure teamColors is correctly imported
+import { teamColors, teamLogos } from "./const";
 
 const Leaderboard = (props) => {
     const { width, height, year, dataUrl } = props;
@@ -59,6 +59,12 @@ const Leaderboard = (props) => {
         return teamColors[teamName] || teamColors[constructorName] || '#cccccc'; // Fallback color if no match
     };
 
+    const getLogo = (item) => {
+        const teamName = data[year][item.item].name;
+        const constructorName = data[year][item.item].constructor_name;
+        return teamLogos[teamName] || teamLogos[constructorName] || null; // Return logo path if found
+    };
+
     const pos = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
     return (
@@ -82,11 +88,19 @@ const Leaderboard = (props) => {
                             backgroundColor: getColor(item),
                             display: 'flex',
                             alignItems: 'center',
-                            justifyContent: 'left'
+                            justifyContent: 'space-between',
+                            padding: '0 px' // Adjust padding as needed
                         }}>
-                            <p className={style.itemName}>{item.item}</p>
+                            <p className={style.itemName} style={{ flex: 1 }}>{item.item}</p>
+                            {getLogo(item) && (
+                                <img
+                                    src={getLogo(item)}
+                                    alt={`${item.item} logo`}
+                                    style={{ height: '80%', margin: '0 80px' }} // Adjust logo size and margin
+                                />
+                            )}
+                            <p className={style.leaderboardScore}>{Math.round(data[year][item.item].score)}</p>
                         </div>
-                        <p className={style.leaderboardScore}>{Math.round(data[year][item.item].score)}</p>
                     </animated.div>
                 ))}
             </div>

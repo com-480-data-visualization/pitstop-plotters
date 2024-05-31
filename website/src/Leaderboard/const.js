@@ -1,3 +1,14 @@
+import alpine from '../img/Logo/alpine.png';
+import astonmartin from '../img/Logo/astonmartin.png';
+import ferrari from '../img/Logo/ferrari.png';
+import haas from '../img/Logo/haas.png';
+import mclaren from '../img/Logo/mclaren.png';
+import mercedes from '../img/Logo/mercedes.png';
+import redbull from '../img/Logo/redbull.png';
+import rb from '../img/Logo/rb.png'; // Assuming RB is Red Bull Racing
+import sauber from '../img/Logo/sauber.png';
+import williams from '../img/Logo/williams.png';
+
 const startYear = 1958;
 const endYear = 2023;
 
@@ -170,4 +181,17 @@ export const teamColors = {
     "Racing Point": "#F596C8",
     "AlphaTauri": "#2B4562",
     "Alpine F1 Team": "#0090FF"
+};
+
+export const teamLogos = {
+    "Alpine": alpine,
+    "Aston Martin": astonmartin,
+    "Ferrari": ferrari,
+    "Haas": haas,
+    "McLaren": mclaren,
+    "Mercedes": mercedes,
+    "Red Bull": redbull,
+    "RB": rb, // Assuming RB is Red Bull Racing
+    "Sauber": sauber,
+    "Williams": williams
 };
