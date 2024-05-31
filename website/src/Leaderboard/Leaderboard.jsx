@@ -88,19 +88,18 @@ const Leaderboard = (props) => {
                             backgroundColor: getColor(item),
                             display: 'flex',
                             alignItems: 'center',
-                            justifyContent: 'space-between',
-                            padding: '0 px' // Adjust padding as needed
+                            justifyContent: 'left',
                         }}>
-                            <p className={style.itemName} style={{ flex: 1 }}>{item.item}</p>
+                            <p className={style.itemName}>{item.item}</p>
                             {getLogo(item) && (
                                 <img
                                     src={getLogo(item)}
                                     alt={`${item.item} logo`}
-                                    style={{ height: '80%', margin: '0 80px' }} // Adjust logo size and margin
+                                    style={{ height: '80%', margin: '0 0 0 -4em', justifyContent: 'center', alignItems: 'center' }} // Adjust logo size and margin
                                 />
                             )}
-                            <p className={style.leaderboardScore}>{Math.round(data[year][item.item].score)}</p>
                         </div>
+                        <p className={style.leaderboardScore}>{Math.round(data[year][item.item].score)}</p>
                     </animated.div>
                 ))}
             </div>
