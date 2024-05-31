@@ -42,3 +42,232 @@
 .boder_img {
     width: 5%;
 }
+
+/* Define classes for each team with their respective colors */
+.team-McLaren {
+    fill: #FF8700;
+    stroke: #FF8700;
+    opacity: 0.8;
+}
+
+.team-Mercedes {
+    fill: #00D2BE;
+    stroke: #00D2BE;
+    opacity: 0.8;
+}
+
+.team-Renault {
+    fill: #FFF500;
+    stroke: #FFF500;
+    opacity: 0.8;
+}
+
+.team-Ferrari {
+    fill: #DC0000;
+    stroke: #DC0000;
+    opacity: 0.8;
+}
+
+.team-Aston-Martin {
+    fill: #006F62;
+    stroke: #006F62;
+    opacity: 0.8;
+}
+
+.team-Alpine-F1-Team {
+    fill: #0090FF;
+    stroke: #0090FF;
+    opacity: 0.8;
+}
+
+.team-Lotus {
+    fill: #FFB800;
+    stroke: #FFB800;
+    opacity: 0.8;
+}
+
+.team-Caterham {
+    fill: #00352F;
+    stroke: #00352F;
+    opacity: 0.8;
+}
+
+.team-Lotus-F1 {
+    fill: #FFB800;
+    stroke: #FFB800;
+    opacity: 0.8;
+}
+
+.team-Alfa-Romeo {
+    fill: #900000;
+    stroke: #900000;
+    opacity: 0.8;
+}
+
+.team-Williams {
+    fill: #005AFF;
+    stroke: #005AFF;
+    opacity: 0.8;
+}
+
+.team-Virgin {
+    fill: #E31837;
+    stroke: #E31837;
+    opacity: 0.8;
+}
+
+.team-Marussia {
+    fill: #D40000;
+    stroke: #D40000;
+    opacity: 0.8;
+}
+
+.team-Force-India {
+    fill: #FF8700;
+    stroke: #FF8700;
+    opacity: 0.8;
+}
+
+.team-Sauber {
+    fill: #006EFF;
+    stroke: #006EFF;
+    opacity: 0.8;
+}
+
+.team-Red-Bull {
+    fill: #1E41FF;
+    stroke: #1E41FF;
+    opacity: 0.8;
+}
+
+.team-HRT {
+    fill: #BEBEBE;
+    stroke: #BEBEBE;
+    opacity: 0.8;
+}
+
+.team-Toro-Rosso {
+    fill: #0032FF;
+    stroke: #0032FF;
+    opacity: 0.8;
+}
+
+.team-Haas-F1-Team {
+    fill: #787878;
+    stroke: #787878;
+    opacity: 0.8;
+}
+
+.team-Racing-Point {
+    fill: #F596C8;
+    stroke: #F596C8;
+    opacity: 0.8;
+}
+
+.team-AlphaTauri {
+    fill: #2B4562;
+    stroke: #2B4562;
+    opacity: 0.8;
+}
+
+.team-Manor-Marussia {
+    fill: #E40000;
+    stroke: #E40000;
+    opacity: 0.8;
+}
+
+/* Links opacity */
+.link {
+    stroke-opacity: 0.4;
+}
+
+/* Text color */
+.text-McLaren {
+    fill: #FF8700;
+}
+
+.text-Mercedes {
+    fill: #00D2BE;
+}
+
+.text-Renault {
+    fill: #FFF500;
+}
+
+.text-Ferrari {
+    fill: #DC0000;
+}
+
+.text-Aston-Martin {
+    fill: #006F62;
+}
+
+.text-Alpine-F1-Team {
+    fill: #0090FF;
+}
+
+.text-Lotus {
+    fill: #FFB800;
+}
+
+.text-Caterham {
+    fill: #00352F;
+}
+
+.text-Lotus-F1 {
+    fill: #FFB800;
+}
+
+.text-Alfa-Romeo {
+    fill: #900000;
+}
+
+.text-Williams {
+    fill: #005AFF;
+}
+
+.text-Virgin {
+    fill: #E31837;
+}
+
+.text-Marussia {
+    fill: #D40000;
+}
+
+.text-Force-India {
+    fill: #FF8700;
+}
+
+.text-Sauber {
+    fill: #006EFF;
+}
+
+.text-Red-Bull {
+    fill: #1E41FF;
+}
+
+.text-HRT {
+    fill: #BEBEBE;
+}
+
+.text-Toro-Rosso {
+    fill: #0032FF;
+}
+
+.text-Haas-F1-Team {
+    fill: #787878;
+}
+
+.text-Racing-Point {
+    fill: #F596C8;
+}
+
+.text-AlphaTauri {
+    fill: #2B4562;
+}
+
+.text-Manor-Marussia {
+    fill: #E40000;
+}
+
+

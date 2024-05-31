@@ -1,35 +1,11 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
+import styles from "./DriverTeamRelations.module.css"; // Import the CSS module
 
 const DriverTeamRelations = () => {
     const [data, setData] = useState(null);
     const chartRef = useRef(null);
     const containerRef = useRef(null);
-
-    const colorMap = {
-        "McLaren": "#FF8700",
-        "Mercedes": "#00D2BE",
-        "Renault": "#FFF500",
-        "Ferrari": "#DC0000",
-        "Aston Martin": "#006F62",
-        "Alpine F1 Team": "#0090FF",
-        "Lotus": "#FFB800",
-        "Caterham": "#00352F",
-        "Lotus F1": "#FFB800",
-        "Alfa Romeo": "#900000",
-        "Williams": "#005AFF",
-        "Virgin": "#E31837",
-        "Marussia": "#D40000",
-        "Force India": "#FF8700",
-        "Sauber": "#006EFF",
-        "Red Bull": "#1E41FF",
-        "HRT": "#BEBEBE",
-        "Toro Rosso": "#0032FF",
-        "Haas F1 Team": "#787878",
-        "Racing Point": "#F596C8",
-        "AlphaTauri": "#2B4562",
-        "Manor Marussia": "#E40000"
-    };
 
     useEffect(() => {
         const loadData = async () => {
@@ -74,12 +50,12 @@ const DriverTeamRelations = () => {
         svg.selectAll("*").remove();
 
         const link = svg.append('g')
-            .attr('stroke-opacity', 0.6)
+            .attr('class', styles.link) // Apply the link opacity class
             .selectAll('line')
             .data(links)
             .enter().append('line')
             .attr('stroke-width', d => Math.sqrt(d.value))
-            .attr('stroke', d => colorMap[d.target.id] || '#999'); // Use color of target node
+            .attr('class', d => styles[`team-${d.target.id.replace(/\s+/g, '-')}`]); // Apply class based on target team
 
         const node = svg.append('g')
             .attr('stroke', '#fff')
@@ -88,7 +64,7 @@ const DriverTeamRelations = () => {
             .data(nodes)
             .enter().append('circle')
             .attr('r', d => d.radius) // Set radius from data
-            .attr('fill', d => colorMap[d.id] || '#000') // Use color from colorMap
+            .attr('class', d => styles[`team-${d.id.replace(/\s+/g, '-')}`]) // Apply class based on team
             .style('pointer-events', 'all') // Ensure nodes are interactable
             .call(d3.drag()
                 .on('start', dragstarted)
@@ -96,13 +72,13 @@ const DriverTeamRelations = () => {
                 .on('end', dragended));
 
         const text = svg.append('g')
-            .attr('fill', '#fff') // Set text color
             .attr('stroke-width', 0)
             .selectAll('text')
             .data(nodes)
             .enter().append('text')
             .attr('dx', 12)
             .attr('dy', '.35em')
+            .attr('class', d => styles[`text-${d.id.replace(/\s+/g, '-')}`]) // Apply text color based on team
             .text(d => d.id);
 
         node.append('title')
@@ -123,6 +99,13 @@ const DriverTeamRelations = () => {
                 .attr('x', d => d.x)
                 .attr('y', d => d.y);
         });
+
+        function dragstarted(event, d) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
 
         function dragstarted(event, d) {
             if (!event.active) simulation.alphaTarget(0.3).restart();
