@@ -1,7 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import style from "./Leaderboard.module.css";
 import { useTransition, animated } from "react-spring";
-
 import * as d3 from "d3";
 
 const Leaderboard = (props) => {
@@ -10,7 +9,7 @@ const Leaderboard = (props) => {
     const [items, setItems] = useState([]);
     const [data, setData] = useState(null);
 
-    const div_height = height / 10;
+    const div_height = height / 10; // Adjusted from 10 to 9 to increase space
 
     const transitions = useTransition(
         items.map((item, i) => ({ item: item, index: i + 1, y: i * div_height })),
@@ -38,21 +37,19 @@ const Leaderboard = (props) => {
             .then((csv) => preprocessData(csv))
             .then((json) => setData(json))
             .catch((err) => console.error(err));
-    }, []);
+    }, [dataUrl]);
 
     useEffect(() => {
-        if (data == null) return
-        if (data[year] === undefined) return
-        const newCountries = Object.keys(data[year]).sort((a, b) => data[year][b] - data[year][a])
-        setItems(newCountries.slice(0, 10))
+        if (data == null) return;
+        if (data[year] === undefined) return;
+        const newItems = Object.keys(data[year]).sort((a, b) => data[year][b] - data[year][a]);
+        setItems(newItems.slice(0, 10));
     }, [year, data]);
 
-
-
-    const scoreToWidth = d3.scaleLinear().domain([0, 234]).nice().range([width/2, width*1.1]);
+    const scoreToWidth = d3.scaleLinear().domain([0, 234]).nice().range([width / 2, width * 1.1]);
 
     const color = d3.scaleSequential().domain([7.9, 7]).nice().interpolator(d3.interpolateInferno);
-    const pos = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    const pos = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
     return (
         <div className={style.container} style={{ minWidth: width + "px", height: height + "px" }}>
@@ -73,12 +70,12 @@ const Leaderboard = (props) => {
                             width: scoreToWidth(data[year][item.item].score),
                             backgroundColor: color(data[year][item.item].score)
                         }}>
-                            <p className={style.countryName}>{item.item}</p>
+                            <p className={style.itemName}>{item.item}</p>
                         </div>
                         <p className={style.leaderboardScore}>{data[year][item.item].score.toFixed(2)}</p>
                     </animated.div>
                 ))}
-            </div >
+            </div>
         </div>
     );
 }

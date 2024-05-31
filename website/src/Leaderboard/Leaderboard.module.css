@@ -29,7 +29,7 @@
   transition: width 0.5s ease-out, background-color 0.3s ease-out;
 }
 
-.countryName {
+.itemName {
   color: white;
   font-family: "IBM Plex Sans", sans-serif;
   text-transform: uppercase;
@@ -47,10 +47,11 @@
 
 .leaderboardPosition {
   margin: 0;
+  margin-left: -0.5em;
   text-align: right;
   font-weight: bold;
   font-family: "IBM Plex Sans", sans-serif;
-  width: 24px;
+  width: 35px;
 }
 
 .itemContainer {
