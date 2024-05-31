@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/pitstop-plotters/static/css/main.7bfe8bb0.css",
+    "main.css": "/pitstop-plotters/static/css/main.09b2a320.css",
     "main.js": "/pitstop-plotters/static/js/main.a63e8862.js",
     "static/js/654.cb5fa8af.chunk.js": "/pitstop-plotters/static/js/654.cb5fa8af.chunk.js",
     "static/js/131.536f2986.chunk.js": "/pitstop-plotters/static/js/131.536f2986.chunk.js",
@@ -55,6 +55,7 @@
     "static/media/Formula1-Italic.ttf": "/pitstop-plotters/static/media/Formula1-Italic.a210ce579c0907d1456c.ttf",
     "static/media/Circuit Gilles Villeneuve.jpg": "/pitstop-plotters/static/media/Circuit Gilles Villeneuve.9ae5035927f74bee250d.jpg",
     "static/media/Jeddah Corniche Circuit.jpg": "/pitstop-plotters/static/media/Jeddah Corniche Circuit.ac0776e420f5bf7f85fc.jpg",
+    "static/media/f1_t.png": "/pitstop-plotters/static/media/f1_t.3ccfda1d7ec47c133e70.png",
     "static/media/red1.png": "/pitstop-plotters/static/media/red1.0aab50ab6d90d7873ad6.png",
     "static/media/red2.png": "/pitstop-plotters/static/media/red2.0e04b1241e767d5d09c6.png",
     "static/media/red3.png": "/pitstop-plotters/static/media/red3.f48fd15a1d056ddfb8c3.png",
@@ -62,12 +63,12 @@
     "static/media/green.png": "/pitstop-plotters/static/media/green.ad8c436c42b21471d405.png",
     "static/media/red4.png": "/pitstop-plotters/static/media/red4.11013d93522b942af0a8.png",
     "index.html": "/pitstop-plotters/index.html",
-    "main.7bfe8bb0.css.map": "/pitstop-plotters/static/css/main.7bfe8bb0.css.map",
+    "main.09b2a320.css.map": "/pitstop-plotters/static/css/main.09b2a320.css.map",
     "main.a63e8862.js.map": "/pitstop-plotters/static/js/main.a63e8862.js.map",
     "453.b03e3c98.chunk.js.map": "/pitstop-plotters/static/js/453.b03e3c98.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7bfe8bb0.css",
+    "static/css/main.09b2a320.css",
     "static/js/main.a63e8862.js"
   ]
 }
