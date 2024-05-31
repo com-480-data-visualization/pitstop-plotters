@@ -78,7 +78,11 @@ const Leaderboard = (props) => {
                     >
                         <div className={style.leaderboardItem} style={{
                             width: scoreToWidth(data[year][item.item].score),
-                            backgroundColor: getColor(item)
+                            height: div_height * 0.5,
+                            backgroundColor: getColor(item),
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center'
                         }}>
                             <p className={style.itemName}>{item.item}</p>
                         </div>
