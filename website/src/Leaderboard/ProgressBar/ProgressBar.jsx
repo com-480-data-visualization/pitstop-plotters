@@ -1,11 +1,11 @@
-import style from "./EvolutionBar.module.css";
+import style from "./ProgressBar.module.css";
+import ProgressController from "./ProgressController";
 
-import EvolutionController from "./EvolutionController";
-const years = Array.from({ length: 2024 - 1958 }, (_, i) => i + 1958);
-const EvolutionBar = ({ year, onYearChanged }) => {
+const years = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023];
+const ProgressBar = ({ year, onYearChanged }) => {
     return (
         <div className={style.bar}>
-            <EvolutionController year={year} onYearChanged={onYearChanged} />
+            <ProgressController year={year} onYearChanged={onYearChanged} />
             <input
                 type="range"
                 onChange={(e) => onYearChanged(+e.target.value)}
@@ -20,4 +20,4 @@ const EvolutionBar = ({ year, onYearChanged }) => {
     )
 }
 
-export default EvolutionBar;
+export default ProgressBar;

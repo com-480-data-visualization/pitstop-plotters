@@ -17,7 +17,6 @@
 }
 
 .year {
-    color: white;
     font-family: "IBM Plex Sans", sans-serif;
     font-weight: 700;
 }
@@ -25,27 +24,26 @@
 input[type="range"] {
     -webkit-appearance: none;
     appearance: none;
-    
-    width: 500px;
+    width: 200px;
     cursor: pointer;
     outline: none;
 }
 
 input[type="range"] {
-    height: 100px;
-    background: transparent;
+    height: 15px;
+    background: #ccc;
     border-radius: 16px;
 }
 
 input[type="range"]::-webkit-slider-runnable-track {
-    height: 300px;
-    background: transparent;
+    height: 15px;
+    background: #ccc;
     border-radius: 16px;
 }
 
 input[type="range"]::-moz-range-track {
-    height: 300px;
-    background: transparent;
+    height: 15px;
+    background: #ccc;
     border-radius: 16px;
 }
 
@@ -54,19 +52,24 @@ input[type="range"]::-webkit-slider-thumb {
     appearance: none;
     height: 15px;
     width: 15px;
-    background-color: red;
+    background-color: purple;
     border-radius: 50%;
 }
 
 input[type="range"]::-moz-range-thumb {
-    height: 5%;
-    width: 5%;
-    background-image: url('../../img/f1_t.png');
-    background-size: cover;
-    background-repeat: no-repeat;
+    height: 15px;
+    width: 15px;
+    background-color: purple;
+    border-radius: 50%;
 }
 
+input[type="range"]::-webkit-slider-thumb {
+    box-shadow: -407px 0 0 400px rgb(179, 143, 186);
+}
 
+input[type="range"]::-moz-range-thumb {
+    box-shadow: -407px 0 0 400px rgb(192, 113, 192);
+}
 
 input[type="range"] {
     overflow: hidden;

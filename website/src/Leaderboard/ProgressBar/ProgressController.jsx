@@ -1,26 +1,31 @@
 import { useState } from "react";
-import useInterval from "./useInterval";
+import useInterval from "./UseInterval";
 import { FaPlay, FaStop } from 'react-icons/fa';
-import style from "./EvolutionBar.module.css";
-const years = Array.from({ length: 2024 - 1958 }, (_, i) => i + 1958);
+import style from "./ProgressBar.module.css";
 
-
-const EvolutionController = ({ year, onYearChanged }) => {
-    const[isPlaying, setIsPlaying]=useState(false);
+const years = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023];
+const ProgressController = ({ year, onYearChanged }) => {
+    const [isPlaying, setIsPlaying] = useState(false);
 
     useInterval(() => {
         const maxYear = Math.max(...years);
-        if (year === maxYear) {
+        if (year == maxYear) {
             setIsPlaying(false);
         } else {
             increaseYear();
         }
-    }, isPlaying ? 850 : null)
+    }, isPlaying ? 1000 : null)
 
     const increaseYear = () => {
         const maxYear = Math.max(...years);
-        if (year === maxYear) return;
+        if (year == maxYear) return;
         onYearChanged(year + 1);
+    };
+
+    const decreaseYear = () => {
+        const maxYear = Math.min(...years);
+        if (year == maxYear) return;
+        onYearChanged(year - 1);
     };
 
     const togglePlay = () => {
@@ -37,4 +42,4 @@ const EvolutionController = ({ year, onYearChanged }) => {
 
 }
 
-export default EvolutionController;
+export default ProgressController;

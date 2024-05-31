@@ -1,24 +1,20 @@
 import { useRef, useEffect, useState } from "react";
 import style from "./Leaderboard.module.css";
 import { useTransition, animated } from "react-spring";
-
-import dataUrl2 from "./ordered_data.csv?url";
-
+import dataUrl from "./good_data_drivers.csv?url";
 
 import * as d3 from "d3";
 
 const Leaderboard = (props) => {
     const { width, height, year } = props;
     const ref = useRef();
-    const [teams, setTeams] = useState([]);
+    const [countries, setCountries] = useState([]);
     const [data, setData] = useState(null);
-    const [constructorColors, setConstructorColors] = useState({});
-
 
     const div_height = height / 10;
 
     const transitions = useTransition(
-        teams.map((item, i) => ({ item: item, index: i + 1, y: i * div_height })),
+        countries.map((item, i) => ({ item: item, index: i + 1, y: i * div_height })),
         {
             config: { duration: 300 },
             from: { position: "absolute", opacity: 0, y: height },
@@ -32,7 +28,6 @@ const Leaderboard = (props) => {
     const preprocessData = (csv) => {
         const ret = {};
         for (let score of csv) {
-          
             if (!ret[score.year]) ret[score.year] = {};
             ret[score.year][score.name] = { score: +score.value };
         }
@@ -40,7 +35,7 @@ const Leaderboard = (props) => {
     };
 
     useEffect(() => {
-        d3.csv(dataUrl2)
+        d3.csv(dataUrl)
             .then((csv) => preprocessData(csv))
             .then((json) => setData(json))
             .catch((err) => console.error(err));
@@ -49,55 +44,39 @@ const Leaderboard = (props) => {
     useEffect(() => {
         if (data == null) return
         if (data[year] === undefined) return
-        const newTeams = Object.keys(data[year]).sort((a, b) => data[year][b] - data[year][a])
-        
-        setTeams(newTeams.slice(0, 5))
+        const newCountries = Object.keys(data[year]).sort((a, b) => data[year][b] - data[year][a])
+        setCountries(newCountries.slice(0, 10))
     }, [year, data]);
 
-    useEffect(() => {
-        d3.csv("./constructor_colors.csv") // Adjust this path as necessary
-            .then(data => {
-                const colorMap = data.reduce((acc, d) => {
-                    acc[d.constructor] = d.color;
-                    return acc;
-                }, {});
-                setConstructorColors(colorMap);
-            })
-            .catch(err => console.error(err));
-    }, []);
 
 
-    const scoreToWidth = d3.scaleLinear().domain([0, 300]).nice().range([width / 2 , width*1.3])
+    const scoreToWidth = d3.scaleLinear().domain([7.1, 7.8]).nice().range([width / 3 + 6, width - 80])
 
-    //const color = d3.scaleSequential().domain([110, 0]).nice().interpolator(d3.interpolatePlasma);
-    const defaultColor = "#cccccc"; 
-    const pos = [0, 1, 2, 3, 4]
-    const getColor = (teamName) => {
-        return constructorColors[teamName] || defaultColor;
-    };
+    const color = d3.scaleSequential().domain([7.9, 7]).nice().interpolator(d3.interpolateInferno);
+    const pos = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
     return (
         <div className={style.container} style={{ minWidth: width + "px", height: height + "px" }}>
             <div className={style.pos}>
-                {pos.map(pos => <p key={pos} className={style.leaderPos} style={{ position: "absolute", top: `${pos * div_height}px` }}>{pos + 1}.</p>)}
+                {pos.map(pos => <p key={pos} className={style.leaderboardPosition} style={{ position: "absolute", top: `${pos * div_height}px` }}>{pos + 1}.</p>)}
             </div>
             <div className={style.leaderboard}>
                 {data && transitions(({ y, ...rest }, item, { key }) => (
                     <animated.div
                         key={key}
-                        className={style.nameContainer}
+                        className={style.countryContainer}
                         style={{
                             transform: y.to((y) => `translate3d(0,${y}px,0)`),
                             ...rest
                         }}
                     >
-                        <div className={style.leaderItem} style={{
+                        <div className={style.leaderboardItem} style={{
                             width: scoreToWidth(data[year][item.item].score),
-                            backgroundColor: getColor(item.item)
+                            backgroundColor: color(data[year][item.item].score)
                         }}>
-                            <p className={style.name}>{item.item}</p>
+                            <p className={style.countryName}>{item.item}</p>
                         </div>
-                        <p className={style.leaderScore}>{data[year][item.item].score}</p>
+                        <p className={style.leaderboardScore}>{data[year][item.item].score.toFixed(2)}</p>
                     </animated.div>
                 ))}
             </div >
