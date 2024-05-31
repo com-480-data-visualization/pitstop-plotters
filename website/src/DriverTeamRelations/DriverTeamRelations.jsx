@@ -58,8 +58,9 @@ const DriverTeamRelations = () => {
         const nodes = data.nodes.map(d => ({ ...d }));
 
         const simulation = d3.forceSimulation(nodes)
-            .force('link', d3.forceLink(links).id(d => d.id))
+            .force('link', d3.forceLink(links).id(d => d.id).distance(100))
             .force('charge', d3.forceManyBody().strength(-300))
+            .force('center', d3.forceCenter(0, 0))
             .force('x', d3.forceX().strength(0.1))
             .force('y', d3.forceY().strength(0.1));
 
@@ -78,30 +79,31 @@ const DriverTeamRelations = () => {
             .data(links)
             .enter().append('line')
             .attr('stroke-width', d => Math.sqrt(d.value))
-            .attr('stroke', d => colorMap[d.source.id] || '#00ff00'); // Use color of source node
+            .attr('stroke', d => colorMap[d.target.id] || '#999'); // Use color of target node
 
         const node = svg.append('g')
+            .attr('stroke', '#fff')
             .attr('stroke-width', 1.5)
             .selectAll('circle')
             .data(nodes)
             .enter().append('circle')
             .attr('r', d => d.radius) // Set radius from data
-            .attr('fill', d => colorMap[d.id] || '#00ff00')
-            .attr('stroke', d => colorMap[d.id] || '#fff')// Use color from colorMap
+            .attr('fill', d => colorMap[d.id] || '#000') // Use color from colorMap
+            .style('pointer-events', 'all') // Ensure nodes are interactable
             .call(d3.drag()
                 .on('start', dragstarted)
                 .on('drag', dragged)
                 .on('end', dragended));
 
         const text = svg.append('g')
-            .attr('stroke-width', 1.5)
+            .attr('fill', '#fff') // Set text color
+            .attr('stroke-width', 0)
             .selectAll('text')
             .data(nodes)
             .enter().append('text')
             .attr('dx', 12)
             .attr('dy', '.35em')
-            .text(d => d.id)
-            .attr('color', d => colorMap[d.id] || '#fff');
+            .text(d => d.id);
 
         node.append('title')
             .text(d => d.id);
@@ -122,21 +124,21 @@ const DriverTeamRelations = () => {
                 .attr('y', d => d.y);
         });
 
-        function dragstarted(event) {
+        function dragstarted(event, d) {
             if (!event.active) simulation.alphaTarget(0.3).restart();
-            event.subject.fx = event.subject.x;
-            event.subject.fy = event.subject.y;
+            d.fx = d.x;
+            d.fy = d.y;
         }
 
-        function dragged(event) {
-            event.subject.fx = event.x;
-            event.subject.fy = event.y;
+        function dragged(event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
         }
 
-        function dragended(event) {
+        function dragended(event, d) {
             if (!event.active) simulation.alphaTarget(0);
-            event.subject.fx = null;
-            event.subject.fy = null;
+            d.fx = null;
+            d.fy = null;
         }
 
         return () => {
