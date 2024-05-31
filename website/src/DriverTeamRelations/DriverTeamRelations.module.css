@@ -33,6 +33,12 @@
     overflow: hidden;
 }
 
+.content h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-top: 1rem;
+}
+
 .boder_img {
     width: 5%;
 }

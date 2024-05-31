@@ -3,477 +3,477 @@
         {
             "id": "Lewis Hamilton",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Nick Heidfeld",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Nico Rosberg",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Fernando Alonso",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Heikki Kovalainen",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Kimi R\u00e4ikk\u00f6nen",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Robert Kubica",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Timo Glock",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Felipe Massa",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Jarno Trulli",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Adrian Sutil",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Mark Webber",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Jenson Button",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Sebastian Vettel",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Rubens Barrichello",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Vitantonio Liuzzi",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Michael Schumacher",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Pedro de la Rosa",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Narain Karthikeyan",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "S\u00e9bastien Buemi",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Jaime Alguersuari",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Romain Grosjean",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Kamui Kobayashi",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Nico H\u00fclkenberg",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Vitaly Petrov",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Bruno Senna",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Karun Chandhok",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Pastor Maldonado",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Paul di Resta",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Sergio P\u00e9rez",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "J\u00e9r\u00f4me d'Ambrosio",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Daniel Ricciardo",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Jean-\u00c9ric Vergne",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Charles Pic",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Max Chilton",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Esteban Guti\u00e9rrez",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Valtteri Bottas",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Giedo van der Garde",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Jules Bianchi",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Kevin Magnussen",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Daniil Kvyat",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Andr\u00e9 Lotterer",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Marcus Ericsson",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Will Stevens",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Max Verstappen",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Felipe Nasr",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Carlos Sainz",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Roberto Merhi",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Alexander Rossi",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Jolyon Palmer",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Pascal Wehrlein",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Rio Haryanto",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Stoffel Vandoorne",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Esteban Ocon",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Lance Stroll",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Antonio Giovinazzi",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Pierre Gasly",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Brendon Hartley",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Charles Leclerc",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Sergey Sirotkin",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Lando Norris",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "George Russell",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Alexander Albon",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Nicholas Latifi",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Pietro Fittipaldi",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Jack Aitken",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Yuki Tsunoda",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Nikita Mazepin",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Mick Schumacher",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Guanyu Zhou",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Nyck de Vries",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Oscar Piastri",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "Logan Sargeant",
             "group": "Driver",
-            "radius": 10
+            "radius": 1
         },
         {
             "id": "McLaren",
             "group": "Team",
-            "radius": 100
+            "radius": 10
         },
         {
             "id": "Mercedes",
             "group": "Team",
-            "radius": 100
+            "radius": 10
         },
         {
             "id": "Renault",
             "group": "Team",
-            "radius": 100
+            "radius": 10
         },
         {
             "id": "Ferrari",
             "group": "Team",
-            "radius": 100
+            "radius": 10
         },
         {
             "id": "Aston Martin",
             "group": "Team",
-            "radius": 100
+            "radius": 10
         },
         {
             "id": "Alpine F1 Team",
             "group": "Team",
-            "radius": 100
+            "radius": 10
         },
         {
             "id": "Lotus",
             "group": "Team",
-            "radius": 100
+            "radius": 10
         },
         {
             "id": "Caterham",
             "group": "Team",
-            "radius": 100
+            "radius": 10
         },
         {
             "id": "Lotus F1",
             "group": "Team",
-            "radius": 100
+            "radius": 10
         },
         {
             "id": "Alfa Romeo",
             "group": "Team",
-            "radius": 100
+            "radius": 10
         },
         {
             "id": "Williams",
             "group": "Team",
-            "radius": 100
+            "radius": 10
         },
         {
             "id": "Virgin",
             "group": "Team",
-            "radius": 100
+            "radius": 10
         },
         {
             "id": "Marussia",
             "group": "Team",
-            "radius": 100
+            "radius": 10
         },
         {
             "id": "Force India",
             "group": "Team",
-            "radius": 100
+            "radius": 10
         },
         {
             "id": "Sauber",
             "group": "Team",
-            "radius": 100
+            "radius": 10
         },
         {
             "id": "Red Bull",
             "group": "Team",
-            "radius": 100
+            "radius": 10
         },
         {
             "id": "HRT",
             "group": "Team",
-            "radius": 100
+            "radius": 10
         },
         {
             "id": "Toro Rosso",
             "group": "Team",
-            "radius": 100
+            "radius": 10
         },
         {
             "id": "Haas F1 Team",
             "group": "Team",
-            "radius": 100
+            "radius": 10
         },
         {
             "id": "Racing Point",
             "group": "Team",
-            "radius": 100
+            "radius": 10
         },
         {
             "id": "AlphaTauri",
             "group": "Team",
-            "radius": 100
+            "radius": 10
         },
         {
             "id": "Manor Marussia",
             "group": "Team",
-            "radius": 100
+            "radius": 10
         }
     ],
     "links": [

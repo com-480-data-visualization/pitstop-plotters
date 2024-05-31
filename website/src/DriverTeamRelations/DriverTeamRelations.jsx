@@ -62,12 +62,22 @@ const DriverTeamRelations = () => {
             .selectAll('circle')
             .data(nodes)
             .enter().append('circle')
-            .attr('r', 5)
+            .attr('r', d => d.radius) // Set radius from data
             .attr('fill', d => color(d.group))
             .call(d3.drag()
                 .on('start', dragstarted)
                 .on('drag', dragged)
                 .on('end', dragended));
+
+        const text = svg.append('g')
+            .attr('stroke', '#fff')
+            .attr('stroke-width', 1.5)
+            .selectAll('text')
+            .data(nodes)
+            .enter().append('text')
+            .attr('dx', 12)
+            .attr('dy', '.35em')
+            .text(d => d.id);
 
         node.append('title')
             .text(d => d.id);
@@ -82,6 +92,10 @@ const DriverTeamRelations = () => {
             node
                 .attr('cx', d => d.x)
                 .attr('cy', d => d.y);
+
+            text
+                .attr('x', d => d.x)
+                .attr('y', d => d.y);
         });
 
         function dragstarted(event) {
