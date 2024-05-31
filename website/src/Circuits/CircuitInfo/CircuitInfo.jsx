@@ -24,8 +24,9 @@ const CircuitInfo = ({ circuit }) => {
                 </div>
                 <div className={styles.infoColumn}>
                     <p className={styles.info}>
-                        <strong className={styles.infoDescription}>Last Winner:&ensp;</strong>{circuit.lastWinner}<br/>
-                        <strong className={styles.infoDescription}>Fastest Lap:&ensp;</strong>{circuit.fastestLap}
+                        <strong className={styles.infoDescription}>Lap record:&ensp;</strong>{circuit.lastWinner}
+                        {circuit.lapRecord + " - " + circuit.lapRecordDriver + " (" + circuit.lapRecordYear + ")"}
+                        {/* <strong className={styles.infoDescription}>Fastest Lap:&ensp;</strong>{circuit.fastestLap} */}
                     </p>
                 </div>
                 <img src={lineImage} alt="Center line" className={styles.centerImage}/>

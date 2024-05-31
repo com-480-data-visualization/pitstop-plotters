@@ -16,13 +16,6 @@ const SeasonsEvolutionPage = () => {
                     <div className={styles.left}>
                         <SeasonEvolution />
                     </div>
-                    <div className={styles.right}>
-                        <p>
-                            This page shows the evolution of the number of seasons per year for the top 10 TV shows.
-                            The data is taken from the TVmaze API and the visualization is done using d3.js.
-                            The data is updated every 24 hours.
-                        </p>
-                    </div>
                 </div>
                 <img src={rightImage} alt="Right Border" className={styles.boder_img} />
             </div>

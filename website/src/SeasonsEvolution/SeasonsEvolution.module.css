@@ -55,3 +55,21 @@ p {
     text-align: center;
     color: white;
 }
+
+.sliderContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .slider {
+    width: 80%;
+    margin-right: 10px;
+  }
+  
+  .yearLabel {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
