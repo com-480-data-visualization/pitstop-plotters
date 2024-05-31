@@ -5,6 +5,8 @@ import { useState } from "react";
 import Leaderboard from "./Leaderboard";
 import ProgressBar from "./ProgressBar/ProgressBar";
 import { years } from "./const";
+import driverUrl from "./driver_cumulative_wins_with_constructors.csv?url";
+import constructorUrl from "./ordered_data.csv?url";
 
 const LeaderboardPage = () => {
     const [year, setYear] = useState(Math.min(...years));
@@ -13,10 +15,12 @@ const LeaderboardPage = () => {
             <div className={styles.border}>
                 <img src={leftImage} alt="Left Border" className={styles.boder_img}/>
                 <div className={styles.content}>
-                    <div>
-                        <Leaderboard year={year} width={360} height={400}/>
-                        <ProgressBar year={year} onYearChanged={(year) => setYear(year)}/>
+                    <h1 style={{fontSize: "3em", fontFamily: "f1Font",}}>Formula 1 Leaderboard</h1>
+                    <div className={styles.leader}>
+                        <Leaderboard year={year} width={360} height={400} dataUrl={driverUrl}/>
+                        <Leaderboard year={year} width={360} height={400} dataUrl={constructorUrl}/>
                     </div>
+                    <ProgressBar year={year} onYearChanged={(year) => setYear(year)}/>
                 </div>
                 <img src={rightImage} alt="Right Border" className={styles.boder_img}/>
             </div>

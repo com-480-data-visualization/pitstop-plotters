@@ -1,20 +1,19 @@
 import { useRef, useEffect, useState } from "react";
 import style from "./Leaderboard.module.css";
 import { useTransition, animated } from "react-spring";
-import dataUrl from "./good_data_drivers.csv?url";
 
 import * as d3 from "d3";
 
 const Leaderboard = (props) => {
-    const { width, height, year } = props;
+    const { width, height, year, dataUrl } = props;
     const ref = useRef();
-    const [countries, setCountries] = useState([]);
+    const [items, setItems] = useState([]);
     const [data, setData] = useState(null);
 
     const div_height = height / 10;
 
     const transitions = useTransition(
-        countries.map((item, i) => ({ item: item, index: i + 1, y: i * div_height })),
+        items.map((item, i) => ({ item: item, index: i + 1, y: i * div_height })),
         {
             config: { duration: 300 },
             from: { position: "absolute", opacity: 0, y: height },
@@ -45,7 +44,7 @@ const Leaderboard = (props) => {
         if (data == null) return
         if (data[year] === undefined) return
         const newCountries = Object.keys(data[year]).sort((a, b) => data[year][b] - data[year][a])
-        setCountries(newCountries.slice(0, 10))
+        setItems(newCountries.slice(0, 10))
     }, [year, data]);
 
 
