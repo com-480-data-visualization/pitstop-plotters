@@ -5,7 +5,7 @@ import data from './season_evolution.json';
 
 const SeasonEvolution = () => {
   const years = [...new Set(data.map(row => row.year))];
-  const [currentYear, setCurrentYear] = useState(years[0]);
+  const [currentYear, setCurrentYear] = useState(years[2]);
   const [traces, setTraces] = useState([]);
 
   // List of cool colors
@@ -40,8 +40,10 @@ const SeasonEvolution = () => {
         x: driverRes.map(d => d.gp_name),
         y: driverRes.map(d => d.points),
         mode: 'lines+markers',
-        name: `${driverRes[0].forename} ${driverRes[0].surname} (${currentYear})`,
+        name: `${driverRes[0].forename} ${driverRes[0].surname}`, // Shortened surname in legend with full name in hover
         line: { color: driverRes[0].color || teamColor },
+        text: driverRes.map(d => `${d.forename} ${d.surname} - ${d.gp_name}: ${d.points} points`), // Add full driver name, circuit name, and points for hover
+        hoverinfo: 'text', // Display full driver name, circuit name, and points on hover
       };
     });
 
@@ -59,7 +61,14 @@ const SeasonEvolution = () => {
         data={traces}
         layout={{
           title: `Points of drivers in ${currentYear}`,
-          xaxis: { title: 'Circuit', linecolor: 'white', linewidth: 2 },
+          xaxis: {
+            title: 'Circuit',
+            linecolor: 'white',
+            linewidth: 2,
+            tickvals: data.filter(row => row.year === currentYear).map(d => d.gp_name),
+            ticktext: data.filter(row => row.year === currentYear).map(d => d.gp_name.slice(0, 3).toUpperCase()), // Show only first three letters in uppercase
+            hovermode: 'x', // Add hovermode to show text on x-axis hover
+          },
           yaxis: { title: 'Points', linecolor: 'white', linewidth: 2 },
           paper_bgcolor: 'rgba(40,40,40,0)',
           plot_bgcolor: 'rgba(40,40,40,0)',
@@ -67,8 +76,7 @@ const SeasonEvolution = () => {
           margin: { l: 50, r: 50, t: 50, b: 50 }, // Added margin to ensure border visibility
           width: '100%',
           height: '100%',
-          mode: 'lines',
-          grid: { color: 'white', width: 1 },
+          grid: { color: 'white', width: 1},
         }}
         useResizeHandler
         style={{ width: '100%', height: '100%' }}
