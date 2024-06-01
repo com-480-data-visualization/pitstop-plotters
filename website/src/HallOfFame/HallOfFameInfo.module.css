@@ -24,7 +24,7 @@
 }
 
 .name h1 {
-    font-size: 2em; /* Adjust heading size relatively larger */
+    font-size: 1.6em; /* Adjust heading size relatively larger */
     text-align: center; /* Center the title text */
     margin: 1px 1px;
     justify-content: center;
