@@ -40,7 +40,11 @@ const LeaderboardPage = () => {
             <div className={styles.border}>
                 <img src={leftImage} alt="Left Border" className={styles.boder_img}/>
                 <div className={styles.content} ref={containerRef}>
-                    <h1 style={{fontSize: "3em", fontFamily: "f1Font", marginTop: "-0.5em", marginBottom: "-1em"}}>Formula 1 Leaderboard</h1>
+                    <div
+                        style={{display: "flex", justifyContent: "center", alignItems: "center", fontFamily: 'f1Font', marginTop: "-0.5em", marginBottom: "-1em", color: "#CCC"}}>
+                        <div style={{fontSize: "3em", flex: "1", textAlign: "center", paddingRight: "10em", marginBottom: "-2em", marginTop: "1em"}}>Drivers</div>
+                        <div style={{fontSize: "3em", flex: "1", textAlign: "center", paddingRight: "-1em",marginBottom: "-2em", marginTop: "1em"}}>Constructors</div>
+                    </div>
                     <div className={styles.leader}>
                         <Leaderboard year={year} width={leaderboardWidth} height={leaderboardHeight}
                                      dataUrl={driverUrl}/>
