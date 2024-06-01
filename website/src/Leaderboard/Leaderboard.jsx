@@ -95,7 +95,7 @@ const Leaderboard = (props) => {
                                 <img
                                     src={getLogo(item)}
                                     alt={`${item.item} logo`}
-                                    style={{ height: '80%', margin: '0 0 0 -4em', justifyContent: 'center', alignItems: 'center' }} // Adjust logo size and margin
+                                    style={{ height: '80%', margin: '0 0 0 1em', justifyContent: 'center', alignItems: 'center' }} // Adjust logo size and margin
                                 />
                             )}
                         </div>
