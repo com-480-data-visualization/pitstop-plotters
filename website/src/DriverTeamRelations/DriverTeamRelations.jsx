@@ -105,7 +105,10 @@ const DriverTeamRelations = () => {
 
         function handleNodeClick(event, d) {
             const connectedLinks = links.filter(link => link.target.id === d.id);
-            const drivers = connectedLinks.map(link => link.source.id);
+            const drivers = connectedLinks.map(link => ({
+                name: link.source.id,
+                races: link.value
+            }));
             setSelectedTeam(d.id);
             setConnectedDrivers(drivers);
         }
@@ -140,7 +143,9 @@ const DriverTeamRelations = () => {
                     <h2 className={styles[`text-${selectedTeam.replace(/\s+/g, '-')}`]}>{selectedTeam}</h2>
                     <ul className={styles.driverList}>
                         {connectedDrivers.map(driver => (
-                            <li key={driver} className={styles.driver}>{driver}</li>
+                            <li key={driver.name} className={styles.driver}>
+                                {driver.name}    -    {driver.races}  races
+                            </li>
                         ))}
                     </ul>
                 </div>
