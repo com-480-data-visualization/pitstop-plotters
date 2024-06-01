@@ -34,3 +34,28 @@
 .boder_img {
     width: 5%;
 }
+
+.content {
+    padding: 20px;
+    text-align: center;
+    flex-grow: 1; /* Makes the content div grow to use available space */
+}
+
+.content h1 {
+    margin: 0;
+    font-size: 2em;
+    color: #CCC; /* Dark gray for better readability */
+    font-family: 'f1Font', sans-serif; /* Modern, clean font */
+}
+
+.content p {
+    font-size: 1.2em;
+    color: #aaa; /* Lighter gray for paragraph */
+    font-family: 'Helvetica', sans-serif;
+    line-height: 1.5; /* Improves readability */
+    justify-content: left;
+    /* text-align: left; */
+    text-align: justify;
+    padding: 1em 10em 2em 10em;
+    height: 100%;
+}

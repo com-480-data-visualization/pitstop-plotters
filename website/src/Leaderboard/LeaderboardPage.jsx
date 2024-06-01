@@ -42,8 +42,8 @@ const LeaderboardPage = () => {
                 <div className={styles.content} ref={containerRef}>
                     <div
                         style={{display: "flex", justifyContent: "center", alignItems: "center", fontFamily: 'f1Font', marginTop: "-0.5em", marginBottom: "-1em", color: "#CCC"}}>
-                        <div style={{fontSize: "3em", flex: "1", textAlign: "center", paddingRight: "10em", marginBottom: "-2em", marginTop: "1em"}}>Drivers</div>
-                        <div style={{fontSize: "3em", flex: "1", textAlign: "center", paddingRight: "-1em",marginBottom: "-2em", marginTop: "1em"}}>Constructors</div>
+                        <div style={{fontSize: "3em", flex: "1", textAlign: "center", paddingRight: "10em", marginBottom: "-1em", marginTop: "1em"}}>Drivers</div>
+                        <div style={{fontSize: "3em", flex: "1", textAlign: "center", paddingRight: "-1em",marginBottom: "-1em", marginTop: "1em"}}>Constructors</div>
                     </div>
                     <div className={styles.leader}>
                         <Leaderboard year={year} width={leaderboardWidth} height={leaderboardHeight}
