@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/pitstop-plotters/static/css/main.a3508665.css",
-    "main.js": "/pitstop-plotters/static/js/main.20e1e8e9.js",
+    "main.js": "/pitstop-plotters/static/js/main.ffee6512.js",
     "static/js/654.cb5fa8af.chunk.js": "/pitstop-plotters/static/js/654.cb5fa8af.chunk.js",
     "static/js/131.536f2986.chunk.js": "/pitstop-plotters/static/js/131.536f2986.chunk.js",
     "static/js/621.4e2c2c8d.chunk.js": "/pitstop-plotters/static/js/621.4e2c2c8d.chunk.js",
@@ -34,6 +34,7 @@
     "static/media/benetton.png": "/pitstop-plotters/static/media/benetton.6b4f5781671f5d23c34d.png",
     "static/media/Circuit Park Zandvoort.jpg": "/pitstop-plotters/static/media/Circuit Park Zandvoort.9a9eb1e65eebf9b1b0fa.jpg",
     "static/media/Autódromo Hermanos Rodríguez.jpg": "/pitstop-plotters/static/media/Autódromo Hermanos Rodríguez.c3b47c7e260e1d9c2b9a.jpg",
+    "static/media/toyota.png": "/pitstop-plotters/static/media/toyota.ca31a77444d5c525d4da.png",
     "static/media/cooper.png": "/pitstop-plotters/static/media/cooper.9dbaff9a36a5b2435962.png",
     "static/media/Albert Park Grand Prix Circuit.jpg": "/pitstop-plotters/static/media/Albert Park Grand Prix Circuit.de348b41584431baaadb.jpg",
     "static/media/Circuit de Monaco.jpg": "/pitstop-plotters/static/media/Circuit de Monaco.85f0f1d3c0d1ff84267d.jpg",
@@ -53,6 +54,7 @@
     "static/media/line1_90.png": "/pitstop-plotters/static/media/line1_90.09453bb9c4fa46a5c993.png",
     "static/media/Red Bull Ring.jpg": "/pitstop-plotters/static/media/Red Bull Ring.b7ac4c38e1b99b1c3be1.jpg",
     "static/media/switch.mp3": "/pitstop-plotters/static/media/switch.a4e24bfd25cf5f39d091.mp3",
+    "static/media/brabham.png": "/pitstop-plotters/static/media/brabham.1fc841643ff79025913e.png",
     "static/media/Shanghai International Circuit.jpg": "/pitstop-plotters/static/media/Shanghai International Circuit.48346eff1ed549e29af2.jpg",
     "static/media/Circuit de Barcelona-Catalunya.jpg": "/pitstop-plotters/static/media/Circuit de Barcelona-Catalunya.278402c8164008bbe840.jpg",
     "static/media/Baku City Circuit.jpg": "/pitstop-plotters/static/media/Baku City Circuit.03834beb6db46784d62f.jpg",
@@ -64,11 +66,14 @@
     "static/media/Jeddah Corniche Circuit.jpg": "/pitstop-plotters/static/media/Jeddah Corniche Circuit.ac0776e420f5bf7f85fc.jpg",
     "static/media/alpine.png": "/pitstop-plotters/static/media/alpine.012cc66ad8615215aae1.png",
     "static/media/ferrari.png": "/pitstop-plotters/static/media/ferrari.e6a7595bfb8e0a21fba7.png",
+    "static/media/tororosso.png": "/pitstop-plotters/static/media/tororosso.3515c1c6dbf681cc97af.png",
     "static/media/astonmartin.png": "/pitstop-plotters/static/media/astonmartin.530149912e621957e85e.png",
     "static/media/brawn.png": "/pitstop-plotters/static/media/brawn.f9aef9f63f381f0e4294.png",
+    "static/media/superaguri.png": "/pitstop-plotters/static/media/superaguri.dbf01da147bdde832c17.png",
     "static/media/redbull.png": "/pitstop-plotters/static/media/redbull.7251c41ceed1387bc8e3.png",
     "static/media/f1_t.png": "/pitstop-plotters/static/media/f1_t.3ccfda1d7ec47c133e70.png",
     "static/media/mclarenb.png": "/pitstop-plotters/static/media/mclarenb.9db733c280961d6cd574.png",
+    "static/media/vanwall.png": "/pitstop-plotters/static/media/vanwall.d31685e6aecf474b2a95.png",
     "static/media/renault.png": "/pitstop-plotters/static/media/renault.316c783ce8f307fed7ed.png",
     "static/media/red1.png": "/pitstop-plotters/static/media/red1.0aab50ab6d90d7873ad6.png",
     "static/media/red2.png": "/pitstop-plotters/static/media/red2.0e04b1241e767d5d09c6.png",
@@ -78,11 +83,11 @@
     "static/media/red4.png": "/pitstop-plotters/static/media/red4.11013d93522b942af0a8.png",
     "index.html": "/pitstop-plotters/index.html",
     "main.a3508665.css.map": "/pitstop-plotters/static/css/main.a3508665.css.map",
-    "main.20e1e8e9.js.map": "/pitstop-plotters/static/js/main.20e1e8e9.js.map",
+    "main.ffee6512.js.map": "/pitstop-plotters/static/js/main.ffee6512.js.map",
     "453.b03e3c98.chunk.js.map": "/pitstop-plotters/static/js/453.b03e3c98.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a3508665.css",
-    "static/js/main.20e1e8e9.js"
+    "static/js/main.ffee6512.js"
   ]
 }
