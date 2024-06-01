@@ -14,6 +14,15 @@ import benetton from '../img/Logo/benetton.png';
 import brawn from '../img/Logo/brawn.png';
 import cooper from '../img/Logo/cooper.png';
 import tyrrell from '../img/Logo/tyrrell.png';
+import vanwall from '../img/Logo/vanwall.png';
+import brabham from '../img/Logo/brabham.png';
+import superaguri from '../img/Logo/superaguri.png';
+import tororosso from '../img/Logo/tororosso.png';
+import toyota from '../img/Logo/toyota.png';
+import sauberbmw from '../img/Logo/sauber_bmw.png';
+import brm from '../img/Logo/brm.png';
+
+
 
 const startYear = 1958;
 const endYear = 2023;
@@ -166,9 +175,9 @@ export const teamColors = {
     "Prost": "#0052A5",
     "BAR": "#0052A5",
     "Jaguar": "#006F35",
-    "Toyota": "#FFFFFF",
+    "Toyota": "#CCCCCC",
     "Red Bull": "#1E41FF",
-    "BMW Sauber": "#FFFFFF",
+    "BMW Sauber": "#AAAAAA",
     "Super Aguri": "#E30022",
     "Toro Rosso": "#4E7CFF",
     "MF1": "#000000",
@@ -209,4 +218,13 @@ export const teamLogos = {
     "Cooper-Climax": cooper,
     "Team Lotus": lotus,
     "Lotus-Climax": lotus,
+    "Vanwall": vanwall,
+    "Brabham": brabham,
+    "Super Aguri": superaguri,
+    "Toro Rosso": tororosso,
+    "Toyota": toyota,
+    "Sauber BMW": sauberbmw,
+    "BRM": brm,
+    "BMW Sauber": sauber,
+    "Brabham-Repco": brabham,
 };
