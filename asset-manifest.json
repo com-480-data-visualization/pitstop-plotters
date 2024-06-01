@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/pitstop-plotters/static/css/main.ec80ca02.css",
-    "main.js": "/pitstop-plotters/static/js/main.d7016e34.js",
+    "main.js": "/pitstop-plotters/static/js/main.1419723c.js",
     "static/js/654.cb5fa8af.chunk.js": "/pitstop-plotters/static/js/654.cb5fa8af.chunk.js",
     "static/js/131.536f2986.chunk.js": "/pitstop-plotters/static/js/131.536f2986.chunk.js",
     "static/js/621.4e2c2c8d.chunk.js": "/pitstop-plotters/static/js/621.4e2c2c8d.chunk.js",
@@ -17,11 +17,13 @@
     "static/media/SCH_ps.png": "/pitstop-plotters/static/media/SCH_ps.30604ca4381e798874be.png",
     "static/media/SCH_p.png": "/pitstop-plotters/static/media/SCH_p.5b97150ba2d9034b09c0.png",
     "static/media/background_road.png": "/pitstop-plotters/static/media/background_road.b43639ac91479da6f876.png",
+    "static/media/mercedes.png": "/pitstop-plotters/static/media/mercedes.a21c0ef642177e0f5b29.png",
     "static/media/HAM_p.png": "/pitstop-plotters/static/media/HAM_p.8dde2fbe756fe86add10.png",
     "static/media/HAM_ps.png": "/pitstop-plotters/static/media/HAM_ps.8e2ec13048589af5d1f1.png",
     "static/media/SENNA_ps.png": "/pitstop-plotters/static/media/SENNA_ps.f6029a5f8e316a1b96da.png",
     "static/media/F1.png": "/pitstop-plotters/static/media/F1.64ef688dc1ec860ebd92.png",
     "static/media/SENNA_p.png": "/pitstop-plotters/static/media/SENNA_p.efa5a7d4cd60e6ebe152.png",
+    "static/media/rb.png": "/pitstop-plotters/static/media/rb.2a71586796ceae908e04.png",
     "static/media/ordered_data.csv?url": "/pitstop-plotters/static/media/ordered_data.b5baae2facf71043b8b8.csv",
     "static/media/Clark.png": "/pitstop-plotters/static/media/Clark.c471ba2e4c2eb1b0eb50.png",
     "static/media/Clark_s.png": "/pitstop-plotters/static/media/Clark_s.dc080347a7882fa4af4f.png",
@@ -40,6 +42,7 @@
     "static/media/Hungaroring.jpg": "/pitstop-plotters/static/media/Hungaroring.1aacba6e56c1f79a943b.jpg",
     "static/media/Yas Marina Circuit.jpg": "/pitstop-plotters/static/media/Yas Marina Circuit.a724a3e6ccc8e190fe9b.jpg",
     "static/media/Circuit of the Americas.jpg": "/pitstop-plotters/static/media/Circuit of the Americas.7836356a1546a19f3178.jpg",
+    "static/media/williams.png": "/pitstop-plotters/static/media/williams.a48aa6f59b688074e322.png",
     "static/media/Bahrain International Circuit.jpg": "/pitstop-plotters/static/media/Bahrain International Circuit.3c88c86323be16b00267.jpg",
     "static/media/Autodromo Enzo e Dino Ferrari.jpg": "/pitstop-plotters/static/media/Autodromo Enzo e Dino Ferrari.d96caa2ed76d9ca33d62.jpg",
     "static/media/Losail International Circuit.jpg": "/pitstop-plotters/static/media/Losail International Circuit.0901c9a4981be45ca4db.jpg",
@@ -55,7 +58,12 @@
     "static/media/Formula1-Italic.ttf": "/pitstop-plotters/static/media/Formula1-Italic.a210ce579c0907d1456c.ttf",
     "static/media/Circuit Gilles Villeneuve.jpg": "/pitstop-plotters/static/media/Circuit Gilles Villeneuve.9ae5035927f74bee250d.jpg",
     "static/media/Jeddah Corniche Circuit.jpg": "/pitstop-plotters/static/media/Jeddah Corniche Circuit.ac0776e420f5bf7f85fc.jpg",
+    "static/media/alpine.png": "/pitstop-plotters/static/media/alpine.012cc66ad8615215aae1.png",
+    "static/media/ferrari.png": "/pitstop-plotters/static/media/ferrari.e6a7595bfb8e0a21fba7.png",
+    "static/media/astonmartin.png": "/pitstop-plotters/static/media/astonmartin.530149912e621957e85e.png",
+    "static/media/redbull.png": "/pitstop-plotters/static/media/redbull.7251c41ceed1387bc8e3.png",
     "static/media/f1_t.png": "/pitstop-plotters/static/media/f1_t.3ccfda1d7ec47c133e70.png",
+    "static/media/mclaren.png": "/pitstop-plotters/static/media/mclaren.c70231c21b9933302c5c.png",
     "static/media/red1.png": "/pitstop-plotters/static/media/red1.0aab50ab6d90d7873ad6.png",
     "static/media/red2.png": "/pitstop-plotters/static/media/red2.0e04b1241e767d5d09c6.png",
     "static/media/red3.png": "/pitstop-plotters/static/media/red3.f48fd15a1d056ddfb8c3.png",
@@ -64,11 +72,11 @@
     "static/media/red4.png": "/pitstop-plotters/static/media/red4.11013d93522b942af0a8.png",
     "index.html": "/pitstop-plotters/index.html",
     "main.ec80ca02.css.map": "/pitstop-plotters/static/css/main.ec80ca02.css.map",
-    "main.d7016e34.js.map": "/pitstop-plotters/static/js/main.d7016e34.js.map",
+    "main.1419723c.js.map": "/pitstop-plotters/static/js/main.1419723c.js.map",
     "453.b03e3c98.chunk.js.map": "/pitstop-plotters/static/js/453.b03e3c98.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ec80ca02.css",
-    "static/js/main.d7016e34.js"
+    "static/js/main.1419723c.js"
   ]
 }
