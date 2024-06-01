@@ -51,7 +51,7 @@ const Leaderboard = (props) => {
         setItems(newItems.slice(0, 10));
     }, [year, data]);
 
-    const scoreToWidth = d3.scaleLinear().domain([0, 234]).nice().range([width / 2, width * 1.1]);
+    const scoreToWidth = d3.scaleLinear().domain([0, 234]).nice().range([width / 2, width *0.9]);
 
     const getColor = (item) => {
         const teamName = data[year][item.item].name;
@@ -68,7 +68,7 @@ const Leaderboard = (props) => {
     const pos = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
     return (
-        <div className={style.container} style={{ minWidth: width + "px", height: height + "px" }}>
+        <div className={style.container} style={{ minWidth: width/1.3 + "px", height: height + "px" }}>
             <div className={style.pos}>
                 {pos.map(pos => <p key={pos} className={style.leaderboardPosition} style={{ position: "absolute", top: `${pos * div_height}px` }}>{pos + 1}.</p>)}
             </div>
