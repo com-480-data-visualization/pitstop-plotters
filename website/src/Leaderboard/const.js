@@ -2,12 +2,18 @@ import alpine from '../img/Logo/alpine.png';
 import astonmartin from '../img/Logo/astonmartin.png';
 import ferrari from '../img/Logo/ferrari.png';
 import haas from '../img/Logo/haas.png';
-import mclaren from '../img/Logo/mclaren.png';
+import mclaren from '../img/Logo/mclarenb.png';
 import mercedes from '../img/Logo/mercedes.png';
 import redbull from '../img/Logo/redbull.png';
 import rb from '../img/Logo/rb.png'; // Assuming RB is Red Bull Racing
 import sauber from '../img/Logo/sauber.png';
 import williams from '../img/Logo/williams.png';
+import renault from '../img/Logo/renault.png';
+import lotus from '../img/Logo/lotus.png';
+import benetton from '../img/Logo/benetton.png';
+import brawn from '../img/Logo/brawn.png';
+import cooper from '../img/Logo/cooper.png';
+import tyrrell from '../img/Logo/tyrrell.png';
 
 const startYear = 1958;
 const endYear = 2023;
@@ -47,7 +53,7 @@ export const teamColors = {
     "Trevis": "#000000",
     "Meskowski": "#000000",
     "Ewing": "#000000",
-    "Behra-Porsche": "#FFFFFF",
+    "Behra-Porsche": "#CCCCCC",
     "Lotus-Climax": "#FFD700",
     "De Tomaso-Alfa Romeo": "#B31B1B",
     "Emeryson": "#000000",
@@ -193,5 +199,14 @@ export const teamLogos = {
     "Red Bull": redbull,
     "RB": rb, // Assuming RB is Red Bull Racing
     "Sauber": sauber,
-    "Williams": williams
+    "Williams": williams,
+    "Renault": renault,
+    "Lotus": lotus,
+    "Benetton": benetton,
+    "Brawn": brawn,
+    "Cooper": cooper,
+    "Tyrrell": tyrrell,
+    "Cooper-Climax": cooper,
+    "Team Lotus": lotus,
+    "Lotus-Climax": lotus,
 };
