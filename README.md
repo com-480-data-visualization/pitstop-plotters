@@ -180,5 +180,8 @@ The implementation steps are:
 [product-screenshot]: img/ilustr.webp
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+Access our website here: [website](https://com-480-data-visualization.github.io/pitstop-plotters/).  
 
-
+Access our screencast video here: [screencast](https://drive.google.com/drive/folders/1ZLKH1wVudV2uPoVXNSu8co8qNL0TJdEe?usp=sharing).
+  
+Access our milestone 3 process book here: [Process Book](./docs/Milestone-3.pdf).
