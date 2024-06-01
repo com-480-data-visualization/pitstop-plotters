@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/pitstop-plotters/static/css/main.d7880b55.css",
-    "main.js": "/pitstop-plotters/static/js/main.cb9b0635.js",
-    "static/js/654.cb5fa8af.chunk.js": "/pitstop-plotters/static/js/654.cb5fa8af.chunk.js",
-    "static/js/131.536f2986.chunk.js": "/pitstop-plotters/static/js/131.536f2986.chunk.js",
-    "static/js/621.4e2c2c8d.chunk.js": "/pitstop-plotters/static/js/621.4e2c2c8d.chunk.js",
-    "static/js/46.1f0bd6a2.chunk.js": "/pitstop-plotters/static/js/46.1f0bd6a2.chunk.js",
-    "static/js/608.9cea7e7b.chunk.js": "/pitstop-plotters/static/js/608.9cea7e7b.chunk.js",
+    "main.js": "/pitstop-plotters/static/js/main.03f44cc7.js",
+    "static/js/654.1947166c.chunk.js": "/pitstop-plotters/static/js/654.1947166c.chunk.js",
+    "static/js/131.389ac623.chunk.js": "/pitstop-plotters/static/js/131.389ac623.chunk.js",
+    "static/js/621.4684249a.chunk.js": "/pitstop-plotters/static/js/621.4684249a.chunk.js",
+    "static/js/46.0844c71b.chunk.js": "/pitstop-plotters/static/js/46.0844c71b.chunk.js",
+    "static/js/608.79fe63bb.chunk.js": "/pitstop-plotters/static/js/608.79fe63bb.chunk.js",
     "static/js/536.e227fa40.chunk.js": "/pitstop-plotters/static/js/536.e227fa40.chunk.js",
     "static/js/453.b03e3c98.chunk.js": "/pitstop-plotters/static/js/453.b03e3c98.chunk.js",
     "static/media/f1.mp4": "/pitstop-plotters/static/media/f1.89448afab22fd2d89fdf.mp4",
@@ -83,11 +83,11 @@
     "static/media/red4.png": "/pitstop-plotters/static/media/red4.11013d93522b942af0a8.png",
     "index.html": "/pitstop-plotters/index.html",
     "main.d7880b55.css.map": "/pitstop-plotters/static/css/main.d7880b55.css.map",
-    "main.cb9b0635.js.map": "/pitstop-plotters/static/js/main.cb9b0635.js.map",
+    "main.03f44cc7.js.map": "/pitstop-plotters/static/js/main.03f44cc7.js.map",
     "453.b03e3c98.chunk.js.map": "/pitstop-plotters/static/js/453.b03e3c98.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d7880b55.css",
-    "static/js/main.cb9b0635.js"
+    "static/js/main.03f44cc7.js"
   ]
 }
