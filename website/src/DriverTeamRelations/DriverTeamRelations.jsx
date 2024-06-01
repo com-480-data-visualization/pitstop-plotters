@@ -4,6 +4,8 @@ import styles from "./DriverTeamRelations.module.css"; // Import the CSS module
 
 const DriverTeamRelations = () => {
     const [data, setData] = useState(null);
+    const [selectedTeam, setSelectedTeam] = useState(null);
+    const [connectedDrivers, setConnectedDrivers] = useState([]);
     const chartRef = useRef(null);
     const containerRef = useRef(null);
 
@@ -66,6 +68,7 @@ const DriverTeamRelations = () => {
             .attr('r', d => d.radius) // Set radius from data
             .attr('class', d => styles[`team-${d.id.replace(/\s+/g, '-')}`]) // Apply class based on team
             .style('pointer-events', 'all') // Ensure nodes are interactable
+            .on('click', handleNodeClick) // Handle node click
             .call(d3.drag()
                 .on('start', dragstarted)
                 .on('drag', dragged)
@@ -100,12 +103,12 @@ const DriverTeamRelations = () => {
                 .attr('y', d => d.y);
         });
 
-        function dragstarted(event, d) {
-            if (!event.active) simulation.alphaTarget(0.3).restart();
-            d.fx = d.x;
-            d.fy = d.y;
+        function handleNodeClick(event, d) {
+            const connectedLinks = links.filter(link => link.target.id === d.id);
+            const drivers = connectedLinks.map(link => link.source.id);
+            setSelectedTeam(d.id);
+            setConnectedDrivers(drivers);
         }
-
 
         function dragstarted(event, d) {
             if (!event.active) simulation.alphaTarget(0.3).restart();
@@ -130,8 +133,18 @@ const DriverTeamRelations = () => {
     }, [data]);
 
     return (
-        <div ref={containerRef} style={{ width: '100%', height: '100%' }}>
+        <div ref={containerRef} style={{width: '100%', height: '100%'}}>
             <svg ref={chartRef}></svg>
+            {selectedTeam && (
+                <div className={styles.teamInfo}>
+                    <h2 className={styles[`text-${selectedTeam.replace(/\s+/g, '-')}`]}>{selectedTeam}</h2>
+                    <ul className={styles.driverList}>
+                        {connectedDrivers.map(driver => (
+                            <li key={driver} className={styles.driver}>{driver}</li>
+                        ))}
+                    </ul>
+                </div>
+            )}
         </div>
     );
 };

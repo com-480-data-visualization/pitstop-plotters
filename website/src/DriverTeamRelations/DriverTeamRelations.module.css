@@ -1,3 +1,4 @@
+/* Template styling */
 .template {
     height: 100%;
     overflow-wrap: break-word;
@@ -16,7 +17,6 @@
     /* Add necessary styles */
     border: 1px solid black;
 }
-
 
 .border {
     display: flex;
@@ -185,91 +185,121 @@
 
 /* Text color */
 .text-McLaren {
-    fill: #FF8700;
+    color: #FF8700;
 }
 
 .text-Mercedes {
-    fill: #00D2BE;
+    color: #00D2BE;
 }
 
 .text-Renault {
-    fill: #FFF500;
+    color: #FFF500;
 }
 
 .text-Ferrari {
-    fill: #DC0000;
+    color: #DC0000;
 }
 
 .text-Aston-Martin {
-    fill: #006F62;
+    color: #006F62;
 }
 
 .text-Alpine-F1-Team {
-    fill: #0090FF;
+    color: #0090FF;
 }
 
 .text-Lotus {
-    fill: #FFB800;
+    color: #FFB800;
 }
 
 .text-Caterham {
-    fill: #00352F;
+    color: #00352F;
 }
 
 .text-Lotus-F1 {
-    fill: #FFB800;
+    color: #FFB800;
 }
 
 .text-Alfa-Romeo {
-    fill: #900000;
+    color: #900000;
 }
 
 .text-Williams {
-    fill: #005AFF;
+    color: #005AFF;
 }
 
 .text-Virgin {
-    fill: #E31837;
+    color: #E31837;
 }
 
 .text-Marussia {
-    fill: #D40000;
+    color: #D40000;
 }
 
 .text-Force-India {
-    fill: #FF8700;
+    color: #FF8700;
 }
 
 .text-Sauber {
-    fill: #006EFF;
+    color: #006EFF;
 }
 
 .text-Red-Bull {
-    fill: #1E41FF;
+    color: #1E41FF;
 }
 
 .text-HRT {
-    fill: #BEBEBE;
+    color: #BEBEBE;
 }
 
 .text-Toro-Rosso {
-    fill: #0032FF;
+    color: #0032FF;
 }
 
 .text-Haas-F1-Team {
-    fill: #787878;
+    color: #787878;
 }
 
 .text-Racing-Point {
-    fill: #F596C8;
+    color: #F596C8;
 }
 
 .text-AlphaTauri {
-    fill: #2B4562;
+    color: #2B4562;
 }
 
 .text-Manor-Marussia {
-    fill: #E40000;
+    color: #E40000;
 }
 
+/* Team info overlay */
+.teamInfo {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    /*add border and shador*/
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    border-radius: 0 5px 5px 0;
+    z-index: 10;
+    pointer-events: none;
+}
 
+.teamInfo h2 {
+    margin: 0 0 10px 0;
+}
+
+.teamInfo ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: rgb(240, 240, 240);
+}
+
+.teamInfo li {
+    margin-bottom: 5px;
+}
