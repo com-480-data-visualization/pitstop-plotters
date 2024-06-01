@@ -25,21 +25,14 @@ const DriverProfile = ({ driver }) => {
                     className={styles.value}>{displayOrFallback(driver.nation)}</span></p>
             </div>
             <div className={styles.item}>
-                <p><span className={styles.label}>First Grand Prix:</span> <span
-                    className={styles.value}>{displayOrFallback(driver.firstGP)}</span></p>
-                <p><span className={styles.label}>Last Grand Prix:</span> <span
-                    className={styles.value}>{displayOrFallback(driver.lastGP)}</span></p>
-                <p><span className={styles.label}>World Champion:</span> <span
-                    className={styles.value}>{driver.championships ? driver.championships.join(', ') : 'N/A'}</span></p>
-            </div>
-            <div className={styles.item}>
                 <p><span className={styles.label}>Total Points:</span> <span
                     className={styles.value}>{displayOrFallback(driver.totalPoints, '0')}</span></p>
                 <p><span className={styles.label}>Points per GP:</span> <span
                     className={styles.value}>{displayOrFallback(driver.pointsPerGP, '0')}</span></p>
-                <p><span className={styles.label}>Points per Season:</span> <span
-                    className={styles.value}>{displayOrFallback(driver.pointsPerSeason, '0')}</span></p>
+                <p><span className={styles.label}>World Champion:</span> <span
+                className={styles.value}>{driver.championships ? driver.championships.join(', ') : 'N/A'}</span></p>
             </div>
+
             <div className={styles.item}>
                 <p><span className={styles.label}>Wins:</span> <span
                     className={styles.value}>{displayOrFallback(driver.wins, '0')}</span></p>
@@ -54,6 +47,22 @@ const DriverProfile = ({ driver }) => {
     );
 }
 /*
+<div className={styles.item}>
+                <p><span className={styles.label}>First Grand Prix:</span> <span
+                    className={styles.value}>{displayOrFallback(driver.firstGP)}</span></p>
+                <p><span className={styles.label}>Last Grand Prix:</span> <span
+                    className={styles.value}>{displayOrFallback(driver.lastGP)}</span></p>
+                <p><span className={styles.label}>World Champion:</span> <span
+                    className={styles.value}>{driver.championships ? driver.championships.join(', ') : 'N/A'}</span></p>
+            </div>
+ <div className={styles.item}>
+     <p><span className={styles.label}>Total Points:</span> <span
+         className={styles.value}>{displayOrFallback(driver.totalPoints, '0')}</span></p>
+     <p><span className={styles.label}>Points per GP:</span> <span
+         className={styles.value}>{displayOrFallback(driver.pointsPerGP, '0')}</span></p>
+     <p><span className={styles.label}>Points per Season:</span> <span
+         className={styles.value}>{displayOrFallback(driver.pointsPerSeason, '0')}</span></p>
+ </div>
 <div className={styles.item}>
                 <p><span className={styles.label}>Total Seasons:</span> <span
                     className={styles.value}>{displayOrFallback(driver.seasons, '0')}</span></p>
